@@ -1,0 +1,15 @@
+tile.ClearGlass.name=Clear Glass
+tile.Test Block.name=Test Block (Dev)
+tile.InvisibleBlock.name=Invisible Block
+tile.ShockProofClearGlass.name=Shock Proof Clear Glass
+tile.ReinforcedLimeGreenWall.name=Reinforced Lime Green Wall
+tile.ReinforcedBlueWall.name=Reinforced Blue Wall
+tile.ReinforcedDarkBlueWall.name=Reinforced Dark Blue Wall
+tile.ReinforcedLightBlueWall.name=Reinforced Light Blue Wall
+tile.ReinforcedOrangeWall.name=Reinforced Orange Wall
+tile.ReinforcedPinkWall.name=Reinforced Pink Wall
+tile.ReinforcedPurpleWall.name=Reinforced Purple Wall
+tile.ReinforcedRedWall.name=Reinforced Red Wall
+tile.ReinforcedYellowWall.name=Reinforced Yellow Wall
+
+itemGroup.BIGB Main Tab.name=BIGB Main

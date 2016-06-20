@@ -1,0 +1,274 @@
+BIGB (Because I got Bored) changelog
+Build 91:
+	-Added in a shock proof clear glass block
+	-Added this changelog
+Build 92:
+	-Discovered bug in registering ShockProofClearGlass
+		-fixed
+Build 93:
+	-Added in a crafting recipe for ShockProofClearGlass
+Build 94:
+	-Cleaned up some code
+Build 95:
+	-Added entity logging on mod load, to make those who are combing through the log aware of what entities were registered
+	-Added more logging on startup
+Build 96:
+	-Document some code
+	-Added config option to disable all logging
+	-Added in ReinforcedLimeGreenWall texture
+	-Added in Reinforced Lime Green Wall Block
+	-Updated en_US file
+Build 97:
+	-Removed config option to disable all logging
+	-Discovered infinite loop in entity discovering code
+Build 100:
+	-Removed entity discovering code temporarily to stabilize build
+	-Build is stable
+Build 101(3/1/2016):
+	-Added BindingOre texture
+	-Added BindingIngot texture
+	-Added ReinforcedLimeGreenWall to the main creative tab
+	-Added feature to change stack size of all items and blocks intelligently to this mod
+Build 102(3/2/2016):
+	-Fixed stack size bug not changing according to the config setting
+Build 103 (3/2/2016):
+	-Discovered bug in stack size change logic, that causes a NullPointerException
+	-Fixed NullPointerException, but created an infinite loop
+Build 104 (3/2/2016):
+	-Fixed all know exceptions
+	-Discovered that some items are not effected by the changes when they should be
+Build 105 (3/2/2016):
+	-Tweaked stack size changing rules
+Build 106 (3/2/2016):
+	-Tweaked stack size changing rules
+Build 107 (3/2/2016):
+	-Begun work on EntityThief
+	-Changed texture for ReinforcedLimeGreenWall
+	-Added support for 64x, 32x, 16x resolutions of ReinforcedLimeGreenWall
+Build 108 (3/2/2016):
+	-Discovered missing texture bug for ReinforcedLimeGreenWall
+	-Failed to fix texture error
+Build 109 (3/2/2016):
+	-Added some temporary debug logic
+		-Will be removed later
+Build 110 (3/2/2016):
+	-Discovered what was causing the texture error
+	-fixed
+	-Removed temporary debug logic
+Build 111 (3/4/2016):
+	-Added ReinforcedBlueWall16 texture
+	-Added ReinforcedBlueWall32 texture
+	-Added ReinforcedBlueWall64 texture
+	-Added ReinforcedDarkBlueWall16 texture
+	-Added ReinforcedDarkBlueWall32 texture
+	-Added ReinforcedDarkBlueWall64 texture
+	-Added ReinforcedLightBlueWall16 texture
+	-Added ReinforcedLightBlueWall32 texture
+	-Added ReinforcedLightBlueWall64 texture
+	-Added ReinforcedOrangeWall16 texture
+	-Added ReinforcedOrangeWall32 texture
+	-Added ReinforcedOrangeWall64 texture
+	-Added ReinforcedPinkWall16 texture
+	-Added ReinforcedPinkWall32 texture
+	-Added ReinforcedPinkWall64 texture
+	-Added ReinforcedPurpleWall16 texture
+	-Added ReinforcedPurpleWall32 texture
+	-Added ReinforcedPurpleWall64 texture
+	-Added ReinforcedRedWall16 texture
+	-Added ReinforcedRedWall32 texture
+	-Added ReinforcedRedWall64 texture
+	-Added ReinforcedYellowWall16 texture
+	-Added ReinforcedYellowWall32 texture
+	-Added ReinforcedYellowWall64 texture
+	-Changed ReinforcedLimeGreenWall's hardness level from 50 to 75 (3/5/2016)
+	-Changed ReinforcedLimeGreenWall's resistance level from 25 to 75 (3/5/2016)
+	-Added config setting to disable reinforced blue wall (3/5/2016)
+	-Added config setting to disable reinforced dark blue wall (3/5/2016)
+	-Added config setting to disable reinforced light blue wall (3/5/2016)
+	-Added config setting to disable reinforce orange wall (3/5/2016)
+	-Added config setting to disable reinforced pink wall (3/5/2016)
+	-Added config setting to disable reinforced purple wall (3/5/2016)
+	-Added config setting to disable reinforced red wall (3/5/2016)
+	-Added config setting to disable reinforced yellow wall (3/5/2016)
+	-Added block reinforced blue wall (3/5/2016)
+	-Added block reinforced dark blue wall (3/5/2016)
+	-Added block reinforced light blue wall (3/5/2016)
+	-Added block reinforced orange wall (3/5/2016)
+	-Added block reinforced pink wall (3/5/2016)
+	-Added block reinforced purple wall (3/5/2016)
+	-Added block reinforced red wall (3/5/2016)
+	-Added block reinforced yellow wall (3/5/2016)
+Build 112 (3/5/2016):
+	-Added ProjectE libraries for future features
+Build 113 (3/5/2016):
+	-Added in framework to have compatibility with ProjectE
+Build 114 (3/5/2016):
+	-Fixed bug where compatibility with ProjectE was always on
+Build 115 (3/5/2016):
+	-Added in compatibility messages
+	-Fixed bug where compatibility didn't even try to detect ProjectE
+Build 116 (3/5/2016):
+	-Changed how mod detection works
+Build 117 (3/5/2016):
+	-Wrote some temporary debug code
+Build 118 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 119 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 120 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 121 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 122 (3/5/2016):
+	-Fixed a bug in mod discovery logging
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 123 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 124 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 125 (3/5/2016):
+	-Added temporary debug code
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 126 (3/5/2016):
+	-Attempted to fix a bug in mod detection
+		-failed
+Build 127 (3/5/2016):
+	-fixed bug in en_US file
+	-fixed bug in mod detection
+Build 128 (3/5/2016):
+	-Removed temporary debug code
+	-Removed unnecessary code
+	-Removed unnecessary imports
+	-Added event handler
+	-Added crafting recipe for reinforced blue wall
+	-Added ProjectE config section (3/6/2016)
+	-Added config setting to remove all EMC values (3/6/2016)
+Build 129 (3/6/2016):
+	-Added in a method call that was missing
+Build 130 (3/6/2016):
+	-Added metadata support to EMC removal
+Build 131 (3/6/2016):
+	-Found bug where mod detection requires the mod to be present to be checked against
+		-fixed
+Build 132 (3/6/2016):
+	-Found bug where items with metadata don't get their EMC removed when the proper config setting is true
+Build 133 (3/6/2016):
+	-Added code to fix crashes when ProjectE is not running
+	-Formatted code
+	-Reduced unnecessary code
+	-Updated all reinforced wall's textures
+	-Switched reinforced blue wall's crafting recipe to shapeless
+	-Added more log messages
+	-Added crafting recipe for reinforced dark blue wall
+	-Added crafting recipe for reinforced light blue wall
+	-Added crafting recipe for reinforced orange wall
+	-Added crafting recipe for reinforced pink wall
+	-Added crafting recipe for reinforced purple wall
+	-Added crafting recipe for reinforced red wall
+	-Added crafting recipe for reinforced yellow wall
+	-Broke all shapeless recipes
+Build 134 (3/9/2016):
+	-Failed to fix shapeless recipes
+Build 135 (3/9/2016):
+	-Fixed shapeless recipe problems
+	-Found exploit where user can trick crafting grid into giving them unlimited lime green reinforced walls
+Build 136 (3/10/2016):
+	-Attempted to figure out mod compatibility crashes and bugs
+	-Found bug in EMC disabling code
+Build 137 (3/11/2016):
+	-Failed to fix bug in EMC disabling code
+Build 138 (3/11/2016):
+	-Failed to fix bug in EMC disabling code
+Build 139 (3/11/2016):
+	-Removed attempt at metadata support on EMC disabling code
+Build 140 (3/11/2016):
+	-Tested mod compatibility with ProjectE
+		-Crashes fixed
+	-Fixed light blue reinforced wall name not showing right (3/12/2016)
+	-Enabled torch placement on shock proof clear glass (3/12/2016)
+	-Fixed recipe for lime green reinforced wall (3/12/2016)
+	-Documented some methods and functions (3/12/2016)
+	-Removed unnecessary code (3/12/2016)
+	-Removed commented out code (3/12/2016)
+	-Added Extra Utilities compatibility support (3/12/2016)
+	-Removed unnecessary imports (3/12/2016)
+	-Added in Extra Utilities compatibility recipe framework (3/12/2016)
+	-Broke Shapeless recipes again
+Build 141 (3/12/2016):
+	-Failed to fix Shapeless recipes
+Build 142 (3/12/2016):
+	-Failed to fix Shapeless recipes
+Build 143 (3/12/2016):	
+	-Failed to fix shapeless recipes
+Build 144 (3/12/2016):
+	-Fixed shapeless recipes
+Build 145 (3/12/2016):
+	-Added mcmod.info file, to correct the mod loading order when dealing with dependencies
+Build 146 (3/12/2016):
+	-Added log messages for debug purposes
+Build 147 (3/12/2016):
+	-Added recipe for an division sigil from Extra Utilities to be crafted into an active division sigil
+Build 148 (3/12/2016):	
+	-Trying to fix a shapeless recipe
+Build 149 (3/16/2016):
+	-Trying to fix a shapeless recipe
+Build 150 (3/12/2016):
+	-Trying to fix a shapeless recipe
+Build 151 (3/16/2016):
+	-Temporarily removed offending shapeless recipe
+	-Testing to see if mod works in 1.8.9
+Stable Build 152 (3/16/2016):
+	-Started working on the IEvil base class
+		-Evil is gonna be a new concept. Evil spreads, and takes over blocks. Some blocks when they are evil might attack you or do something special. It should be nasty.
+	-Supposedly have block infection up for dirt
+	-Working on updating to gradle 2.12 (1.7 java syntax support)
+Stable Build 153 (6/15/2016):
+	-Testing gradle environment changes
+Stable Build 154 (6/15/2016):
+	-Added a disable logging config option, which is true by default
+Stable Build 155 (6/15/2016):
+	-Fixed the logging option, forgot a line of code
+Unstable Build 156 (6/15/2016):
+	-Working on auto generating ore textures
+	-Added OreBase texture, for use in auto generating ore textures
+	-Crashes in ore texture gen (File not found)
+Unstable Build 157 (6/16/2016):
+	-Crashes in ore texture gen (File not found)
+Unstable Build 158 (6/16/2016):
+	-Crashes in ore texture gen (File not found)
+Unstable Build 159 (6/16/2016):
+	-Crashes in ore texture gen (File not found)
+Unstable Build 160 (6/16/2016):
+	-Added a null check for ore texture gen
+	-Cannot read OreBase.png error
+Unstable Build 161-164 (6/16/2016):
+	-Moved OreBase.png in hopes of avoid escape sequence and improper path errors
+Unstable Build 165 (6/17/2016):
+	-Changed file path for OreBase.png in hopes of finding it
+Unstable Build 169 (6/17/2016):
+	-Changed file path for OreBase.png in hopes of finding it
+Unstable Build 170 (6/17/2016):
+	-Added some debug code to try and figure this out
+Build 171 (6/17/2016)-(6/18/2016):
+	-Abandoned auto texture generation project for now
+	-Working on auto generating tools and stuff for ores that don't have it already
+	-Now using Mantle API (if not found, will not utilize some features
+	-Added some crafting recipe utility functions
+		-Geez, forge makes scanning recipes difficult
+	-
+	
+	Libs to use later:
+	http://mods.curse.com/mc-mods/minecraft/237978-wtfs-texturegeneratorlib
+	http://mods.curse.com/mc-mods/minecraft/mantle#t1:description
+	
+	
+	TODO: Auto generating textures: https://github.com/rwtema/DenseOres/tree/1.7/src/main/java/com/rwtema/denseores
+	

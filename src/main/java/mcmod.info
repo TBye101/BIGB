@@ -1,0 +1,21 @@
+{
+  "modListVersion": 2,
+  "modList": [{
+    "modid": "bigb",
+    "name": "Because I Got Bored",
+    "description": "A mod that adds in a bunch of different random things, features, and tweaks.",
+    "version": "1.0.0.0",
+    "mcversion": "1.7.10",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [ "SneakyTactician" ],
+    "credits": "Forge, MinecraftForum, Various Tutorials",
+    "logoFile": "",
+    "screenshots": [ "" ],
+    "parent": "",
+    "requiredMods": [ "Forge"],
+    "dependencies": [ "ProjectE", "ExtraUtilities" ],
+    "dependants": [ "" ],
+    "useDependencyInformation": true
+  }]
+}
