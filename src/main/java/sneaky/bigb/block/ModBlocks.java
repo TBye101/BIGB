@@ -1,6 +1,8 @@
 package sneaky.bigb.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import sneaky.bigb.block.assorted.SpeedBlock;
 import sneaky.bigb.block.glass.clearglass.ClearGlass;
 import sneaky.bigb.block.glass.shockproofclearglass.ShockProofClearGlass;
 import sneaky.bigb.block.invisible.InvisibleBlock;
@@ -17,7 +19,14 @@ import sneaky.bigb.block.testblock.TestBlock;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.helpers.RegisterHelper;
+import sneaky.bigb.lib.auto.create.AutoBlock;
+import sneaky.bigb.main.Reference;
+import sneaky.bigb.tabs.ModTabs;
 
+/**
+ * @author SneakyTactician
+ * A class that holds and registers blocks.
+ */
 public class ModBlocks
 {
 	
@@ -25,6 +34,7 @@ public class ModBlocks
 	public static Block testblock = new TestBlock();
 	public static Block invisibleblock = new InvisibleBlock();
 	public static Block shockproofclearglass = new ShockProofClearGlass();
+	public static Block speedblock = new SpeedBlock();
 	
 	public static Block reinforcedlimegreenwall = new ReinforcedLimeGreenWall();
 	public static Block reinforcedbluewall = new ReinforcedBlueWall();
@@ -35,6 +45,9 @@ public class ModBlocks
 	public static Block reinforcedpurplewall = new ReinforcedPurpleWall();
 	public static Block reinforcedredwall = new ReinforcedRedWall();
 	public static Block reinforcedyellowwall = new ReinforcedYellowWall();
+	
+	//AutoBlocks
+	public static Block TribaniumOre = new AutoBlock(Material.ground, false, 15, 15, 5, "pickaxe", 2, Block.soundTypeStone, "Tribanium", ModTabs.maintab, 5, false, true, "Tribanium");
 	
 	public static void RegisterAll()
 	{
@@ -51,6 +64,32 @@ public class ModBlocks
 		RegisterPurpleWall();
 		RegisterRedWall();
 		RegisterYellowWall();
+		RegisterTribaniumOre();
+		RegisterSpeedBlock();
+	}
+	
+	public static void RegisterSpeedBlock()
+	{
+		if (ModConfig.EnableSpeedBlock())
+		{
+			RegisterHelper.registerBlock(speedblock);
+		}
+		else
+		{
+			LogHelper.info("Not registering the speed block due to configuration settings");
+		}
+	}
+	
+	public static void RegisterTribaniumOre()
+	{
+		if (ModConfig.EnableTribaniumOre())
+		{
+			RegisterHelper.registerBlock(TribaniumOre);
+		}
+		else
+		{
+			LogHelper.info("Not registering Tribanium Ore because of config settings");
+		}
 	}
 	
 	public static void RegisterYellowWall()

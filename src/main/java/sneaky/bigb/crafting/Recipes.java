@@ -15,6 +15,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import sneaky.bigb.block.ModBlocks;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.item.ModItems;
 import sneaky.bigb.main.Util;
 
 /**
@@ -101,6 +102,7 @@ public class Recipes
 	{
 		LogHelper.info("Starting smelting changes");
 		SmeltingRottenFleshToLeather();
+		SmeltingTribaniumOre();
 		LogHelper.info("Finished with smelting changes");
 	}
 	
@@ -135,11 +137,23 @@ public class Recipes
 		LogHelper.info("Finished with shapeless recipe changes");
 	}
 	
+	public static void SmeltingTribaniumOre()
+	{
+		if (ModConfig.EnableTribaniumOre() && ModConfig.EnableTribaniumIngot())
+		{
+			GameRegistry.addSmelting(ModBlocks.TribaniumOre, new ItemStack(ModItems.TribaniumIngot), 4F);
+		}
+		else
+		{
+			LogHelper.info("Not adding a smelting recipe for Tribanium Ingots due to config settings");
+		}
+	}
+	
 	public static void ShapelessReinforcedYellowWall()
 	{
 		if (!ModConfig.DisableReinforcedYellowWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedyellowwall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedredwall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedyellowwall), 2), new Object[] {MetaRecipes.CreateDandelionYellow(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -151,7 +165,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedRedWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedredwall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedpurplewall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedredwall), 2), new Object[] {MetaRecipes.CreateRoseRed(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -163,7 +177,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedPurpleWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpurplewall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedpinkwall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpurplewall), 2), new Object[] {MetaRecipes.CreatePurpleDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -175,7 +189,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedPinkWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpinkwall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedorangewall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpinkwall), 2), new Object[] {MetaRecipes.CreatePinkDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -187,7 +201,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedOrangeWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedorangewall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedlightbluewall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedorangewall), 2), new Object[] {MetaRecipes.CreateOrangeDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -199,7 +213,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedLightBlueWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlightbluewall), 8), new Object[] {new ItemStack(ModBlocks.reinforceddarkbluewall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlightbluewall), 2), new Object[] {MetaRecipes.CreateLightBlueDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -211,7 +225,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedDarkBlueWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforceddarkbluewall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedbluewall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforceddarkbluewall), 2), new Object[] {MetaRecipes.CreateLapisLazuli(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -223,7 +237,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedBlueWall())
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedbluewall), 8), new Object[] {new ItemStack(ModBlocks.reinforcedlimegreenwall), new ItemStack(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedbluewall), 2), new Object[] {MetaRecipes.CreateCyanDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{
@@ -235,7 +249,7 @@ public class Recipes
 	{
 		if (!ModConfig.DisableReinforcedLimeGreenWall())
 		{
-			GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlimegreenwall), 8), new Object[] {"AB", 'A', Item.getItemFromBlock(Blocks.obsidian), 'B', Item.getItemFromBlock(Blocks.dirt)});
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlimegreenwall), 2), new Object[] {MetaRecipes.CreateLimeDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
 		else
 		{

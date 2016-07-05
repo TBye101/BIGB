@@ -257,18 +257,152 @@ Unstable Build 169 (6/17/2016):
 	-Changed file path for OreBase.png in hopes of finding it
 Unstable Build 170 (6/17/2016):
 	-Added some debug code to try and figure this out
-Build 171 (6/17/2016)-(6/18/2016):
+Unstable Build 171 (6/17/2016)-(6/25/2016):
 	-Abandoned auto texture generation project for now
 	-Working on auto generating tools and stuff for ores that don't have it already
 	-Now using Mantle API (if not found, will not utilize some features
 	-Added some crafting recipe utility functions
 		-Geez, forge makes scanning recipes difficult
-	-
-	
-	Libs to use later:
-	http://mods.curse.com/mc-mods/minecraft/237978-wtfs-texturegeneratorlib
-	http://mods.curse.com/mc-mods/minecraft/mantle#t1:description
-	
-	
-	TODO: Auto generating textures: https://github.com/rwtema/DenseOres/tree/1.7/src/main/java/com/rwtema/denseores
-	
+	-Auto creation of ores now works, but no auto texture generation yet
+	-Auto creation of Pickaxes works
+	-Auto creation of Blocks works
+	-Auto creation of swords works
+	-Auto creation of axes works
+	-Auto creation of hoes works
+	-Added Missing Metal Block Texture
+	-Added Missing Axe Texture
+	-Added Missing Hoe Texture
+	-Added Missing Ingot Texture
+	-Added Missing Nugget Texture
+	-Added Missing Pickaxe Texture
+	-Added Missing Shovel Texture
+	-Added Missing Sword Texture
+	-Added a to do list for me
+	-Renamed the to do list to reflect that it is just for me
+	-Documented some methods
+	-Hooked in all the Ore and tool gen stuff together
+	-Broke up a huge method into 6 smaller ones, for organizational purposes
+	-Added a PreInitEvent class to handle the event
+	-Added a InitEvent class to handle the event
+	-Added a PostInitEvent class to handle the event
+	-Temporarily removed Mantle library from the build path
+	-Temporarily removed TextureGeneratorLib from the build path
+Unstable Build 172 (6/25/2016):
+	-Fixed a NullPointerException
+	-Added a LibsToUseLater file
+Unstable Build 173 (6/25/2016):
+	-Fixed a NullPointerException
+Stable Build 174 (6/25/2016):
+	-Added a AutoShovel class
+	-Made some api changes to avoid failing casts
+		-No casts necessary now (That's good)
+Unstable Build 175 (6/25/2016):
+	-Now registers auto generated stuff with Minecraft
+	-Registers some things twice by accident (Bug)
+Unstable Build 176 (6/25/2016):
+	-Fixed the bug where some things get registered twice during auto generation
+	-Some blocks get registered with the same name as another block (Bug)
+Unstable Build 177 (6/25/2016):
+	-failed to fix the same name bug
+Unstable Build 178 (6/25/2016):
+	-Debugging same name bug
+Unstable Build 179 (6/25/2016):
+	-Debugging same name bug
+Stable Build 180 (6/25/2016):
+	-Trying to eat the exception and continue, as it is a bug in forge that is causing this, or a lack of a feature
+	-Missing texture error (bug)
+	-Fixed the same name bug
+Stable Build 181 (6/25/2016):
+	-Attempting to fix a missing texture error
+Stable Build 182 (6/25/2016):
+	-Attempting to fix a missing texture error
+Stable Build 183 (6/25/2016):
+	-Fixed the missing texture error
+Unstable Build 184 (6/25/2016):
+	-Tweaking the parameters for discovering if a block is an ore.
+	-Added the capability to manually add an ore to be processed
+Build 185 (6/25/2016):
+	-Found and fixed a null pointer exception
+Stable Build 186 (7/4/2016):
+	-Moved Dev environment
+Stable Build 187 (7/4/2016):
+	-Updating Forge to version 1.7.10-10.13.4.1614 (that's a big jump)
+Stable Build 188 (7/4/2016):
+	-Removed unnecessary underscores in auto created tools
+	-Added a utility class to help create dye objects for recipes
+	-Changed all of the reinforced block recipes
+Stable Build 189 (7/4/2016):
+	-Fixed a bug where reinforced dark blue blocks would not have the correct recipe, and were impossible to make in survival
+Unstable Build 190 (7/4/2016):
+	-Added extra logging stuff
+	-Made the auto generation of ores and stuff now only a config option, for the user to specify manually
+		-This is so the user is not overwhelmed with tons and tons of extra tools they will never use.
+Unstable Build 191 (7/4/2016):
+		-Found an ArrayOutOfBounds exception in auto gen ore code
+		-Failed to fix it
+Unstable Build 192-3 (7/4/2016):
+		-Hopefully fixed the bug
+Stable Build 194 (7/4/2016):
+		-Fixed it
+Unstable Build 195 (7/5/2016):
+	-Made the auto tool generation not use random stats anymore
+Unstable Build 196 (7/5/2016):
+	-Found a nullpointerexception :(
+	-Fixed nullpointerexception (just kidding)
+Unstable Build 197 (7/5/2016):
+	-Now displays more debug information when an invalid block has been specified
+Unstable Build 198 (7/5/2016):
+	-Added more debug info temporarily
+Unstable Build 199 (7/5/2016):
+	-Added more debug info temporarily
+Unstable Build 200-201 (7/5/2016):
+	-Trying to fix a null pointer exception
+Stable Build 202 (7/5/2016):
+	-Temporarily removing auto ore gen stuff
+Unstable Build 203 (7/5/2016):
+	-Tweaked auto ore stuff
+	-Changed auto blocks to auto register with a config setting auto built in
+	-Added a Tribanium ore to the game
+	-Auto generating tools for Tribanium ore
+Unstable Build 204-207 (7/5/2016):
+	-Working on fixing a bug
+Unstable Build 208 (7/5/2016):
+	-Removed offending code
+Stable Build 209 (7/5/2016):
+	-Removed more offending code, ditching auto project
+Stable Build 210 (7/5/2016):
+	-Tried to fix the Tribanium Ore texture issue (Nope)
+	-Fixed Tribanium Ore name issue
+	-Added in a Tribanium Ingot (Nope)
+	-Auto Items now automatically generate config settings
+Stable Build 211 (7/5/2016):
+	-Fixed Tribanium Ore texture
+	-Failed to fix the config options not being auto generated for auto blocks and auto items
+Stable Build 212 (7/5/2016):
+	-Cleaned up commented out and useless code
+	-Tribanium Ore and Tribanium Ingot now has a config setting
+	-Documented some old code
+	-Added a smelting recipe for Tribanium Ingots
+	-Added a world generator
+	-Now generating Tribanium into the world
+Stable Build 213 (7/5/2016):
+	-Tweaking Tribanium ore generation settings
+Stable Build 214 (7/5/2016):
+	-Tweaking Tribanium ore generation settings
+Stable Build 215 (7/5/2016):
+	-Failed to fix Tribanium Ingot texture bug
+Stable Build 216 (7/5/2016):
+	-Fixed Tribanium Ingot texture bug
+Stable Build 217 (7/5/2016):
+	-Removed unused code
+	-Added in a speed block, WIP
+Stable Build 218 (7/5/2016):
+	-Tweaking SpeedBlock velocity rules
+Stable Build 219 (7/5/2016):
+	-Tweaking SpeedBlock velocity rules
+Stable Build 220 (7/5/2016):
+	-Changed SpeedBlock texture
+	-Tweaked SpeedBlock velocity rules
+Build 221 (7/5/2016):
+	-Added in many textures for the items and blocks required to craft a Speed Block
+	-Changed creative tab icon to randomly change every time it is asked for a texture

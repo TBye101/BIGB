@@ -55,7 +55,6 @@ public class ProjectECompat
 	 * This method checks the config to see if it should disable all EMC. If true, it disables all EMC values on items.
 	 * WIP
 	 */
-	@SuppressWarnings("null")
 	public static void CheckToDisableAllEMC()
 	{
 		if (ModConfig.DisableAllEMC())

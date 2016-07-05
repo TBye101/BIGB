@@ -15,7 +15,7 @@ public class ModConfig
 	/**
 	 * This is an instance of a Forge configuration file. 
 	 */
-	private static Configuration config;
+	public static Configuration config;
 	
 	/**
 	 * This loads all of the data from the config file.
@@ -33,6 +33,8 @@ public class ModConfig
 			config.addCustomCategoryComment("Other", "Settings that don't fit in any other catagories");
 			config.addCustomCategoryComment("ProjectE", "Contains settings which affect ProjectE and this mod.");
 			config.addCustomCategoryComment("Extra Utilities", "Adds settings which affect Extra Utilities and this mod.");
+			config.addCustomCategoryComment("AutoBlocks", "A section which contains all of the auto blocks for this mod");
+			config.addCustomCategoryComment("AutoItem", "A section which contains all of the auto items for this mod");
 			config.load();
 			config.save();
 			Write();
@@ -62,6 +64,8 @@ public class ModConfig
 		DisableReinforcedDarkBlueWall();
 		DisableReinforcedBlueWall();
 		DisableAllLoggingAfterConfigIsLoaded();
+		EnableSpeedBlock();
+		AutoConfig();
 	}
 	
 	/**
@@ -105,6 +109,27 @@ public class ModConfig
 	public static void ProjectECompatConfig()
 	{
 		DisableAllEMC();
+	}
+	
+	public static void AutoConfig()
+	{
+		EnableTribaniumOre();
+		EnableTribaniumIngot();
+	}
+	
+	public static boolean EnableSpeedBlock()
+	{
+		return config.getBoolean("EnableSpeedBlock", "Blocks", true, "If true, BIGB will register the speed block with Minecraft");
+	}
+	
+	public static boolean EnableTribaniumOre()
+	{
+		return config.getBoolean("TribaniumOre", "AutoBlocks", true, "If true, this block will be registered into the game.");
+	}
+	
+	public static boolean EnableTribaniumIngot()
+	{
+		return config.getBoolean("TribaniumIngot", "AutoItems", true, "If true, this item will be registered into the game");
 	}
 	
 	/**

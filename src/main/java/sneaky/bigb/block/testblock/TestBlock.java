@@ -54,21 +54,6 @@ public class TestBlock extends Block
 			BackIcon = icon.registerIcon(Reference.MODID + ":Back");
 			LeftIcon = icon.registerIcon(Reference.MODID + ":Left");
 			RightIcon = icon.registerIcon(Reference.MODID + ":Right");
-			
-			/*IIcon a;
-			GenTextureOre b;
-			
-			b = new GenTextureOre();
-			
-			a = (IIcon) b.GenerateRandomOreTexture();
-			
-			TopIcon = a;
-			BottomIcon = a;
-			FrontIcon = a;
-			BackIcon = a;
-			LeftIcon = a;
-			RightIcon = a;
-			*/
 	}
 	
 	@Override

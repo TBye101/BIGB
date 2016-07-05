@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import sneaky.bigb.block.ModBlocks;
+import sneaky.bigb.main.Util;
 
 public class MainTab extends CreativeTabs
 {
@@ -18,6 +19,13 @@ public class MainTab extends CreativeTabs
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem()
 		{
-				return Item.getItemFromBlock(ModBlocks.clearglass);
+			if (Util.rand.nextInt(1) == 0)
+			{
+				return Item.getItemFromBlock(ModBlocks.TribaniumOre);
+			}
+			else
+			{
+				return Item.getItemFromBlock(ModBlocks.speedblock);
+			}
 		}
 }

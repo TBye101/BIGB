@@ -208,7 +208,6 @@ public class Util
 				}
 				f++;
 			}
-			
 		}
 	}
 	
@@ -227,6 +226,91 @@ public class Util
 		
 		return true;
 	}
+	
+	/**
+	 * If this equals null, then there is no block to find.
+	 */
+	public static Block FindBlockFromString(String SearchTerm)
+	{
+		Block Found = null;
+		
+		int f = 0;
+		int d = 0;
+		
+		while (f != 9999999)
+		{
+			Block e = Block.getBlockById(f);
+			if (Block.getIdFromBlock(e) == 0)
+			{
+				d++;
+				if (d == 100)
+				{
+					return Found;
+				}
+			}
+			else
+			{
+				if (e.getLocalizedName().toLowerCase().contains(SearchTerm) || e.getUnlocalizedName().toLowerCase().contains(SearchTerm))
+				{
+					Found = e;
+				}
+			}
+			f++;
+		}
+		
+		return Found;
+	}
+		
+	/**
+	 * If this returns null, then there is no item to find.
+	 */
+	public static Item FindItemFromString(String SearchTerm)
+	{
+		int b = 0;
+		
+		Item c = null;
+		
+		while (b != 9999999)
+		{
+			c = Item.getItemById(b);
+			if (c != null)
+			{
+				if (c.getUnlocalizedName() != null)
+				{
+					if (c.getUnlocalizedName().toLowerCase().contains(SearchTerm))
+					{
+						return c;
+					}
+				}
+			}
+			b++;
+		}
+		
+		return c;
+	}
+	
+	/**
+	 * If this returns null, then there is no item to find.
+	 */
+	public static ItemStack FindItemStackFromObjectInputed(ItemStack ToFind)
+	{
+		return FurnaceRecipes.smelting().getSmeltingResult(ToFind);
+	}
+	
+	public static boolean DoesSmeltingRecipeExist(ItemStack Input)
+	{
+		if (FurnaceRecipes.smelting().getSmeltingResult(Input) == null)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+	public static int GetRandomHarvestLevel()
+	{
+		return rand.nextInt(3);
+	}
 }
-
-

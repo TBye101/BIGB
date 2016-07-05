@@ -1,0 +1,3 @@
+	Libs to use later:
+	http://mods.curse.com/mc-mods/minecraft/237978-wtfs-texturegeneratorlib
+	http://mods.curse.com/mc-mods/minecraft/mantle#t1:description

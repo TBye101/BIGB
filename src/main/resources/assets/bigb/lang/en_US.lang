@@ -11,5 +11,8 @@ tile.ReinforcedPinkWall.name=Reinforced Pink Wall
 tile.ReinforcedPurpleWall.name=Reinforced Purple Wall
 tile.ReinforcedRedWall.name=Reinforced Red Wall
 tile.ReinforcedYellowWall.name=Reinforced Yellow Wall
+tile.Tribanium.name=Tribanium Ore
+
+item.TribaniumIngot.name=Tribanium Ingot
 
 itemGroup.BIGB Main Tab.name=BIGB Main

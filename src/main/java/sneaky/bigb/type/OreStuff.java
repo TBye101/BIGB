@@ -1,8 +1,8 @@
 package sneaky.bigb.type;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPickaxe;
@@ -15,65 +15,73 @@ import net.minecraft.item.ItemSword;
  */
 public class OreStuff
 {
+	
+	public OreStuff()
+	{
+		
+	}
+	
+	public String BaseName;
+	
 	/**
 	 * The pickaxe for this ore.
 	 */
 	public ItemPickaxe Pickaxe;
-	boolean HasPickaxe = false;
+	public boolean HasPickaxe = false;
 	
 	/**
 	 * The shovel for this ore.
 	 */
 	public ItemSpade Shovel;
-	boolean HasShovel = false;
+	public boolean HasShovel = false;
 	
 	/**
 	 * The hoe for this ore.
 	 */
 	public ItemHoe Hoe;
-	boolean HasHoe = false;
+	public boolean HasHoe = false;
 	
 	
 	/**
 	 * The sword for this ore.
 	 */
 	public ItemSword Sword;
-	boolean HasSword = false;
+	public boolean HasSword = false;
 	
 	/**
 	 * The axe for this ore.
 	 */
 	public ItemAxe Axe;
-	boolean HasAxe = false;
+	public boolean HasAxe = false;
 	
 	
 	/**
 	 * The actual ore block.
 	 */
 	public Block OreBlock;
-	boolean HasOreBlock = false;
+	public boolean HasOreBlock = false;
 	
 	/**
 	 * The metal block for this ore.
 	 */
 	public Block MetalBlock;
-	boolean HasMetalBlock = false;
+	public boolean HasMetalBlock = false;
 	
 	/**
 	 * The ingot for this ore.
 	 */
 	public Item MetalIngot;
-	boolean HasMetalIngot = false;
+	public boolean HasMetalIngot = false;
 	
 	/**
 	 * The nugget for this ore.
 	 */
 	public Item MetalNugget;
-	boolean HasMetalNugget = false;
+	public boolean HasMetalNugget = false;
 	
 	/**
 	 * The material for this ore.
 	 */
-	public Material MetalMaterial;
-	boolean HasMetalMaterial = false;
+	public ToolMaterial MetalMaterial;
+	public boolean HasMetalMaterial = false;
 }

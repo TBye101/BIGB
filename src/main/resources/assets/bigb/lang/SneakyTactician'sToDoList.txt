@@ -1,0 +1,15 @@
+This is a to do list
+
+High Priority:
+
+Fix Green reinforced block recipe
+remove or make mantle a soft dependency
+
+Medium Priority:
+
+Finish up auto creation of ores and stuff
+
+Low Priority:
+
+Create "Kitty Flower"
+Fix the IEvil concept
