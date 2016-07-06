@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 
@@ -24,7 +25,7 @@ public class Util
 	
 	public static Random rand;
 	
-	public static World world = Minecraft.getMinecraft().theWorld;
+	public static World world = WorldProvider.getProviderForDimension(0).worldObj;
 	
 	/**
 	 * @param x

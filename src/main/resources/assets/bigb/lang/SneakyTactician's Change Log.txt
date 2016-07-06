@@ -370,7 +370,7 @@ Unstable Build 208 (7/5/2016):
 	-Removed offending code
 Stable Build 209 (7/5/2016):
 	-Removed more offending code, ditching auto project
-Stable Build 210 (7/5/2016):
+Stable Build 210 (7/5/2016): 
 	-Tried to fix the Tribanium Ore texture issue (Nope)
 	-Fixed Tribanium Ore name issue
 	-Added in a Tribanium Ingot (Nope)
@@ -406,3 +406,8 @@ Stable Build 220 (7/5/2016):
 Build 221 (7/5/2016):
 	-Added in many textures for the items and blocks required to craft a Speed Block
 	-Changed creative tab icon to randomly change every time it is asked for a texture
+	-Found a bug with this mod running on the serverside
+		-Accessing the client side world doesn't work on a server
+		-Fixed
+Build 222 (7/6/2016):
+	-Renamed some textures to better reflect what they are
