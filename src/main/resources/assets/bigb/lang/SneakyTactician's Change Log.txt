@@ -432,3 +432,10 @@ Unstable Build 224 (7/6/2016):
 	-Added a recipe for the clear glass
 Stable Build 225 (7/6/2016):
 	-Fixed the shapeless recipe for clear glass
+Build 225 (7/6/2016):
+	-Added in a new world generator class, while do some new stuff there
+Build 226-230 (7/6/2016):
+	-Failed to add a messagebox popup when jar is double clicked
+Build 231 (7/6/2016):
+	-Abandoned the messagebox idea for now'
+	-
