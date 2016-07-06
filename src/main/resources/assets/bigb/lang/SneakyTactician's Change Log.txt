@@ -403,7 +403,7 @@ Stable Build 219 (7/5/2016):
 Stable Build 220 (7/5/2016):
 	-Changed SpeedBlock texture
 	-Tweaked SpeedBlock velocity rules
-Build 221 (7/5/2016):
+Stable Build 221 (7/5/2016):
 	-Added in many textures for the items and blocks required to craft a Speed Block
 	-Changed creative tab icon to randomly change every time it is asked for a texture
 	-Found a bug with this mod running on the serverside
