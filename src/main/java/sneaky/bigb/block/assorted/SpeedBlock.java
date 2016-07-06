@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
+import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.main.Reference;
 import sneaky.bigb.tabs.ModTabs;
 
@@ -29,7 +30,7 @@ public class SpeedBlock extends Block
 		this.setBlockName("Speed Block");
 		this.setHarvestLevel("pickaxe", 3);
 		this.setStepSound(soundTypeStone);
-		this.textureName = Reference.MODID + ":SpeedBlock";
+		this.SetTexture();
 	}
 	
 	//makes the player walk faster while walking on speedblocks.
@@ -42,5 +43,24 @@ public class SpeedBlock extends Block
 		zv *= 1.3;
 		
 		entity.addVelocity(xv, 0, zv);
+	}
+	
+	public void SetTexture()
+	{
+		switch(ModConfig.TextureLevel())
+		{
+		case 1:
+			this.textureName = Reference.MODID + ":SpeedBlock";
+			break;
+		case 2:
+			this.textureName = Reference.MODID + ":SpeedBlock32";
+			break;
+		case 3:
+			this.textureName = Reference.MODID + ":SpeedBlock64";
+			break;
+		default:
+			this.textureName = Reference.MODID + ":SpeedBlock64";
+			break;
+		}
 	}
 }

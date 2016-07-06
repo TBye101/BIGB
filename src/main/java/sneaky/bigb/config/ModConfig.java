@@ -115,6 +115,36 @@ public class ModConfig
 	{
 		EnableTribaniumOre();
 		EnableTribaniumIngot();
+		EnableFireDiamondCore();
+		EnableFireDiamond();
+		EnableFireDiamondCoreSurroundedByDiamonds();
+		EnableNatureDiamond();
+		EnableNatureDiamondCore();
+	}
+	
+	public static boolean EnableNatureDiamondCore()
+	{
+		return config.getBoolean("EnableNatureDiamondCore", "AutoItems", true, "If true, BIGB will registers the nature diamond core with Minecraft");
+	}
+	
+	public static boolean EnableNatureDiamond()
+	{
+		return config.getBoolean("EnableNatureDiamond", "AutoItems", true, "If true, BIGB registers the nature diamond item with Minecraft");
+	}
+	
+	public static boolean EnableFireDiamondCoreSurroundedByDiamonds()
+	{
+		return config.getBoolean("EnableFireDiamondCoreSurroundedByDiamonds", "AutoItems", true, "If true, BIGB will register this item with Minecraft");
+	}
+	
+	public static boolean EnableFireDiamond()
+	{
+		return config.getBoolean("EnableFireDiamond", "AutoItems", true, "If true, BIGB will register the fire diamond item with Minecraft");
+	}
+	
+	public static boolean EnableFireDiamondCore()
+	{
+		return config.getBoolean("EnableFireDiamondCore", "AutoItems", true, "If true, BIGB will register the fire diamond core with Minecraft");
 	}
 	
 	public static boolean EnableSpeedBlock()

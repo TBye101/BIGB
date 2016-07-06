@@ -12,7 +12,13 @@ tile.ReinforcedPurpleWall.name=Reinforced Purple Wall
 tile.ReinforcedRedWall.name=Reinforced Red Wall
 tile.ReinforcedYellowWall.name=Reinforced Yellow Wall
 tile.Tribanium.name=Tribanium Ore
+tile.Speed Block.name=Speed Block
 
 item.TribaniumIngot.name=Tribanium Ingot
+item.FireDiamondCore.name=Fire Diamond Core
+item.FireDiamond.name=Fire Diamond
+item.FireDiamondCoreSurroundedByDiamonds.name=Fire Diamond Core Surrounded By Diamonds
+item.NatureDiamond.name=Nature Diamond
+item.NatureDiamondCore.name=Nature Diamond Core
 
 itemGroup.BIGB Main Tab.name=BIGB Main

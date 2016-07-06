@@ -14,6 +14,11 @@ import sneaky.bigb.tabs.ModTabs;
 public class ModItems
 {
 	public static Item TribaniumIngot = new AutoItem(false, ModTabs.maintab, 64, "TribaniumIngot", "TribaniumIngot");
+	public static Item FireDiamondCore = new AutoItem(false, ModTabs.maintab, 64, "Fire Diamond Core", "FireDiamondCore");
+	public static Item FireDiamond = new AutoItem(false, ModTabs.maintab, 64, "FireDiamond", "FireDiamond");
+	public static Item FireDiamondCoreSurroundedByDiamonds = new AutoItem(false, ModTabs.maintab, 64, "FireDiamondCoreSurroundedByDiamonds", "FireDiamondCoreSurroundedByDiamonds");
+	public static Item NatureDiamond = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamond", "NatureDiamond");
+	public static Item NatureDiamondCore = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamondCore", "NatureDiamondCore");
 	
 	/**
 	 * Attempts to register all of the items in this class.
@@ -21,6 +26,71 @@ public class ModItems
 	public static void Reg()
 	{
 		RegisterTribaniumIngot();
+		RegisterFireDiamondCore();
+		RegisterFireDiamond();
+		RegisterFireDiamondCoreSurroundedByDiamonds();
+		RegisterNatureDiamond();
+		RegisterNatureDiamondCore();
+	}
+	
+	public static void RegisterNatureDiamondCore()
+	{
+		if (ModConfig.EnableNatureDiamondCore())
+		{
+			RegisterHelper.registerItem(NatureDiamondCore);
+		}
+		else
+		{
+			LogHelper.info("Not registering nature diamond core with Minecraft because of config settings");
+		}
+	}
+	
+	public static void RegisterNatureDiamond()
+	{
+		if (ModConfig.EnableNatureDiamond())
+		{
+			RegisterHelper.registerItem(NatureDiamond);
+		}
+		else
+		{
+			LogHelper.info("Not registering nature diamond with Minecraft because of config settings");
+		}
+	}
+	
+	public static void RegisterFireDiamondCoreSurroundedByDiamonds()
+	{
+		if (ModConfig.EnableFireDiamondCoreSurroundedByDiamonds())
+		{
+			RegisterHelper.registerItem(FireDiamondCoreSurroundedByDiamonds);
+		}
+		else
+		{
+			LogHelper.info("Not registering fire diamond core surrounded by diamonds with Minecraft because of config settings");
+		}
+	}
+	
+	public static void RegisterFireDiamond()
+	{
+		if (ModConfig.EnableFireDiamond())
+		{
+			RegisterHelper.registerItem(FireDiamond);
+		}
+		else
+		{
+			LogHelper.info("Not registering fire diamond with Minecraft because of config settings");
+		}
+	}
+	
+	public static void RegisterFireDiamondCore()
+	{
+		if (ModConfig.EnableFireDiamondCore())
+		{
+			RegisterHelper.registerItem(FireDiamondCore);
+		}
+		else
+		{
+			LogHelper.info("Not registering the fire diamond core with Minecraft due to config settings");
+		}
 	}
 	
 	public static void RegisterTribaniumIngot()

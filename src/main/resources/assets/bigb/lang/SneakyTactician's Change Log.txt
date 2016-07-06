@@ -409,5 +409,26 @@ Stable Build 221 (7/5/2016):
 	-Found a bug with this mod running on the serverside
 		-Accessing the client side world doesn't work on a server
 		-Fixed
-Build 222 (7/6/2016):
+Stable Build 222 (7/6/2016):
 	-Renamed some textures to better reflect what they are
+	-Added in a fire diamond core item
+		-For use in recipes
+	-Added in a fire diamond item, for use in recipes
+	-Added a fire diamond core surrounded by diamonds item, used for crafting
+	-Added a nature diamond item, for use in crafting
+	-Added a nature diamond core item, for use in crafting
+	-Added 32x and 64x textures for the speed block
+Stable Build 223 (7/6/2016):
+	-Added in a nature diamond core item, for use in crafting
+	-Fixed en_US file to give all of the new items a user friendly name
+	-Added a recipe for the speed block
+	-Added a recipe for the fire diamond core item
+	-Changed the speed block recipe to give a entire stack of speed blocks
+	-Added a recipe for the fire diamond core surrounded by diamonds item
+	-Added a recipe for the nature diamond core item
+	-Added a recipe for the nature diamond
+	-Added a recipe for the fire diamond
+Unstable Build 224 (7/6/2016):
+	-Added a recipe for the clear glass
+Stable Build 225 (7/6/2016):
+	-Fixed the shapeless recipe for clear glass

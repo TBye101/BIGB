@@ -116,6 +116,12 @@ public class Recipes
 		ShapedChest();
 		ShapedInvisibleBlock();
 		ShapedShockProofClearGlass();
+		ShapedSpeedBlock();
+		ShapedFireDiamondCore();
+		ShapedFireDiamondCoreSurroundedByDiamonds();
+		ShapedNatureDiamondCore();
+		ShapedNatureDiamond();
+		ShapedFireDiamond();
 		LogHelper.info("Finished with shaped recipe changes");
 	}
 	
@@ -134,7 +140,92 @@ public class Recipes
 		ShapelessReinforcedPurpleWall();
 		ShapelessReinforcedRedWall();
 		ShapelessReinforcedYellowWall();
+		ShapelessClearGlass();
 		LogHelper.info("Finished with shapeless recipe changes");
+	}
+	
+	public static void ShapelessClearGlass()
+	{
+		if (!ModConfig.DisableClearGlass())
+		{
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.clearglass)), new Object[] {Blocks.glass});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the clear glass block due to config settings");
+		}
+	}
+	
+	public static void ShapedFireDiamond()
+	{
+		if (ModConfig.EnableFireDiamond())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.FireDiamond), new Object[] {"AAA", "ABA", "AAA", 'A', Items.flint_and_steel, 'B', Items.diamond});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the fire diamond due to config setttings");
+		}
+	}
+	
+	public static void ShapedNatureDiamond()
+	{
+		if (ModConfig.EnableNatureDiamond())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.NatureDiamond), new Object[] {"AAA", "ABA", "AAA", 'A', Blocks.leaves, 'B', Items.diamond});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the nature diamond due to config settings");
+		}
+	}
+	
+	public static void ShapedNatureDiamondCore()
+	{
+		if (ModConfig.EnableNatureDiamond() && ModConfig.EnableNatureDiamondCore())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.NatureDiamondCore), new Object[] {"A A", " A ", "A A", 'A', ModItems.NatureDiamond});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the nature diamond core because of config settings");
+		}
+	}
+	
+	public static void ShapedFireDiamondCoreSurroundedByDiamonds()
+	{
+		if (ModConfig.EnableFireDiamond() && ModConfig.EnableFireDiamondCore() && ModConfig.EnableFireDiamondCoreSurroundedByDiamonds())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.FireDiamondCoreSurroundedByDiamonds), new Object[] {"CAC", "ABA", "CAC", 'A', Items.diamond, 'B', ModItems.FireDiamondCore, 'C', ModItems.TribaniumIngot});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the fire diamond core surrounded by diamonds because of config settings");
+		}
+	}
+	
+	public static void ShapedFireDiamondCore()
+	{
+		if (ModConfig.EnableFireDiamondCore() && ModConfig.EnableFireDiamond())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.FireDiamondCore), new Object[] {"A A", " A ", "A A", 'A', ModItems.FireDiamond});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the fire diamond core because of config settings");
+		}
+	}
+	
+	public static void ShapedSpeedBlock()
+	{
+		if (ModConfig.EnableSpeedBlock() && ModConfig.EnableTribaniumIngot() && ModConfig.EnableTribaniumOre() && ModConfig.EnableFireDiamond() && ModConfig.EnableFireDiamondCore() && ModConfig.EnableNatureDiamond() && ModConfig.EnableNatureDiamondCore() && ModConfig.EnableFireDiamondCoreSurroundedByDiamonds())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.speedblock), 64), new Object[] {"ABA", "CDC", "ABA", 'A', ModItems.NatureDiamondCore, 'B', ModItems.TribaniumIngot, 'C', Items.iron_ingot, 'D', ModItems.FireDiamondCoreSurroundedByDiamonds});
+		}
+		else
+		{
+			LogHelper.info("Not adding a recipe for the speed block due to config settings");
+		}
 	}
 	
 	public static void SmeltingTribaniumOre()
