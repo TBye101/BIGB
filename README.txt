@@ -25,8 +25,6 @@ Auto Recipe Remover
 
 Future Updates:
 
-1. Ore Trees:
-  -Trees that when processed, give you an ore
-  
-2. Performance update:
+1. UBC compat
 
+2. Performance update:
