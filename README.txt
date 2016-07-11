@@ -23,3 +23,10 @@ Auto Recipe Remover
   -In the config, you can tell BIGB to remove every recipe from Minecraft possible
   -Useful for modpack creators
 
+Future Updates:
+
+1. Ore Trees:
+  -Trees that when processed, give you an ore
+  
+2. Performance update:
+
