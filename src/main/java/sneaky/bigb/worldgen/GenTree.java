@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
+import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.Util;
 import sneaky.bigb.type.Point;
+import sneaky.bigb.worldgen.trees.GenerateTree1;
 
 /**
  * @author SneakyTactician
@@ -26,6 +29,12 @@ public class GenTree implements IWorldGenerator
 	
 	public List<Block> Leaves;
 	
+	public int MinimumSizedTree = 5;
+	
+	public int ChanceToSpawnTree = 25;
+	
+	public GenUtil genutil = new GenUtil();
+	
 	/* (non-Javadoc)
 	 * @see cpw.mods.fml.common.IWorldGenerator#generate(java.util.Random, int, int, net.minecraft.world.World, net.minecraft.world.chunk.IChunkProvider, net.minecraft.world.chunk.IChunkProvider)
 	 */
@@ -34,6 +43,7 @@ public class GenTree implements IWorldGenerator
 	{
 		world = wor;
 		this.AddAllLeavesAndLogs();
+		this.GenerateTreeWithChance();
 	}
 	
 	/**
@@ -42,11 +52,90 @@ public class GenTree implements IWorldGenerator
 	public List<Point> GetPossibleTrees()
 	{
 		List<Point> ret = new ArrayList<Point>();
+		
+		int z = 1;
+		int x = 1;
+		
+		while (z != 17)
+		{
+			while (x != 17)
+			{
+				Point next;
+				next = new Point();
+				
+				next.x = x;
+				next.y = this.genutil.FindTopOfColumn(x, z);
+				next.z = z;
+				
+				LogHelper.InfoAlways("Y IS: " + next.y);
+				
+				Block bl = Util.world.getBlock(next.x, next.y - 1, next.z);
+				if (bl == Blocks.dirt || bl == Blocks.grass)
+				{
+					ret.add(next);
+				}
+				
+				x++;
+			}
+			
+			z++;
+			x = 1;
+		}
+		
+		int i = 0;
+		
+		while (i != ret.size())
+		{
+			Point e = ret.get(i);
+			if (this.genutil.FigureOutMaxSizeForTree(e.x, e.y, e.z, this.MinimumSizedTree * 4) < this.MinimumSizedTree)
+			{
+				ret.remove(i);
+			}
+		}
+		
+		return ret;
 	}
 	
-	public void GenerateRandomTree(Random random, int chunkX, int chunkZ)
+	public void GenerateTreeWithChance()
 	{
+		int i = 0;
+		List<Point> TreeBases = this.GetPossibleTrees();
+		int siz = TreeBases.size();
 		
+		while (i != siz)
+		{
+			if (Util.rand.nextInt(100) <= this.ChanceToSpawnTree)
+			{
+				Block leaf = this.Leaves.get(Util.rand.nextInt(Leaves.size()));
+				Block log = this.Logs.get(Util.rand.nextInt(this.Logs.size()));
+				
+				Point Location = TreeBases.get(i);
+				
+				int maxsize = this.genutil.FigureOutMaxSizeForTree(Location.x, Location.y, Location.z, 50);
+				
+				this.GenerateRandomTree(Location, leaf, log, maxsize, this.MinimumSizedTree);
+			}
+			
+			i++;
+		}
+	}
+	
+	/**
+	 * Picks a random tree to generate
+	 */
+	public void GenerateRandomTree(Point location, Block leaf, Block log, int maxsize, int minsize)
+	{
+		int TreeType = Util.rand.nextInt(0);
+		
+		switch (TreeType)
+		{
+		case 0:
+			this.GenerateStyle1(location, leaf, log, maxsize, minsize);
+			break;
+		default:
+			this.GenerateStyle1(location, leaf, log, maxsize, minsize);
+			break;
+		}
 	}
 	
 	/**
@@ -61,116 +150,10 @@ public class GenTree implements IWorldGenerator
 		Leaves.add(Blocks.leaves);
 	}
 	
-	/**
-	 * Returns the y value of the top of the column.
-	 */
-	public int FindTopOfColumn(int x, int z)
+	public void GenerateStyle1(Point location, Block leaf, Block log, int maxsize, int minsize)
 	{
-		int i = 1;
-		int last = 1;
-		
-		while (i != 256)
-		{
-			if (!this.IsSquareOccupied(x, i, z))
-			{
-				last = i;
-			}
-			i++;
-		}
-		return last;
-	}
-	
-	/**
-	 * Tells you what biome you are generating for by coordinates.
-	 */
-	public BiomeGenBase GetBiomeFromCoordinates(int x, int z)
-	{
-		return world.getBiomeGenForCoords(x, z);
-	}
-	
-	/**
-	 * This method tells us how big we can make the tree in all directions except down.
-	 */
-	public int FigureOutMaxSizeForTree(int x, int y, int z, int size)
-	{
-		int i = 0;
-		boolean MaxSizeReached = false;
-		
-		while (i != size | MaxSizeReached)
-		{
-			i++;
-			
-			if (this.IsSquareOccupied(x + i, y, z))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x - i, y, z))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x, y + i, z))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x, y, z + i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x, y, z - i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x + i, y, z + i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x - i, y, z + i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x - i, y, z - i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-			if (this.IsSquareOccupied(x + i, y, z - i))
-			{
-				MaxSizeReached = true;
-				break;
-			}
-			
-		}
-		
-		if (MaxSizeReached)
-		{
-			return i - 1;
-		}
-		else
-		{
-			return i;
-		}
-	}
-	
-	/**
-	 * Tells the caller if there is a block there, or just air.
-	 */
-	public boolean IsSquareOccupied(int x, int y, int z)
-	{
-		return world.isAirBlock(x, y, z);
+		GenerateTree1 a;
+		a = new GenerateTree1();
+		a.Generate(location, leaf, log, maxsize, minsize);
 	}
 }

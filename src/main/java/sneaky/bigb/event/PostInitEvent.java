@@ -7,6 +7,7 @@ import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.crafting.Recipes;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.Util;
+import sneaky.bigbproxies.ClientProxy;
 
 /**
  * @author SneakyTactician
@@ -26,7 +27,12 @@ public class PostInitEvent
 		CompatModuleManager.PostInitAll();
 		Util.LogAllEntities();
 		Util.LogAllModsAcive();
+		
+		ClientProxy a = new ClientProxy();
+		//a.CheckForUpdates();
+		
 		Util.MassChangeStackSizesForAllNormalItemsAndBlocks(ModConfig.ChangeAllStackSizesToX());
+		
 		LogHelper.info("BIGB post initialization done");
 	}
 }

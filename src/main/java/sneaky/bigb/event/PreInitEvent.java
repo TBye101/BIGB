@@ -28,7 +28,7 @@ public class PreInitEvent
 		ModConfig.LoadAll(event);
 		Reference.IsConfigLoaded = true;
 		ModBlocks.RegisterAll();
-		CompatModuleManager.PreInitAll();
+		CompatModuleManager.PreInitAll(event);
 		LogHelper.info("BIGB preinit finished");
 		ModItems.Reg();
 	}

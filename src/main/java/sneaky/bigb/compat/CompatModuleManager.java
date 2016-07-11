@@ -1,6 +1,8 @@
 package sneaky.bigb.compat;
 
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import sneaky.bigb.compat.UBC.UBCCompat;
 import sneaky.bigb.compat.extrautilities.ExtraUtilitiesCompat;
 import sneaky.bigb.compat.projecte.ProjectECompat;
 import sneaky.bigb.helpers.LogHelper;
@@ -11,8 +13,9 @@ public class CompatModuleManager
 	public static boolean Minecraft = false;
 	public static boolean ProjectE = false;
 	public static boolean ExtraUtilities = false;
+	public static boolean UBC = false;
 	
-	public static void PreInitAll()
+	public static void PreInitAll(FMLPreInitializationEvent event)
 	{
 		if (ProjectE)
 		{
@@ -22,6 +25,11 @@ public class CompatModuleManager
 		if (ExtraUtilities)
 		{
 			ExtraUtilitiesCompat.preInit();
+		}
+		
+		if (UBC)
+		{
+			UBCCompat.PreInit(event);
 		}
 	}
 	
@@ -36,6 +44,11 @@ public class CompatModuleManager
 		{
 			ExtraUtilitiesCompat.Init();
 		}
+		
+		if (UBC)
+		{
+			UBCCompat.Init();
+		}
 	}
 	
 	public static void PostInitAll()
@@ -49,6 +62,11 @@ public class CompatModuleManager
 		{
 			ExtraUtilitiesCompat.postInit();
 		}
+		
+		if (UBC)
+		{
+			UBCCompat.PostInit();
+		}
 	}
 	
 	/**
@@ -59,6 +77,17 @@ public class CompatModuleManager
 		DetectMinecraft();
 		DetectProjectE();
 		DetectExtraUtilities();
+		DetectUBC();
+	}
+	
+	public static void DetectUBC()
+	{
+		Loader.instance();
+		if (Loader.isModLoaded("Underground Biomes"))
+		{
+			LogHelper.info("Detected Underground Biomes for mod compatibility");
+			UBC = true;
+		}
 	}
 	
 	public static void DetectExtraUtilities()

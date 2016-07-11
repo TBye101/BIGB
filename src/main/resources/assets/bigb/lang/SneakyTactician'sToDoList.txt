@@ -1,13 +1,11 @@
 This is a to do list
 
 High Priority:
-
-Fix Green reinforced block recipe
-remove or make mantle a soft dependency
+Fix Update Checker
+Finish World gen stuff
 
 Medium Priority:
-
-Finish up auto creation of ores and stuff
+Integrate With UBC (Underground Biomes Constructs)
 
 Low Priority:
 

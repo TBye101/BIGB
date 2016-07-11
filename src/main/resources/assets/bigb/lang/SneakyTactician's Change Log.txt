@@ -436,6 +436,28 @@ Build 225 (7/6/2016):
 	-Added in a new world generator class, while do some new stuff there
 Build 226-230 (7/6/2016):
 	-Failed to add a messagebox popup when jar is double clicked
-Build 231 (7/6/2016):
+Stable Build 231 (7/6/2016):
 	-Abandoned the messagebox idea for now'
 	-Working heavily on world generation feature now, just for some random trees
+	-Hopefully added a update checker
+		-Update checker doesn't work, it reads the file wrong
+Stable Build 232 (7/6/2016):
+	-Worked on Update Checker
+Stable Build 233 (7/11/2016):
+	-Failed to fix the update checker
+Stable Build 234-235 (7/11/2016):
+	-Debugging Update Checker
+Unstable Build 236 (7/11/2016):
+	-Temporarily disabling the update checker
+	-Tree generator now requires dirt or grass to spawn a tree on
+	-Hooked in the tree generator
+	-Renamed a tree generator to better reflect what it does
+Unstable Build 237-240 (7/11/2016):
+	-Debugging world gen code
+Stable Build 241 (7/11/2016):
+	-Disabled world gen stuff temporarily
+	-Disabled Update checker temporarily
+	-Failed to add compatibility for Underground Biomes construct mod
+Stable Build 242 (7/11/2016):
+	-Attempted to add compatibility for Underground Biomes construct mod
+		-Failed

@@ -17,6 +17,6 @@ public class EventHandler
 	
 	public void OnPlayerLoggedInEvent(PlayerLoggedInEvent event)
 	{
-		 
+		
 	}
 }
