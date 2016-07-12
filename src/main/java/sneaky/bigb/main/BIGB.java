@@ -1,7 +1,5 @@
 package sneaky.bigb.main;
 
-import javax.swing.JOptionPane;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Instance;

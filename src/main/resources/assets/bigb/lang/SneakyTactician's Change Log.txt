@@ -461,3 +461,15 @@ Stable Build 241 (7/11/2016):
 Stable Build 242 (7/11/2016):
 	-Attempted to add compatibility for Underground Biomes construct mod
 		-Failed
+Unstable Build 243-250 (7/12/2016):
+	-Attempting to fix world gen code
+Stable Build 251 (7/12/2016):
+	-World is stable, but trees are not generated
+Unstable Build 252-270 (7/12/2016):
+	-Debugging world generation code
+Stable Build 271 (7/12/2016):
+	-World gen code now creates a big mess at one area. Not good.
+Build 272 (7/12/2016):
+	-Debugging world generation code
+Unstable Build 273-276 (7/12/2016):
+	-Debugging world generation code

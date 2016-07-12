@@ -6,13 +6,11 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 
@@ -23,9 +21,9 @@ import sneaky.bigb.helpers.LogHelper;
 public class Util
 {
 	
-	public static Random rand;
+	public static Random rand = new Random();
 	
-	public static World world = WorldProvider.getProviderForDimension(0).worldObj;
+	public static World world;
 	
 	/**
 	 * @param x

@@ -1,7 +1,7 @@
 package sneaky.bigb.worldgen.trees;
 
 import net.minecraft.block.Block;
-
+import net.minecraft.world.chunk.Chunk;
 import sneaky.bigb.main.Util;
 import sneaky.bigb.type.Point;
 import sneaky.bigb.worldgen.GenUtil;
@@ -18,10 +18,10 @@ public class GenerateTree1
 	/**
 	 * Generates a tree.
 	 */
-	public void Generate(Point location, Block leaf, Block log, int maxsize, int minsize)
+	public void Generate(Point location, Block leaf, Block log, int maxsize, int minsize, Chunk current)
 	{
 		this.PlaceLogs(location, leaf, log, maxsize, minsize);
-		this.PlaceLeaves(location, leaf, log, maxsize, minsize);
+		this.PlaceLeaves(location, leaf, log, maxsize, minsize, current);
 	}
 	
 	/**
@@ -46,16 +46,16 @@ public class GenerateTree1
 		while (i != LogPlaceHeight)
 		{
 			Util.world.setBlock(location.x, location.y + i, location.z, log);
-			LogPlaceHeight++;
+			i++;
 		}
 	}
 	
 	/**
 	 * This method places all of the leaves for this tree.
 	 */
-	private void PlaceLeaves(Point location, Block leaf, Block log, int maxsize, int minsize)
+	private void PlaceLeaves(Point location, Block leaf, Block log, int maxsize, int minsize, Chunk current)
 	{
-		int y = this.genutil.FindTopOfColumn(location.x, location.z) + 1;
+		int y = this.genutil.FindTopOfColumn(location.x, location.z, current) + 1;
 		
 		Util.world.setBlock(location.x, y, location.z, leaf);
 		Util.world.setBlock(location.x + 1, y, location.z, leaf);

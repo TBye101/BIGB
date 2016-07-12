@@ -21,7 +21,6 @@ public class PreInitEvent
 	public void Go(FMLPreInitializationEvent event)
 	{
 		LogHelper.info("BIGB (Because I Got Bored) is starting up!");
-		Util.rand = new Random();
 		FMLCommonHandler.instance().bus().register(new EventHandler());
 		LogHelper.info("BIGB preinit started");
 		CompatModuleManager.DetectAll();

@@ -10,11 +10,13 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import sneaky.bigb.block.ModBlocks;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.main.Util;
 
 public class GenerateWorld implements IWorldGenerator
 {
 		public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 		{
+			Util.world = world;
 				switch (world.provider.dimensionId)
 				{
 				case -1:

@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.Util;
@@ -31,7 +32,7 @@ public class GenTree implements IWorldGenerator
 	
 	public int MinimumSizedTree = 5;
 	
-	public int ChanceToSpawnTree = 25;
+	public int ChanceToSpawnTree = 90;
 	
 	public GenUtil genutil = new GenUtil();
 	
@@ -42,19 +43,26 @@ public class GenTree implements IWorldGenerator
 	public void generate(Random random, int chunkX, int chunkZ, World wor, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
 		world = wor;
+		Util.world = wor;
 		this.AddAllLeavesAndLogs();
-		this.GenerateTreeWithChance();
+		this.GenerateTreeWithChance(chunkX * 16, chunkZ * 16, world.getChunkFromBlockCoords(chunkX * 16, chunkZ * 16));
+		LogHelper.InfoAlways("Done generating the chunk");
 	}
 	
 	/**
 	 * Returns the locations of all possible trees.
 	 */
-	public List<Point> GetPossibleTrees()
+	public List<Point> GetPossibleTrees(int chunkX, int chunkZ, Chunk current)
 	{
 		List<Point> ret = new ArrayList<Point>();
 		
 		int z = 1;
 		int x = 1;
+		
+		if (Util.world == null)
+		{
+			LogHelper.InfoAlways("World is NULL");
+		}
 		
 		while (z != 17)
 		{
@@ -63,16 +71,22 @@ public class GenTree implements IWorldGenerator
 				Point next;
 				next = new Point();
 				
-				next.x = x;
-				next.y = this.genutil.FindTopOfColumn(x, z);
-				next.z = z;
+				next.x = x + chunkX;
+				next.y = this.genutil.FindTopOfColumn(chunkX + x,chunkZ + z, current);
+				next.z = z + chunkZ;
 				
-				LogHelper.InfoAlways("Y IS: " + next.y);
+				Block bl = Util.world.getBlock(next.x, next.y, next.z);
 				
-				Block bl = Util.world.getBlock(next.x, next.y - 1, next.z);
+				//LogHelper.InfoAlways("Block at top of column is: " + bl.getLocalizedName());
+				
 				if (bl == Blocks.dirt || bl == Blocks.grass)
 				{
+					//LogHelper.InfoAlways("Found a tree that WAS possible: " + next.x + ", " + next.y + ", " + next.z);
 					ret.add(next);
+				}
+				else
+				{
+					//LogHelper.InfoAlways("Found a tree that was NOT possible: " + next.x + ", " + next.y + ", " + next.z);
 				}
 				
 				x++;
@@ -87,23 +101,26 @@ public class GenTree implements IWorldGenerator
 		while (i != ret.size())
 		{
 			Point e = ret.get(i);
-			if (this.genutil.FigureOutMaxSizeForTree(e.x, e.y, e.z, this.MinimumSizedTree * 4) < this.MinimumSizedTree)
+			if (this.genutil.FigureOutMaxSizeForTree(e.x, e.y, e.z, this.MinimumSizedTree * 4, current) < this.MinimumSizedTree)
 			{
+				//LogHelper.InfoAlways("Removing a tree due to size requirments: " + ret.get(i).x + ", " + ret.get(i).y + ", " + ret.get(i).z);
 				ret.remove(i);
 			}
+			i++;
 		}
 		
 		return ret;
 	}
 	
-	public void GenerateTreeWithChance()
+	public void GenerateTreeWithChance(int chunkX, int chunkZ, Chunk current)
 	{
 		int i = 0;
-		List<Point> TreeBases = this.GetPossibleTrees();
+		List<Point> TreeBases = this.GetPossibleTrees(chunkX, chunkZ, current);
 		int siz = TreeBases.size();
 		
 		while (i != siz)
 		{
+			//LogHelper.InfoAlways("Possible tree count = " + TreeBases.size());
 			if (Util.rand.nextInt(100) <= this.ChanceToSpawnTree)
 			{
 				Block leaf = this.Leaves.get(Util.rand.nextInt(Leaves.size()));
@@ -111,9 +128,12 @@ public class GenTree implements IWorldGenerator
 				
 				Point Location = TreeBases.get(i);
 				
-				int maxsize = this.genutil.FigureOutMaxSizeForTree(Location.x, Location.y, Location.z, 50);
+				//LogHelper.InfoAlways("We made it here");
 				
-				this.GenerateRandomTree(Location, leaf, log, maxsize, this.MinimumSizedTree);
+				int maxsize = this.genutil.FigureOutMaxSizeForTree(Location.x, Location.y, Location.z, 50, current);
+				//LogHelper.InfoAlways("We Made it throught");
+				this.GenerateRandomTree(Location, leaf, log, maxsize, this.MinimumSizedTree, current);
+				LogHelper.InfoAlways("Done generating tree");
 			}
 			
 			i++;
@@ -123,17 +143,19 @@ public class GenTree implements IWorldGenerator
 	/**
 	 * Picks a random tree to generate
 	 */
-	public void GenerateRandomTree(Point location, Block leaf, Block log, int maxsize, int minsize)
+	public void GenerateRandomTree(Point location, Block leaf, Block log, int maxsize, int minsize, Chunk current)
 	{
-		int TreeType = Util.rand.nextInt(0);
+		int TreeType = Util.rand.nextInt(2);
+		
+		LogHelper.InfoAlways("Generating tree at: " + location.x + "," + " " + location.y + ", " + location.z);
 		
 		switch (TreeType)
 		{
 		case 0:
-			this.GenerateStyle1(location, leaf, log, maxsize, minsize);
+			this.GenerateStyle1(location, leaf, log, maxsize, minsize, current);
 			break;
 		default:
-			this.GenerateStyle1(location, leaf, log, maxsize, minsize);
+			this.GenerateStyle1(location, leaf, log, maxsize, minsize, current);
 			break;
 		}
 	}
@@ -150,10 +172,10 @@ public class GenTree implements IWorldGenerator
 		Leaves.add(Blocks.leaves);
 	}
 	
-	public void GenerateStyle1(Point location, Block leaf, Block log, int maxsize, int minsize)
+	public void GenerateStyle1(Point location, Block leaf, Block log, int maxsize, int minsize, Chunk current)
 	{
 		GenerateTree1 a;
 		a = new GenerateTree1();
-		a.Generate(location, leaf, log, maxsize, minsize);
+		a.Generate(location, leaf, log, maxsize, minsize, current);
 	}
 }
