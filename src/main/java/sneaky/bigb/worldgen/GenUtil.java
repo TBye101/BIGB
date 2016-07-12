@@ -2,6 +2,7 @@ package sneaky.bigb.worldgen;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.Util;
@@ -120,6 +121,12 @@ public class GenUtil
 	{
 		try
 		{
+			
+			if (Util.world == null)
+			{
+				Util.world = WorldProvider.getProviderForDimension(0).worldObj;
+			}
+			
 			if (y < 1)
 			{
 				return false;
@@ -132,7 +139,7 @@ public class GenUtil
 				return true;
 			}
 			
-			if (BlockInQuestion != Blocks.air)
+			if (BlockInQuestion == Blocks.air)
 			{
 				return false;
 			}

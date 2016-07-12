@@ -97,3 +97,5 @@
 /bin/
 /.project
 /.classpath
+/gradle-app.setting
+/README.md
