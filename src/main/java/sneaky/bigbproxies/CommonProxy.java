@@ -5,9 +5,4 @@ import sneaky.bigb.update.CheckForUpdates;
 
 public class CommonProxy
 {
-	public void UpdateCheck()
-	{
-		Thread versionCheckThread = new Thread(new CheckForUpdates(), "Version Check");
-		versionCheckThread.start();
-	}
 }

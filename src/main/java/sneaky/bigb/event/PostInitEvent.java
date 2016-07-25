@@ -1,11 +1,13 @@
 package sneaky.bigb.event;
 
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import net.minecraft.client.Minecraft;
 import sneaky.bigb.compat.CompatModuleManager;
 import sneaky.bigb.compat.minecraft.MinecraftCompat;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.crafting.Recipes;
 import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.main.Reference;
 import sneaky.bigb.main.Util;
 import sneaky.bigbproxies.ClientProxy;
 
@@ -32,7 +34,6 @@ public class PostInitEvent
 		//a.CheckForUpdates();
 		
 		Util.MassChangeStackSizesForAllNormalItemsAndBlocks(ModConfig.ChangeAllStackSizesToX());
-		
 		LogHelper.info("BIGB post initialization done");
 	}
 }

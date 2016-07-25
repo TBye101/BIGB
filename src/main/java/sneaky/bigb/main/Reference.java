@@ -21,7 +21,7 @@ public class Reference
 	 */
 	public static final String VERSION = "1.0";
 	
-	public static final int Build = 231;
+	public static final String Build = "231";
 	
 	/**
 	 * This is the class path to my common proxy class.
@@ -34,4 +34,6 @@ public class Reference
 	public static final String CLIENT_PROXY = "sneaky.bigbproxies.ClientProxy";
 	
 	public static boolean IsConfigLoaded = false;
+	
+	public static boolean IsServer;
 }

@@ -498,5 +498,11 @@ Stable Build 307 (7/25/2016):
 	-Tweaked Tribanium Bounce Pad
 Stable Release Build 308 (7/25/2016):
 	-Tweaking Tribanium Bounce Pad
-Build 309 (7/25/2016):
-	-
+Unstable Build 309-313 (7/25/2016):
+	-Debugging update checker
+	-Tabling the project for now
+Unstable Build 314-326 (7/25/2016):
+	-Working on performance and bug fixes
+Stable Build 327 (7/25/2016):
+	-Update checker works, but it won't stop working when it should
+Build 328
