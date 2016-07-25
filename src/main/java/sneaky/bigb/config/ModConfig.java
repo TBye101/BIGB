@@ -120,6 +120,18 @@ public class ModConfig
 		EnableFireDiamondCoreSurroundedByDiamonds();
 		EnableNatureDiamond();
 		EnableNatureDiamondCore();
+		EnableTribaniumBouncePad();
+		EnableTribaniumSpring();
+	}
+	
+	public static boolean EnableTribaniumSpring()
+	{
+		return config.getBoolean("EnableTribaniumSpring", "AutoItems", true, "If true, BIGB will register the Tribanium Spring with Minecraft");
+	}
+	
+	public static boolean EnableTribaniumBouncePad()
+	{
+		return config.getBoolean("EnableTribaniumBouncePad", "AutoBlocks", true, "If true, BIGB will register the Tribanium Bounce Pad with Minecraft");
 	}
 	
 	public static boolean EnableNatureDiamondCore()

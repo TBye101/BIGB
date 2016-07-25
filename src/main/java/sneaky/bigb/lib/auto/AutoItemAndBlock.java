@@ -12,6 +12,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
+import sneaky.bigb.lib.auto.block.AutoBouncePad;
 import sneaky.bigb.lib.auto.create.AutoAxe;
 import sneaky.bigb.lib.auto.create.AutoBlock;
 import sneaky.bigb.lib.auto.create.AutoHoe;
@@ -103,5 +104,15 @@ public class AutoItemAndBlock
 	{
 		Item.ToolMaterial material = EnumHelper.addToolMaterial(MaterialName, HarvestLevel, MaxUses, Efficiency, Damage, Enchantability);
 		return material;
+	}
+	
+	/**
+	 * Creates a bounce pad block from the specs provided.
+	 */
+	public static Block CreateAutoBouncePad(float Hardness, float Resistence, int HarvestLevel, String BlockName, CreativeTabs CreativeTab, String TextureName, double BounceMultiplier, double MaxYVelocity)
+	{
+		Block block;
+		block = new AutoBouncePad(Hardness, Resistence, HarvestLevel, BlockName, CreativeTab, TextureName, BounceMultiplier, MaxYVelocity);
+		return block;
 	}
 }

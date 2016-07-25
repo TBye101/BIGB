@@ -2,6 +2,7 @@ package sneaky.bigb.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import sneaky.bigb.block.assorted.SpeedBlock;
 import sneaky.bigb.block.glass.clearglass.ClearGlass;
 import sneaky.bigb.block.glass.shockproofclearglass.ShockProofClearGlass;
@@ -19,6 +20,8 @@ import sneaky.bigb.block.testblock.TestBlock;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.helpers.RegisterHelper;
+import sneaky.bigb.lib.auto.AutoItemAndBlock;
+import sneaky.bigb.lib.auto.block.AutoBouncePad;
 import sneaky.bigb.lib.auto.create.AutoBlock;
 import sneaky.bigb.main.Reference;
 import sneaky.bigb.tabs.ModTabs;
@@ -48,6 +51,7 @@ public class ModBlocks
 	
 	//AutoBlocks
 	public static Block TribaniumOre = new AutoBlock(Material.ground, false, 15, 15, 5, "pickaxe", 2, Block.soundTypeStone, "Tribanium", ModTabs.maintab, 5, false, true, "Tribanium");
+	public static Block TribaniumBouncePad = new AutoBouncePad(10F, 5F, 2, "TribaniumBouncePad", ModTabs.maintab, Reference.MODID + ":BouncePad64", 1.9F, 15F);
 	
 	public static void RegisterAll()
 	{
@@ -66,6 +70,19 @@ public class ModBlocks
 		RegisterYellowWall();
 		RegisterTribaniumOre();
 		RegisterSpeedBlock();
+		RegisterTribaniumBoundPad();
+	}
+	
+	public static void RegisterTribaniumBoundPad()
+	{
+		if (ModConfig.EnableTribaniumBouncePad())
+		{
+			RegisterHelper.registerBlock(TribaniumBouncePad);
+		}
+		else
+		{
+			LogHelper.info("Not registering the Tribanium bounce pad due to config settings");
+		}
 	}
 	
 	public static void RegisterSpeedBlock()

@@ -42,6 +42,7 @@ public class GenTree implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World wor, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
+		LogHelper.InfoAlways("CHUNKX AND Z: " + chunkX + ", " + chunkZ);
 		world = wor;
 		Util.world = wor;
 		this.AddAllLeavesAndLogs();
@@ -56,17 +57,17 @@ public class GenTree implements IWorldGenerator
 	{
 		List<Point> ret = new ArrayList<Point>();
 		
-		int z = 1;
-		int x = 1;
+		int z = 9;
+		int x = 9;
 		
 		if (Util.world == null)
 		{
 			LogHelper.InfoAlways("World is NULL");
 		}
 		
-		while (z != 17)
+		while (z != 10)
 		{
-			while (x != 17)
+			while (x != 10)
 			{
 				Point next;
 				next = new Point();
@@ -93,7 +94,7 @@ public class GenTree implements IWorldGenerator
 			}
 			
 			z++;
-			x = 1;
+			x = 9;
 		}
 		
 		int i = 0;

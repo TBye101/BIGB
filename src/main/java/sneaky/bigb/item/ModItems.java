@@ -5,6 +5,7 @@ import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.helpers.RegisterHelper;
 import sneaky.bigb.lib.auto.create.AutoItem;
+import sneaky.bigb.main.Reference;
 import sneaky.bigb.tabs.ModTabs;
 
 /**
@@ -18,7 +19,10 @@ public class ModItems
 	public static Item FireDiamond = new AutoItem(false, ModTabs.maintab, 64, "FireDiamond", "FireDiamond");
 	public static Item FireDiamondCoreSurroundedByDiamonds = new AutoItem(false, ModTabs.maintab, 64, "FireDiamondCoreSurroundedByDiamonds", "FireDiamondCoreSurroundedByDiamonds");
 	public static Item NatureDiamond = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamond", "NatureDiamond");
+	
+	//AutoItems
 	public static Item NatureDiamondCore = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamondCore", "NatureDiamondCore");
+	public static Item TribaniumSpring = new AutoItem(true, ModTabs.maintab, 64, Reference.MODID + ":TribaniumSpring64", "TribaniumSpring");
 	
 	/**
 	 * Attempts to register all of the items in this class.
@@ -31,6 +35,19 @@ public class ModItems
 		RegisterFireDiamondCoreSurroundedByDiamonds();
 		RegisterNatureDiamond();
 		RegisterNatureDiamondCore();
+		RegisterTribaniumSpring();
+	}
+	
+	public static void RegisterTribaniumSpring()
+	{
+		if (ModConfig.EnableTribaniumSpring())
+		{
+			RegisterHelper.registerItem(TribaniumSpring);
+		}
+		else
+		{
+			LogHelper.info("Not registering the tribanium spring with Minecraft due to config settings");
+		}
 	}
 	
 	public static void RegisterNatureDiamondCore()

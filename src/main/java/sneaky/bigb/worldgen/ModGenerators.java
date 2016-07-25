@@ -7,12 +7,12 @@ public class ModGenerators
 	public void RegisterAll()
 	{
 		GenerateWorld OreGen;
-		GenTree TreeGen;
+		//GenTree TreeGen;
 		
 		OreGen = new GenerateWorld();
-		TreeGen = new GenTree();
+		//TreeGen = new GenTree();
 		
 		GameRegistry.registerWorldGenerator(OreGen, 100);
-		GameRegistry.registerWorldGenerator(TreeGen, 20);
+		//GameRegistry.registerWorldGenerator(TreeGen, 20);
 	}
 }

@@ -1,11 +1,15 @@
 This is a to do list
 
 High Priority:
+Change Speed block recipe to be cheaper
 Fix Update Checker
-Finish World gen stuff
+Finish Bouncepad
+Create freeze blocks
 
 Medium Priority:
+Make a shockproof glass that emits light (maybe several tiers?)
 Integrate With UBC (Underground Biomes Constructs)
+Finish World gen stuff
 
 Low Priority:
 

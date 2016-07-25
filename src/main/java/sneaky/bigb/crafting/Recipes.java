@@ -122,9 +122,11 @@ public class Recipes
 		ShapedNatureDiamondCore();
 		ShapedNatureDiamond();
 		ShapedFireDiamond();
+		ShapedTribaniumSpring();
+		ShapedTribaniumBouncePad();
 		LogHelper.info("Finished with shaped recipe changes");
 	}
-	
+
 	/**
 	 * This method kicks off all sorts of different shapeless recipe changes to Minecraft
 	 */
@@ -142,6 +144,30 @@ public class Recipes
 		ShapelessReinforcedYellowWall();
 		ShapelessClearGlass();
 		LogHelper.info("Finished with shapeless recipe changes");
+	}
+	
+	public static void ShapedTribaniumBouncePad()
+	{
+		if (ModConfig.EnableTribaniumBouncePad())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.TribaniumBouncePad)), new Object[] {"AAA", "AAA", "BBB", 'A', Items.slime_ball, 'B', ModItems.TribaniumSpring});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the tribanium bounce pad due to config settings");
+		}
+	}
+
+	public static void ShapedTribaniumSpring()
+	{
+		if (ModConfig.EnableTribaniumSpring())
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.TribaniumSpring), "A  ", " A ", "A  ", 'A', ModItems.TribaniumIngot);
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for the tribanium spring due to config settings");
+		}
 	}
 	
 	public static void ShapelessClearGlass()
