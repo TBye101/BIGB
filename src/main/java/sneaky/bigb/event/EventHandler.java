@@ -2,7 +2,6 @@ package sneaky.bigb.event;
 
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraft.client.Minecraft;
 
 /**
  * @author SneakyTactician

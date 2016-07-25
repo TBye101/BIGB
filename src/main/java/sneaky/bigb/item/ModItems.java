@@ -22,7 +22,7 @@ public class ModItems
 	
 	//AutoItems
 	public static Item NatureDiamondCore = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamondCore", "NatureDiamondCore");
-	public static Item TribaniumSpring = new AutoItem(true, ModTabs.maintab, 64, Reference.MODID + ":TribaniumSpring64", "TribaniumSpring");
+	public static Item TribaniumSpring = new AutoItem(true, ModTabs.maintab, 64, "TribaniumSpring64", "TribaniumSpring");
 	
 	/**
 	 * Attempts to register all of the items in this class.

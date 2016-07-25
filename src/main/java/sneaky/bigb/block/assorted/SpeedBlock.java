@@ -34,15 +34,22 @@ public class SpeedBlock extends Block
 	}
 	
 	//makes the player walk faster while walking on speedblocks.
+	/* (non-Javadoc)
+	 * @see net.minecraft.block.Block#onEntityWalking(net.minecraft.world.World, int, int, int, net.minecraft.entity.Entity)
+	 */
+	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
-		double xv = entity.motionX;
-		double zv = entity.motionZ;
-		
-		xv *= 1.3;
-		zv *= 1.3;
-		
-		entity.addVelocity(xv, 0, zv);
+		if (entity.motionX < 1 && entity.motionZ < 1)
+		{
+			double xv = entity.motionX;
+			double zv = entity.motionZ;
+			
+			xv *= 5;
+			zv *= 5;
+			
+			entity.addVelocity(xv, 0, zv);
+		}
 	}
 	
 	public void SetTexture()

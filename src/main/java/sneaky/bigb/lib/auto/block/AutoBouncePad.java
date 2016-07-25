@@ -7,6 +7,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.main.Util;
 
 
 /**
@@ -46,13 +48,8 @@ public class AutoBouncePad extends Block
 	@Override
 	public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fl)
 	{
-		if (entity.motionY < this.MaxVelocity)
-		{
-			entity.setVelocity(entity.motionX, entity.motionY * this.BMultiplyer, entity.motionZ);
-		}
-		else
-		{
-			entity.setVelocity(entity.motionX, MaxVelocity, entity.motionZ);
-		}
+		entity.addVelocity(0, Util.rand.nextInt(5), 0);
+		entity.velocityChanged = true;
+		entity.fallDistance = 0.0F;
 	}
 }
