@@ -24,8 +24,7 @@ public class UBCCompat
 		 
 		 try 
 		 {
-			 UBAPIHook.ubAPIHook.ubOreTexturizer.
-			 requestUBOreSetup(ModBlocks.TribaniumOre, 0, Reference.MODID + ":Tribanium", "Tribanium Ore");
+			 UBAPIHook.ubAPIHook.ubOreTexturizer.requestUBOreSetup(ModBlocks.TribaniumOre, 0, Reference.MODID + ":Tribanium", "Tribanium Ore");
 		 } 
 		 catch (Exception e)
 		 {

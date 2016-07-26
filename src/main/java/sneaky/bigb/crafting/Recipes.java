@@ -58,8 +58,6 @@ public class Recipes
 	{
 		LogHelper.info("Starting mass recipe changes");
 		
-		MassSwapItemsInRecipes(null, null);
-		
 		LogHelper.info("Finished with mass recipe changes");
 	}
 	
@@ -85,14 +83,17 @@ public class Recipes
 	 */
 	public static void ListAllRecipes()
 	{
-	    @SuppressWarnings("rawtypes")
-		ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
-
-	    for (int scan = 0; scan < recipes.size(); scan++)
-	    {
-	        IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
-	        LogHelper.info("Recipe: " + tmpRecipe.toString());
-	    }
+		if (!ModConfig.DisableAllLoggingAfterConfigIsLoaded())
+		{
+		    @SuppressWarnings("rawtypes")
+			ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
+	
+		    for (int scan = 0; scan < recipes.size(); scan++)
+		    {
+		        IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
+		        LogHelper.info("Recipe: " + tmpRecipe.toString());
+		    }
+		}
 	}
 	
 	/**

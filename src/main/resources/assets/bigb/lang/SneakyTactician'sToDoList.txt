@@ -2,7 +2,6 @@ This is a to do list
 
 High Priority:
 Change Speed block recipe to be cheaper
-Fix Update Checker
 Finish Bouncepad
 Create freeze blocks
 

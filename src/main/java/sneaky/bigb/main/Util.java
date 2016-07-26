@@ -54,24 +54,29 @@ public class Util
 	 */
 	public static int GetNumberOfItems()
 	{
-		int a = 0;
-		int b = 0;
-		
-		while (b != 9999999)
+		if (!ModConfig.DisableAllLoggingAfterConfigIsLoaded())
 		{
-			Item c = Item.getItemById(b);
-			if (c != null)
+			int a = 0;
+			int b = 0;
+			
+			while (b != 9999999)
 			{
-				if (c.getUnlocalizedName() != null)
+				Item c = Item.getItemById(b);
+				if (c != null)
 				{
-					LogHelper.info("Item discovered: " + c.getUnlocalizedName());
-					LogHelper.info("Detected " + a + " items so far");
-					a++;
+					if (c.getUnlocalizedName() != null)
+					{
+						LogHelper.info("Item discovered: " + c.getUnlocalizedName());
+						LogHelper.info("Detected " + a + " items so far");
+						a++;
+					}
 				}
+				b++;
 			}
-			b++;
+			
+			return a;
 		}
-		return a;
+		return 0;
 	}
 	
 	/**
@@ -79,30 +84,35 @@ public class Util
 	 */
 	public static int GetNumberOfBlocks()
 	{
-		int a = 0;
-		int b = 0;
-		int d = 0;
-		
-		while (b != 9999999)
+		if (ModConfig.DisableAllLoggingAfterConfigIsLoaded())
 		{
-			Block c = Block.getBlockById(b);
-			if (Block.getIdFromBlock(c) == 0)
+			int a = 0;
+			int b = 0;
+			int d = 0;
+			
+			while (b != 9999999)
 			{
-				d++;
-				if (d == 100)
+				Block c = Block.getBlockById(b);
+				if (Block.getIdFromBlock(c) == 0)
 				{
-					return a;
+					d++;
+					if (d == 100)
+					{
+						return a;
+					}
 				}
+				else
+				{
+					LogHelper.info("Block discovered: " + c.getUnlocalizedName());
+					LogHelper.info("Detected " + a + " blocks so far");
+					a++;
+				}
+				b++;
 			}
-			else
-			{
-				LogHelper.info("Block discovered: " + c.getUnlocalizedName());
-				LogHelper.info("Detected " + a + " blocks so far");
-				a++;
-			}
-			b++;
+			return a;
 		}
-		return a;
+		
+		return 0;
 	}
 	
 	/**
@@ -129,13 +139,16 @@ public class Util
 	 */
 	public static void LogAllModsAcive()
 	{
-		int i = 0;
-		for (ModContainer Mod : Loader.instance().getModList())
+		if (!ModConfig.DisableAllLoggingAfterConfigIsLoaded())
 		{
-			LogHelper.info("Mod discovered: " + Mod.getName());
-			i++;
+			int i = 0;
+			for (ModContainer Mod : Loader.instance().getModList())
+			{
+				LogHelper.info("Mod discovered: " + Mod.getName());
+				i++;
+			}
+			LogHelper.info("Mods discovered: " + i);
 		}
-		LogHelper.info("Mods discovered: " + i);
 	}
 	
 	/**
@@ -145,7 +158,7 @@ public class Util
 	 */
 	public static void MassChangeStackSizesForAllNormalItemsAndBlocks(int Stacksize)
 	{
-		if (ModConfig.ChangeAllStackSizesToX() == 0)
+		if (ModConfig.ChangeAllStackSizesToX() <= 0)
 		{
 			LogHelper.info("Not changin stack sizes");
 		}
