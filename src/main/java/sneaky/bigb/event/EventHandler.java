@@ -8,7 +8,9 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.player.PlayerEvent.LoadFromFile;
 import net.minecraftforge.event.entity.player.PlayerEvent.StartTracking;
+import net.minecraftforge.event.world.WorldEvent.Load;
 
 /**
  * @author SneakyTactician
@@ -27,14 +29,20 @@ public class EventHandler
 
 	}
 	
-	//@SubscribeEvent
+	@Mod.EventHandler
 	public void OnFMLServerStartedEvent(FMLServerStartedEvent event)
 	{
 
 	}
 	
 	@SubscribeEvent
-	public void OnStartTracking(StartTracking event)
+	public void OnLoadEvent(Load event)
+	{
+		
+	}
+	
+	@SubscribeEvent
+	public void OnLoadFromFile(LoadFromFile event)
 	{
 		LogHelper.ErrorAlways("It Worked!");
 		this.CheckForUpdatesLaunch(event.entityPlayer);

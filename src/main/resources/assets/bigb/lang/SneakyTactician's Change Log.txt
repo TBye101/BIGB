@@ -505,4 +505,19 @@ Unstable Build 314-326 (7/25/2016):
 	-Working on performance and bug fixes
 Stable Build 327 (7/25/2016):
 	-Update checker works, but it won't stop working when it should
-Build 328
+Unstable Build 328-330 (7/26/2016):
+	-Fixed the update checker
+Stable Build 331 (7/26/2016):
+	-Verifying update checker
+Stable Build 332 (7/26/2016):
+	-Update checker doesn't process input properly
+	-hopefully fixed this
+Stable Build 333 (7/26/2016):
+	-Fixed up update checker
+Stable Build 334 (7/26/2016):
+	-Adding color
+Stable Build 335-339 (7/26/2016):
+	-Adding color
+	-It works!
+Build 340 (7/26/2016):
+	-

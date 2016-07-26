@@ -33,7 +33,6 @@ public class CheckForUpdates implements Runnable
 		try 
 		{
 			in = new URL("https://raw.githubusercontent.com/SneakyTactician/BIGB/master/Update").openStream();
-			LogHelper.ErrorAlways("URLUPDATEINFO:" + IOUtils.toString(in));
 		} 
 		catch (MalformedURLException e) 
 		{
@@ -46,9 +45,11 @@ public class CheckForUpdates implements Runnable
 
 		try 
 		{
-			latestVersion = IOUtils.toString(in);
+			byte[] b;
+			b = new byte[3];
 			
-			LogHelper.ErrorAlways("URLAFTERPROCESSING:" + String.valueOf(latestVersion));
+			in.read(b);
+			latestVersion = IOUtils.toString(b);
 		} 
 		catch (IOException e) 
 		{
@@ -58,17 +59,15 @@ public class CheckForUpdates implements Runnable
 		{
 			IOUtils.closeQuietly(in);
 		}
-		System.out.println("Latest mod version = " + latestVersion);
 		
-		if (Reference.Build != latestVersion)
-		{
-				String message = "Hey " + player.getDisplayName() + "! Your version of BIGB is out of date";
-				ChatUtil.SendChatMessageToPlayer(message, player);
-		}
-		else
-		{
-			String message = "Your BIGB is up to date!";
-			ChatUtil.SendChatMessageToPlayer(message, player);
-		}
+
+		
+		System.out.println("Latest " + Reference.BIGBSPELLING + " version = " + latestVersion);
+		System.out.println("You are running " + Reference.BIGBSPELLING + " version: " + Reference.Build);
+		String message = "Latest " + Reference.BIGBSPELLING + " version = " + latestVersion;
+		String message2 = "You are running " + Reference.BIGBSPELLING + " version: " + Reference.Build;
+		ChatUtil.SendChatMessageToPlayer(message, player);
+		ChatUtil.SendChatMessageToPlayer(message2, player);
+		IOUtils.closeQuietly(in);
 	}
 }
