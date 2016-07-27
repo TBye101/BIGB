@@ -144,7 +144,20 @@ public class Recipes
 		ShapelessReinforcedRedWall();
 		ShapelessReinforcedYellowWall();
 		ShapelessClearGlass();
+		ShapelessShockProofIlluminatedGlass();
 		LogHelper.info("Finished with shapeless recipe changes");
+	}
+	
+	public static void ShapelessShockProofIlluminatedGlass()
+	{
+		if (ModConfig.EnableShockProofIlluminatedGlass())
+		{
+			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.ShockProofIlluminatedGlass)), new Object[] {ModBlocks.shockproofclearglass, Items.glowstone_dust, Items.redstone});
+		}
+		else
+		{
+			LogHelper.info("Not registering a recipe for shock proof illuminated glass due to config settings");
+		}
 	}
 	
 	public static void ShapedTribaniumBouncePad()
@@ -173,7 +186,7 @@ public class Recipes
 	
 	public static void ShapelessClearGlass()
 	{
-		if (!ModConfig.DisableClearGlass())
+		if (ModConfig.EnableClearGlass())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.clearglass)), new Object[] {Blocks.glass});
 		}
@@ -235,7 +248,7 @@ public class Recipes
 	{
 		if (ModConfig.EnableFireDiamondCore() && ModConfig.EnableFireDiamond())
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(ModItems.FireDiamondCore), new Object[] {"A A", " A ", "A A", 'A', ModItems.FireDiamond});
+			GameRegistry.addShapedRecipe(new ItemStack(ModItems.FireDiamondCore), new Object[] {"AAA", "ABA", "AAA", 'A', ModItems.TribaniumIngot, 'B', ModItems.FireDiamond});
 		}
 		else
 		{
@@ -245,9 +258,9 @@ public class Recipes
 	
 	public static void ShapedSpeedBlock()
 	{
-		if (ModConfig.EnableSpeedBlock() && ModConfig.EnableTribaniumIngot() && ModConfig.EnableTribaniumOre() && ModConfig.EnableFireDiamond() && ModConfig.EnableFireDiamondCore() && ModConfig.EnableNatureDiamond() && ModConfig.EnableNatureDiamondCore() && ModConfig.EnableFireDiamondCoreSurroundedByDiamonds())
+		if (ModConfig.EnableSpeedBlock() && ModConfig.EnableTribaniumIngot() && ModConfig.EnableTribaniumOre() && ModConfig.EnableFireDiamond())
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.speedblock), 64), new Object[] {"ABA", "CDC", "ABA", 'A', ModItems.NatureDiamondCore, 'B', ModItems.TribaniumIngot, 'C', Items.iron_ingot, 'D', ModItems.FireDiamondCoreSurroundedByDiamonds});
+			GameRegistry.addShapedRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.speedblock), 64), new Object[] {"BBB", "BAB", "BBB", 'A', ModItems.FireDiamondCore, 'B', ModItems.TribaniumIngot});
 		}
 		else
 		{
@@ -269,7 +282,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedYellowWall()
 	{
-		if (!ModConfig.DisableReinforcedYellowWall())
+		if (ModConfig.EnableReinforcedYellowWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedyellowwall), 2), new Object[] {MetaRecipes.CreateDandelionYellow(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -281,7 +294,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedRedWall()
 	{
-		if (!ModConfig.DisableReinforcedRedWall())
+		if (ModConfig.EnableReinforcedRedWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedredwall), 2), new Object[] {MetaRecipes.CreateRoseRed(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -293,7 +306,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedPurpleWall()
 	{
-		if (!ModConfig.DisableReinforcedPurpleWall())
+		if (ModConfig.EnableReinforcedPurpleWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpurplewall), 2), new Object[] {MetaRecipes.CreatePurpleDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -305,7 +318,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedPinkWall()
 	{
-		if (!ModConfig.DisableReinforcedPinkWall())
+		if (ModConfig.EnableReinforcedPinkWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedpinkwall), 2), new Object[] {MetaRecipes.CreatePinkDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -317,7 +330,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedOrangeWall()
 	{
-		if (!ModConfig.DisableReinforcedOrangeWall())
+		if (ModConfig.EnableReinforcedOrangeWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedorangewall), 2), new Object[] {MetaRecipes.CreateOrangeDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -329,7 +342,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedLightBlueWall()
 	{
-		if (!ModConfig.DisableReinforcedLightBlueWall())
+		if (ModConfig.EnableReinforcedLightBlueWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlightbluewall), 2), new Object[] {MetaRecipes.CreateLightBlueDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -341,7 +354,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedDarkBlueWall()
 	{
-		if (!ModConfig.DisableReinforcedDarkBlueWall())
+		if (ModConfig.EnableReinforcedDarkBlueWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforceddarkbluewall), 2), new Object[] {MetaRecipes.CreateLapisLazuli(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -353,7 +366,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedBlueWall()
 	{
-		if (!ModConfig.DisableReinforcedBlueWall())
+		if (ModConfig.EnableReinforcedBlueWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedbluewall), 2), new Object[] {MetaRecipes.CreateCyanDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -365,7 +378,7 @@ public class Recipes
 	
 	public static void ShapelessReinforcedLimeGreenWall()
 	{
-		if (!ModConfig.DisableReinforcedLimeGreenWall())
+		if (ModConfig.EnableReinforcedLimeGreenWall())
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.reinforcedlimegreenwall), 2), new Object[] {MetaRecipes.CreateLimeDye(), new ItemStack(Blocks.obsidian, 4)});
 		}
@@ -377,7 +390,7 @@ public class Recipes
 	
 	public static void ShapedShockProofClearGlass()
 	{
-		if (!ModConfig.DisableShockProofClearGlass())
+		if (ModConfig.EnableShockProofClearGlass())
 		{
 			GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.shockproofclearglass), 4), new Object[] {"ABA", "BBB", "ABA", 'A', Blocks.obsidian, 'B', Blocks.glass});
 		}
@@ -392,7 +405,7 @@ public class Recipes
 	 */
 	public static void ShapedInvisibleBlock()
 	{
-		if (!ModConfig.DisableInvisibleBlock())
+		if (ModConfig.EnableInvisibleBlock())
 		{
 			GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ModBlocks.invisibleblock), 8), new Object[] {"AAA", "ABA", "AAA", 'A', Blocks.glass, 'B', Items.diamond});
 		}

@@ -523,5 +523,17 @@ Stable Build 340  (7/26/2016):
 	-Working on UBC Ore Compat
 Stable Build 341 (7/26/2016):
 	-Removed unused, useless, and bug causing code
-Build 342 (7/26/2016):
+Stable Build 342 (7/26/2016):
+	-Changed speed block recipes to be cheaper
+	-Testing update checker
+Unstable Build 343 (7/26/2016):
+	-Changed some config setting defaults
+	-Changed most config settings to the "enable" model for user and programmer ease of use
+Stable Build 344 (7/26/2016):
+	-Fixed a config setting
+Stable Releasable Build 345 (7/26/2016):
+	-Working on the Shock Proof Illuminated Glass block
+		-Finished
+Build 346 (7/26/2016):
 	-
+		

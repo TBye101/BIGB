@@ -21,7 +21,7 @@ public class Reference
 	 */
 	public static final String VERSION = "1.0";
 	
-	public static final String Build = "342";
+	public static final String Build = "345";
 	
 	public static String BIGBSPELLING = "\u00A7I\u00A7aB\u00A7r\u00A7I\u00A7bI\u00A7r\u00A7I\u00A7cG\u00A7r\u00A7I\u00A7dB\u00A7r";
 	

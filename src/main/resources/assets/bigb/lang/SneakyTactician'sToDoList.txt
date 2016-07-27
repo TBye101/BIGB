@@ -1,16 +1,14 @@
 This is a to do list
 
 High Priority:
-Change Speed block recipe to be cheaper
-Finish Bouncepad
 Create freeze blocks
 
 Medium Priority:
-Make a shockproof glass that emits light (maybe several tiers?)
 Integrate With UBC (Underground Biomes Constructs)
-Finish World gen stuff
-
+Create a better workbench
+Auto Sorting between multiple chests
 Low Priority:
 
-Create "Kitty Flower"
 Fix the IEvil concept
+Create "Kitty Flower"
+Finish World gen stuff

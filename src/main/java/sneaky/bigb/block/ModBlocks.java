@@ -22,6 +22,7 @@ import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.helpers.RegisterHelper;
 import sneaky.bigb.lib.auto.AutoItemAndBlock;
 import sneaky.bigb.lib.auto.block.AutoBouncePad;
+import sneaky.bigb.lib.auto.block.AutoShockProofIlluminatedGlass;
 import sneaky.bigb.lib.auto.create.AutoBlock;
 import sneaky.bigb.main.Reference;
 import sneaky.bigb.tabs.ModTabs;
@@ -52,6 +53,7 @@ public class ModBlocks
 	//AutoBlocks
 	public static Block TribaniumOre = new AutoBlock(Material.ground, false, 15, 15, 5, "pickaxe", 2, Block.soundTypeStone, "Tribanium", ModTabs.maintab, 5, false, true, "Tribanium");
 	public static Block TribaniumBouncePad = new AutoBouncePad(10F, 5F, 2, "TribaniumBouncePad", ModTabs.maintab, Reference.MODID + ":BouncePad64", 1.9F, 10F);
+	public static Block ShockProofIlluminatedGlass = new AutoShockProofIlluminatedGlass(5F, 50F, 0, 0, Block.soundTypeGlass, "ShockProofIlluminatedGlass", ModTabs.maintab, 15, Reference.MODID + ":ClearGlassAllEdges64");
 	
 	public static void RegisterAll()
 	{
@@ -71,6 +73,19 @@ public class ModBlocks
 		RegisterTribaniumOre();
 		RegisterSpeedBlock();
 		RegisterTribaniumBoundPad();
+		RegisterShockProofIlluminatedGlass();
+	}
+	
+	public static void RegisterShockProofIlluminatedGlass()
+	{
+		if (ModConfig.EnableShockProofIlluminatedGlass())
+		{
+			RegisterHelper.registerBlock(ShockProofIlluminatedGlass);
+		}
+		else
+		{
+			LogHelper.info("Not registering shock proof illuminated glass due to config settings");
+		}
 	}
 	
 	public static void RegisterTribaniumBoundPad()
@@ -111,7 +126,7 @@ public class ModBlocks
 	
 	public static void RegisterYellowWall()
 	{
-		if (ModConfig.DisableReinforcedYellowWall())
+		if (!ModConfig.EnableReinforcedYellowWall())
 		{
 			LogHelper.info("Not registering reinforced yellow wall because of config settings.");
 		}
@@ -123,7 +138,7 @@ public class ModBlocks
 	
 	public static void RegisterRedWall()
 	{
-		if (ModConfig.DisableReinforcedRedWall())
+		if (!ModConfig.EnableReinforcedRedWall())
 		{
 			LogHelper.info("Not registering reinforced red wall because of config settings.");
 		}
@@ -135,7 +150,7 @@ public class ModBlocks
 	
 	public static void RegisterPurpleWall()
 	{
-		if (ModConfig.DisableReinforcedPurpleWall())
+		if (!ModConfig.EnableReinforcedPurpleWall())
 		{
 			LogHelper.info("Not registering reinforced purple wall because of config settings.");
 		}
@@ -147,7 +162,7 @@ public class ModBlocks
 	
 	public static void RegisterPinkWall()
 	{
-		if (ModConfig.DisableReinforcedPinkWall())
+		if (!ModConfig.EnableReinforcedPinkWall())
 		{
 			LogHelper.info("Not registering reinforced pink wall because of config settings.");
 		}
@@ -159,7 +174,7 @@ public class ModBlocks
 	
 	public static void RegisterOrangeWall()
 	{
-		if (ModConfig.DisableReinforcedOrangeWall())
+		if (!ModConfig.EnableReinforcedOrangeWall())
 		{
 			LogHelper.info("Not registering reinforced orange wall because of config settings.");
 		}
@@ -171,7 +186,7 @@ public class ModBlocks
 	
 	public static void RegisterLightBlueWall()
 	{
-		if (ModConfig.DisableReinforcedLightBlueWall())
+		if (!ModConfig.EnableReinforcedLightBlueWall())
 		{
 			LogHelper.info("Not registering reinforced light blue wall because of config settings.");
 		}
@@ -183,7 +198,7 @@ public class ModBlocks
 	
 	public static void RegisterDarkBlueWall()
 	{
-		if (ModConfig.DisableReinforcedLimeGreenWall())
+		if (!ModConfig.EnableReinforcedLimeGreenWall())
 		{
 			LogHelper.info("Not registering reinforced dark blue wall because of config settings.");
 		}
@@ -195,7 +210,7 @@ public class ModBlocks
 	
 	public static void RegisterBlueWall()
 	{
-		if (ModConfig.DisableReinforcedBlueWall())
+		if (!ModConfig.EnableReinforcedBlueWall())
 		{
 			LogHelper.info("Not registering reinforced blue wall because of config settings.");
 		}
@@ -207,7 +222,7 @@ public class ModBlocks
 	
 	public static void RegisterLimeGreenWall()
 	{
-		if (ModConfig.DisableReinforcedLimeGreenWall())
+		if (!ModConfig.EnableReinforcedLimeGreenWall())
 		{
 			LogHelper.info("Not registering reinforced lime green wall because of config settings.");
 		}
@@ -219,7 +234,7 @@ public class ModBlocks
 	
 	public static void RegisterShockProofClearGlass()
 	{
-		if (ModConfig.DisableShockProofClearGlass())
+		if (!ModConfig.EnableShockProofClearGlass())
 		{
 			LogHelper.info("Not registering shock proof clear glass because of config settings.");
 		}
@@ -231,7 +246,7 @@ public class ModBlocks
 	
 	public static void RegisterInvisibleBlock()
 	{
-		if (ModConfig.DisableClearGlass())
+		if (!ModConfig.EnableClearGlass())
 		{
 			LogHelper.info("Not registering invisible block because of config settings.");
 		}
@@ -243,7 +258,7 @@ public class ModBlocks
 	
 	public static void RegisterClearGlass()
 	{
-		if (ModConfig.DisableClearGlass())
+		if (!ModConfig.EnableClearGlass())
 		{
 			LogHelper.info("Not registering clear glass because of config settings.");
 		}
@@ -255,7 +270,7 @@ public class ModBlocks
 	
 	public static void RegisterTestBlock()
 	{
-		if (ModConfig.DisableTestBlock())
+		if (!ModConfig.EnableTestBlock())
 		{
 			LogHelper.info("Not registering test block because of config settings");
 		}

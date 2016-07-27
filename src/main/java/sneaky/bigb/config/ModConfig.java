@@ -49,20 +49,20 @@ public class ModConfig
 	{
 		DisableAllRecipes();
 		TextureLevel();
-		DisableClearGlass();
-		DisableTestBlock();
-		DisableInvisibleBlock();
-		DisableShockProofClearGlass();
-		DisableReinforcedLimeGreenWall();
+		EnableClearGlass();
+		EnableTestBlock();
+		EnableInvisibleBlock();
+		EnableShockProofClearGlass();
+		EnableReinforcedLimeGreenWall();
 		ChangeAllStackSizesToX();
-		DisableReinforcedYellowWall();
-		DisableReinforcedRedWall();
-		DisableReinforcedPurpleWall();
-		DisableReinforcedPinkWall();
-		DisableReinforcedOrangeWall();
-		DisableReinforcedLightBlueWall();
-		DisableReinforcedDarkBlueWall();
-		DisableReinforcedBlueWall();
+		EnableReinforcedYellowWall();
+		EnableReinforcedRedWall();
+		EnableReinforcedPurpleWall();
+		EnableReinforcedPinkWall();
+		EnableReinforcedOrangeWall();
+		EnableReinforcedLightBlueWall();
+		EnableReinforcedDarkBlueWall();
+		EnableReinforcedBlueWall();
 		DisableAllLoggingAfterConfigIsLoaded();
 		EnableSpeedBlock();
 		AutoConfig();
@@ -122,6 +122,12 @@ public class ModConfig
 		EnableNatureDiamondCore();
 		EnableTribaniumBouncePad();
 		EnableTribaniumSpring();
+		EnableShockProofIlluminatedGlass();
+	}
+	
+	public static boolean EnableShockProofIlluminatedGlass()
+	{
+		return config.getBoolean("EnableShockProofIlluminatedGlass", "AutoBlocks", true, "If true, BIGB will register shock proof illuminated glass with Minecraft");
 	}
 	
 	public static boolean EnableTribaniumSpring()
@@ -200,44 +206,44 @@ public class ModConfig
 		return config.getBoolean("DisableAllEMC", "ProjectE", false, "If true, this mod will disable all EMC values");
 	}
 	
-	public static boolean DisableReinforcedBlueWall()
+	public static boolean EnableReinforcedBlueWall()
 	{
-		return config.getBoolean("DisableReinforcedBlueWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedBlueWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedDarkBlueWall()
+	public static boolean EnableReinforcedDarkBlueWall()
 	{
-		return config.getBoolean("DisableReinforcedDarkBlueWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedDarkBlueWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedLightBlueWall()
+	public static boolean EnableReinforcedLightBlueWall()
 	{
-		return config.getBoolean("DisableReinforcedLightBlueWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedLightBlueWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedOrangeWall()
+	public static boolean EnableReinforcedOrangeWall()
 	{
-		return config.getBoolean("DisableReinforcedOrangeWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedOrangeWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedPinkWall()
+	public static boolean EnableReinforcedPinkWall()
 	{
-		return config.getBoolean("DisableReinforcedPinkWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedPinkWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedPurpleWall()
+	public static boolean EnableReinforcedPurpleWall()
 	{
-		return config.getBoolean("DisableReinforcedPurpleWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedPurpleWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedRedWall()
+	public static boolean EnableReinforcedRedWall()
 	{
-		return config.getBoolean("DisableReinforcedRedWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedRedWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
-	public static boolean DisableReinforcedYellowWall()
+	public static boolean EnableReinforcedYellowWall()
 	{
-		return config.getBoolean("DisableReinforcedYellowWall", "Blocks", false, "If this setting is true, this mod will not register this block");
+		return config.getBoolean("EnableReinforcedYellowWall", "Blocks", true, "If this setting is false, this mod will not register this block");
 	}
 	
 	public static int ChangeAllStackSizesToX()
@@ -245,31 +251,31 @@ public class ModConfig
 		return config.getInt("ChangeAllStackSizesToX", "Other", 0, 0, 64, "This setting changes whether or not this mod will make massive stack changes to all items. If 0, no changes. Any other value will make the changes.");
 	}
 	
-	public static boolean DisableReinforcedLimeGreenWall()
+	public static boolean EnableReinforcedLimeGreenWall()
 	{
-		return config.getBoolean("DisableReinforcedLimeGreenWall", "Blocks", false, "If this is true, then this mod will not register reinforced lime green wall with minecraft.");
+		return config.getBoolean("EnableReinforcedLimeGreenWall", "Blocks", true, "If this is false, then this mod will not register reinforced lime green wall with minecraft.");
 	}
 	
-	public static boolean DisableShockProofClearGlass()
+	public static boolean EnableShockProofClearGlass()
 	{
-		return config.getBoolean("DisableShockProofClearGlass", "Blocks", false, "If this is true, this mod will disable shock proof glass.");
+		return config.getBoolean("EnableShockProofClearGlass", "Blocks", true, "If this is false, this mod will disable shock proof glass.");
 	}
 	
-	public static boolean DisableInvisibleBlock()
+	public static boolean EnableInvisibleBlock()
 	{
-		return config.getBoolean("DisableInvisibleBlock", "Blocks", false, "If true, this mod will not register the invisible block with Minecraft.");
+		return config.getBoolean("EnableInvisibleBlock", "Blocks", true, "If false, this mod will not register the invisible block with Minecraft.");
 	}
 	
-	public static boolean DisableTestBlock()
+	public static boolean EnableTestBlock()
 	{
-		return config.getBoolean("DisableTestBlock", "Blocks", true, "If true, this mod will not register the test block with the game. This block has no real purpose, for dev use only.");
+		return config.getBoolean("EnableTestBlock", "Blocks", false, "If false, this mod will not register the test block with the game. This block has no real purpose, for dev use only.");
 	}
 	
-	public static boolean DisableClearGlass()
+	public static boolean EnableClearGlass()
 	{
-		return config.getBoolean("DisableClearGlass", "Blocks", false, "If true, this mod will not register the clear glass block with the game.");
+		return config.getBoolean("EnableClearGlass", "Blocks", true, "If false, this mod will not register the clear glass block with the game.");
 	}
-	
+	//////////////////////////////////////////
 	public static int TextureLevel()
 	{
 		return config.getInt("GraphicsLevel", "Other", 3, 1, 3, "1 means to use 16x textures, 2 is 32x textures, and 3 is 64x textures");
@@ -288,32 +294,32 @@ public class ModConfig
 	
 	public static boolean DisableChestRecipe()
 	{
-		return config.getBoolean("DisableChestRailRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the chest recipe");
+		return config.getBoolean("DisableChestRailRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the chest recipe");
 	}
 	
 	public static boolean DisablePoweredRailRecipe()
 	{
-		return config.getBoolean("DisablePoweredRailRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the powered rail recipe");
+		return config.getBoolean("DisablePoweredRailRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the powered rail recipe");
 	}
 	
 	public static boolean DisableNoteBlockRecipe()
 	{
-		return config.getBoolean("DisableNoteBlockRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the noteblock recipe");
+		return config.getBoolean("DisableNoteBlockRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the noteblock recipe");
 	}
 	
 	public static boolean DisableSandStoneRecipe()
 	{
-		return config.getBoolean("DisableSandStoneRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the sandstone recipe");
+		return config.getBoolean("DisableSandStoneRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the sandstone recipe");
 	}
 	
 	public static boolean DisableLeatherRecipe()
 	{
-		return config.getBoolean("DisableLeatherRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the leather recipe");
+		return config.getBoolean("DisableLeatherRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the leather recipe");
 	}
 	
 	public static boolean DisableAnvilRecipe()
 	{
-		return config.getBoolean("DisableAnvilRecipe", "Minecraft", false, "If true, this mod will not do it's changes to the anvil recipe");
+		return config.getBoolean("DisableAnvilRecipe", "Minecraft", true, "If true, this mod will not do it's changes to the anvil recipe");
 	}
 	
 	public static boolean DoModIntegrationsIfPossible()
