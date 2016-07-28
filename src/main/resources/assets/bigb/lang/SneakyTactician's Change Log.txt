@@ -534,6 +534,26 @@ Stable Build 344 (7/26/2016):
 Stable Releasable Build 345 (7/26/2016):
 	-Working on the Shock Proof Illuminated Glass block
 		-Finished
-Build 346 (7/26/2016):
-	-
-		
+Stable Build 346 (7/26/2016):
+	-Changed Bounce Pad to bounce when walken on too
+	-Added magical crops to the build path
+Unstable Build 347 (7/26/2016):
+	-Added API's that deal with chat, and color codes
+	-Removed magical crops from build path, as they expose no api's to help integrate with them
+	-Added thermal expansion to build path
+	-Fixed incorrect logging messages
+	-Added thermal expansion compat class
+	-Added in Tribanium Dust
+	-Added compatibility with the pulverizer
+	-Added a smelting recipe for tribanium dust
+Unstable Build 348-349 (7/28/2016):
+	-Working on fixing a nullpointerexception
+Stable Build 350 (7/28/2016):
+	-Fixed NullPointerException
+	-Tweaking Pulverizer Recipe
+	-Customizing Pulverizer Recipe
+	-Updating en_US file
+Stable Build 351-352 (7/28/2016):
+	-Tweaked Pulverizer recipes
+Stable Release Build 353 (7/28/2016):
+	-Releasing

@@ -39,6 +39,7 @@ public class AutoBouncePad extends Block
 		this.setBlockTextureName(TextureName);
 		this.BMultiplyer = BounceMultiplier;
 		this.MaxVelocity = MaxYVelocity;
+		
 	}
 	
 	
@@ -47,6 +48,14 @@ public class AutoBouncePad extends Block
 	 */
 	@Override
 	public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fl)
+	{
+		entity.addVelocity(0, Util.rand.nextInt(5), 0);
+		entity.velocityChanged = true;
+		entity.fallDistance = 0.0F;
+	}
+	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
 		entity.addVelocity(0, Util.rand.nextInt(5), 0);
 		entity.velocityChanged = true;

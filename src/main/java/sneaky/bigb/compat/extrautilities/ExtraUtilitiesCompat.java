@@ -29,8 +29,8 @@ public class ExtraUtilitiesCompat
 	 */
 	public static void postInit()
 	{
-		LogHelper.info("ProjectE compat postInit started");
+		LogHelper.info("Extra Utilities compat postInit started");
 		ExtraUtilitiesCrafting.RegisterAll();
-		LogHelper.info("ProjectE compat postInit finished");
+		LogHelper.info("Extra Utilities compat postInit finished");
 	}
 }

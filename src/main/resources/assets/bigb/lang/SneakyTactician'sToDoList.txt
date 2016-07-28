@@ -8,7 +8,7 @@ Integrate With UBC (Underground Biomes Constructs)
 Create a better workbench
 Auto Sorting between multiple chests
 Low Priority:
-
+Create modular storage and crafting system, similar to me, but better and less cabling and stuff
 Fix the IEvil concept
 Create "Kitty Flower"
 Finish World gen stuff

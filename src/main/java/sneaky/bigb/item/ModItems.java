@@ -23,6 +23,7 @@ public class ModItems
 	//AutoItems
 	public static Item NatureDiamondCore = new AutoItem(false, ModTabs.maintab, 64, "NatureDiamondCore", "NatureDiamondCore");
 	public static Item TribaniumSpring = new AutoItem(true, ModTabs.maintab, 64, "TribaniumSpring64", "TribaniumSpring");
+	public static Item TribaniumDust = new AutoItem(true, ModTabs.maintab, 64, "TribaniumDust", "TribaniumDust");
 	
 	/**
 	 * Attempts to register all of the items in this class.
@@ -36,6 +37,19 @@ public class ModItems
 		RegisterNatureDiamond();
 		RegisterNatureDiamondCore();
 		RegisterTribaniumSpring();
+		RegisterTribaniumDust();
+	}
+	
+	public static void RegisterTribaniumDust()
+	{
+		if (ModConfig.EnableTribaniumOre())
+		{
+			RegisterHelper.registerItem(TribaniumDust);
+		}
+		else
+		{
+			LogHelper.info("Not registering Tribanium Dust due to config settings");
+		}
 	}
 	
 	public static void RegisterTribaniumSpring()

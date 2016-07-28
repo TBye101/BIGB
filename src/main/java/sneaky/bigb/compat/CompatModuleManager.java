@@ -5,8 +5,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import sneaky.bigb.compat.UBC.UBCCompat;
 import sneaky.bigb.compat.extrautilities.ExtraUtilitiesCompat;
 import sneaky.bigb.compat.projecte.ProjectECompat;
+import sneaky.bigb.compat.thermal.ThermalExpansionCompat;
 import sneaky.bigb.helpers.LogHelper;
 
+/**
+ * @author SneakyTactician
+ * A class that figures out what compat modules to run, depending on what other mods are present.
+ */
 public class CompatModuleManager
 {
 	
@@ -14,6 +19,7 @@ public class CompatModuleManager
 	public static boolean ProjectE = false;
 	public static boolean ExtraUtilities = false;
 	public static boolean UBC = false;
+	public static boolean ThermalExpansion = false;
 	
 	public static void PreInitAll(FMLPreInitializationEvent event)
 	{
@@ -30,6 +36,11 @@ public class CompatModuleManager
 		if (UBC)
 		{
 			UBCCompat.PreInit(event);
+		}
+		
+		if (ThermalExpansion)
+		{
+			ThermalExpansionCompat.preInit(event);
 		}
 	}
 	
@@ -49,6 +60,11 @@ public class CompatModuleManager
 		{
 			UBCCompat.Init();
 		}
+		
+		if (ThermalExpansion)
+		{
+			ThermalExpansionCompat.Init();
+		}
 	}
 	
 	public static void PostInitAll()
@@ -67,6 +83,11 @@ public class CompatModuleManager
 		{
 			UBCCompat.PostInit();
 		}
+		
+		if (ThermalExpansion)
+		{
+			ThermalExpansionCompat.postInit();
+		}
 	}
 	
 	/**
@@ -78,6 +99,17 @@ public class CompatModuleManager
 		DetectProjectE();
 		DetectExtraUtilities();
 		DetectUBC();
+		DetectThermalExpansion();
+	}
+	
+	public static void DetectThermalExpansion()
+	{
+		Loader.instance();
+		if (Loader.isModLoaded("ThermalExpansion"))
+		{
+			LogHelper.info("Detected Thermal Expansion for mod compatibility");
+			ThermalExpansion = true;
+		}
 	}
 	
 	public static void DetectUBC()
