@@ -66,6 +66,7 @@ public class ModConfig
 		DisableAllLoggingAfterConfigIsLoaded();
 		EnableSpeedBlock();
 		AutoConfig();
+		EnableBIGStorageSystem();
 	}
 	
 	/**
@@ -123,6 +124,11 @@ public class ModConfig
 		EnableTribaniumBouncePad();
 		EnableTribaniumSpring();
 		EnableShockProofIlluminatedGlass();
+	}
+	
+	public static boolean EnableBIGStorageSystem()
+	{
+		return config.getBoolean("EnableBIGStorageSystem", "Other", true, "If true, BIGB will load the BIG Storage system in to the game");
 	}
 	
 	public static boolean EnableShockProofIlluminatedGlass()

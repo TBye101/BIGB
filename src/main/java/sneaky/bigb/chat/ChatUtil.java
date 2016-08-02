@@ -3,13 +3,39 @@ package sneaky.bigb.chat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
+import sneaky.bigb.main.Util;
 
+/**
+ * @author SneakyTactician
+ * A class that holds all sorts of functions to do with Minecraft's chat.
+ */
 public class ChatUtil
 {
+	/**
+	 * Sends a chat message to a specific player.
+	 */
 	public static void SendChatMessageToPlayer(String message, EntityPlayer player)
 	{
 		IChatComponent Chatmessage = new ChatComponentText(message);
 		player.addChatComponentMessage(Chatmessage);
+	}
+	
+	/**
+	 * Sends a chat message to all players.
+	 */
+	public static void SendChatMessageToAllPlayers(String message)
+	{
+		IChatComponent Chatmessage = new ChatComponentText(message);
+		
+		int i = 0;
+		int siz = Util.world.playerEntities.size();
+		
+		while (i != siz)
+		{
+			EntityPlayer player = (EntityPlayer) Util.world.playerEntities.get(i);
+			player.addChatComponentMessage(Chatmessage);
+			i++;
+		}
 	}
 	
 	public static void AddBlackString(String car, String str)

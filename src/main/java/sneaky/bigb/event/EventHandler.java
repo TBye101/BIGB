@@ -2,6 +2,7 @@ package sneaky.bigb.event;
 
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.main.Util;
 import sneaky.bigbproxies.ClientProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
@@ -32,7 +33,7 @@ public class EventHandler
 	@Mod.EventHandler
 	public void OnFMLServerStartedEvent(FMLServerStartedEvent event)
 	{
-
+		
 	}
 	
 	@SubscribeEvent
@@ -46,6 +47,7 @@ public class EventHandler
 	{
 		LogHelper.ErrorAlways("It Worked!");
 		this.CheckForUpdatesLaunch(event.entityPlayer);
+		Util.world = event.entity.worldObj;
 	}
 	
 	public void CheckForUpdatesLaunch(EntityPlayer player)

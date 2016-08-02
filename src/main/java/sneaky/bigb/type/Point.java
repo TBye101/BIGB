@@ -6,7 +6,33 @@ package sneaky.bigb.type;
  */
 public class Point
 {
+	/**
+	 * The x location of something.
+	 */
 	public int x;
+	
+	
+	/**
+	 * The y location of something.
+	 */
 	public int y;
+	
+	/**
+	 * The z location of something.
+	 */
 	public int z;
+	
+	/**
+	 * The constructor for the Point class.
+	 */
+	public Point()
+	{
+		
+	}
+	public Point (int X, int Y, int Z)
+	{
+		this.x = X;
+		this.y = Y;
+		this.z = Z;
+	}
 }

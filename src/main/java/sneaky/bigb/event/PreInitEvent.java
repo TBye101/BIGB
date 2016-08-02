@@ -9,6 +9,7 @@ import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.MinecraftForge;
 import sneaky.bigb.block.ModBlocks;
 import sneaky.bigb.compat.CompatModuleManager;
@@ -27,9 +28,9 @@ public class PreInitEvent
 	public void Go(FMLPreInitializationEvent event)
 	{
 		LogHelper.info("BIGB (Because I Got Bored) is starting up!");
+		LogHelper.info("BIGB preinit started");
 		FMLCommonHandler.instance().bus().register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
-		LogHelper.info("BIGB preinit started");
 		CompatModuleManager.DetectAll();
 		ModConfig.LoadAll(event);
 		Reference.IsConfigLoaded = true;

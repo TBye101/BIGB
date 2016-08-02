@@ -557,3 +557,33 @@ Stable Build 351-352 (7/28/2016):
 	-Tweaked Pulverizer recipes
 Stable Release Build 353 (7/28/2016):
 	-Releasing
+Unstable Build 354 (7/28/2016):
+	-Begun work on BIG storage
+	-Added IBigStorage interface
+	-Added BIGStorageController class
+	-Checking size of code, just out of curiosity
+Stable Build 355 (7/28/2016):
+	-Created the Storage Stack Class
+	-Organized Textures
+	-Testing Textures
+Stable Build 356 (7/28/2016):
+	-Fixing texture issue
+Stable 357-360 (7/29/2016):
+	-Fixing texture issue
+Stable Build 361 (7/29/2016):
+	-Added WoodenStorage
+	-Testing WoodenStorage
+	-Forgot to register WoodenStorage (:()
+Stable Build 362 (7/29/2016):
+	-Registered WoodenStorage
+Unstable Build 363 (7/29/2016):
+	-Updated en_US file
+Unstable Build 364 (8/1/2016):
+	-Debugging a bug
+	-Documented some code
+	-Added new chat functions
+	-World instance is still null (HOW?)
+Unstable Build 365-366 (8/1/2016):
+	-Attempting to get a world object
+Build 367-374 (8/1/2016):
+	-Debugging blocks

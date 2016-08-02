@@ -3,6 +3,8 @@ package sneaky.bigb.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import sneaky.bigb.bigstorage.controllers.WoodenController;
+import sneaky.bigb.bigstorage.storage.WoodenStorage;
 import sneaky.bigb.block.assorted.SpeedBlock;
 import sneaky.bigb.block.glass.clearglass.ClearGlass;
 import sneaky.bigb.block.glass.shockproofclearglass.ShockProofClearGlass;
@@ -55,6 +57,10 @@ public class ModBlocks
 	public static Block TribaniumBouncePad = new AutoBouncePad(10F, 5F, 2, "TribaniumBouncePad", ModTabs.maintab, Reference.MODID + ":BouncePad64", 1.9F, 10F);
 	public static Block ShockProofIlluminatedGlass = new AutoShockProofIlluminatedGlass(5F, 50F, 0, 0, Block.soundTypeGlass, "ShockProofIlluminatedGlass", ModTabs.maintab, 15, Reference.MODID + ":ClearGlassAllEdges64");
 	
+	//BIGStorage Blocks
+	public static Block WoodController = new WoodenController();
+	public static Block WoodStorage = new WoodenStorage();
+	
 	public static void RegisterAll()
 	{
 		RegisterClearGlass();
@@ -74,6 +80,32 @@ public class ModBlocks
 		RegisterSpeedBlock();
 		RegisterTribaniumBoundPad();
 		RegisterShockProofIlluminatedGlass();
+		RegisterWoodenController();
+		RegisterWoodenStorage();
+	}
+	
+	public static void RegisterWoodenStorage()
+	{
+		if (ModConfig.EnableBIGStorageSystem())
+		{
+			RegisterHelper.registerBlock(WoodStorage);
+		}
+		else
+		{
+			LogHelper.info("Not registering Wooden Storage due to config settings");
+		}
+	}
+	
+	public static void RegisterWoodenController()
+	{
+		if (ModConfig.EnableBIGStorageSystem())
+		{
+			RegisterHelper.registerBlock(WoodController);
+		}
+		else
+		{
+			LogHelper.info("Not registering Wooden controller due to config settings");
+		}
 	}
 	
 	public static void RegisterShockProofIlluminatedGlass()

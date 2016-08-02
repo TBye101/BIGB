@@ -5,10 +5,8 @@ Create freeze blocks
 
 Medium Priority:
 Integrate With UBC (Underground Biomes Constructs)
-Create a better workbench
-Auto Sorting between multiple chests
 Low Priority:
-Create modular storage and crafting system, similar to me, but better and less cabling and stuff
+Create modular storage and crafting system, similar to me, but better and less cabling and stuff (Name: BIG storage)
 Fix the IEvil concept
 Create "Kitty Flower"
 Finish World gen stuff
