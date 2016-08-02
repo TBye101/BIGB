@@ -15,10 +15,19 @@ import sneaky.bigb.type.Point;
  */
 public class BIGStorageNonController extends Block
 {
+	/**
+	 * The location of this block in the Minecraft world.
+	 */
 	public Point OurLocation;
 	
+	/**
+	 * If true, then this block is connected to the controller.
+	 */
 	public boolean Connected = false;
 	
+	/**
+	 * The controller that is in charge of the network this block is part of.
+	 */
 	public BIGStorageController TheController;
 	
 	/**
@@ -87,7 +96,7 @@ public class BIGStorageNonController extends Block
 		Five = Util.world.getBlock(OurLocation.x, OurLocation.y, OurLocation.z + 1);
 		Six = Util.world.getBlock(OurLocation.x, OurLocation.y, OurLocation.z - 1);
 		
-		if (BIGStorageUtil.IsBIGStorage(One))
+		if (BIGStorageUtil.IsBIGStorage(One) && BIGStorageUtil.IsController(One) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) One;
 			return block.TheController;
@@ -99,7 +108,7 @@ public class BIGStorageNonController extends Block
 			return a;
 		}
 		
-		if (BIGStorageUtil.IsBIGStorage(Two))
+		if (BIGStorageUtil.IsBIGStorage(Two) && BIGStorageUtil.IsController(Two) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) Two;
 			return block.TheController;
@@ -111,7 +120,7 @@ public class BIGStorageNonController extends Block
 			return a;
 		}
 		
-		if (BIGStorageUtil.IsBIGStorage(Three))
+		if (BIGStorageUtil.IsBIGStorage(Three) && BIGStorageUtil.IsController(Three) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) Three;
 			return block.TheController;
@@ -123,7 +132,7 @@ public class BIGStorageNonController extends Block
 			return a;
 		}
 		
-		if (BIGStorageUtil.IsBIGStorage(Four))
+		if (BIGStorageUtil.IsBIGStorage(Four) && BIGStorageUtil.IsController(Four) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) Four;
 			return block.TheController;
@@ -135,7 +144,7 @@ public class BIGStorageNonController extends Block
 			return a;
 		}
 		
-		if (BIGStorageUtil.IsBIGStorage(Five))
+		if (BIGStorageUtil.IsBIGStorage(Five) && BIGStorageUtil.IsController(Five) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) Five;
 			return block.TheController;
@@ -147,7 +156,7 @@ public class BIGStorageNonController extends Block
 			return a;
 		}
 		
-		if (BIGStorageUtil.IsBIGStorage(Six))
+		if (BIGStorageUtil.IsBIGStorage(Six) && BIGStorageUtil.IsController(Six) != true)
 		{
 			BIGStorageNonController block = (BIGStorageNonController) Six;
 			return block.TheController;
@@ -170,23 +179,21 @@ public class BIGStorageNonController extends Block
 		if (this.AreWeConnected())
 		{
 			ChatUtil.SendChatMessageToAllPlayers("We are connected!");
-			LogHelper.InfoAlways("We are connected");
+			
 			this.TheController = this.GetController();
+			
 			if (this.TheController != null)
 			{
-				ChatUtil.SendChatMessageToAllPlayers("Got it!");
-				LogHelper.InfoAlways("Got it!");
+				this.TheController.MassSendNetworkBlockAddedEvent((IBIGStorage)this, world, x, y, z);
 			}
 			else
 			{
-				ChatUtil.SendChatMessageToAllPlayers("Controller is null!");
 				LogHelper.InfoAlways("Controller is null!");
 			}
 		}
 		else
 		{
 			ChatUtil.SendChatMessageToAllPlayers("Not Connected!");
-			LogHelper.InfoAlways("Not Connected!");
 		}
 	}
 

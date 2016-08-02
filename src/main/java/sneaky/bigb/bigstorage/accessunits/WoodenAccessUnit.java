@@ -1,29 +1,23 @@
-package sneaky.bigb.bigstorage.storage;
+package sneaky.bigb.bigstorage.accessunits;
 
 import java.util.UUID;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.BIGStorageNonController;
 import sneaky.bigb.bigstorage.IBIGStorage;
-import sneaky.bigb.main.Reference;
-import sneaky.bigb.tabs.ModTabs;
 
-public class WoodenStorage extends BIGStorageNonController implements IBIGStorage
+/**
+ * @author SneakyTactician
+ * This block is used to access what is stored in a BIG Storage Network.
+ */
+public class WoodenAccessUnit extends BIGStorageNonController implements IBIGStorage
 {
 
-	public WoodenStorage()
+	public WoodenAccessUnit()
 	{
 		super(Material.wood);
-		this.DifferentBlocksThisCanStore = 3;
-		this.setBlockTextureName(Reference.MODID + ":WoodenStorage");
-		this.blockHardness = 5;
-		this.blockResistance = 5;
-		this.setBlockName("WoodenStorage");
-		this.stepSound = Block.soundTypeWood;
-		this.setCreativeTab(ModTabs.maintab);
 	}
 
 	@Override
@@ -61,4 +55,5 @@ public class WoodenStorage extends BIGStorageNonController implements IBIGStorag
 	{
 		
 	}
+	
 }

@@ -585,5 +585,7 @@ Unstable Build 364 (8/1/2016):
 	-World instance is still null (HOW?)
 Unstable Build 365-366 (8/1/2016):
 	-Attempting to get a world object
-Build 367-374 (8/1/2016):
+Build 367-382 (8/1/2016)-(8/2/2016):
 	-Debugging blocks
+Build 383 (8/2/2016):
+	-

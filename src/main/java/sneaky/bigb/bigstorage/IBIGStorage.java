@@ -3,6 +3,7 @@ package sneaky.bigb.bigstorage;
 import java.util.UUID;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 /**
  * @author SneakyTactician
@@ -24,7 +25,7 @@ public interface IBIGStorage
 	/**
 	 * This is called whenever a block is added to the network.
 	 */
-	public void NetworkBlockAdded(IBIGStorage block);
+	public void NetworkBlockAdded(IBIGStorage block, World world, int x, int y, int z);
 	
 	/**
 	 * Called whenever a itemstack is added to the network storage.

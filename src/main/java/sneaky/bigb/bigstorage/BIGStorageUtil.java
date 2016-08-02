@@ -3,6 +3,7 @@ package sneaky.bigb.bigstorage;
 import net.minecraft.block.Block;
 import sneaky.bigb.block.ModBlocks;
 import sneaky.bigb.chat.ChatUtil;
+import sneaky.bigb.helpers.LogHelper;
 
 /**
  * @author SneakyTactician
@@ -10,46 +11,33 @@ import sneaky.bigb.chat.ChatUtil;
  */
 public class BIGStorageUtil
 {	
+	/**
+	 * Figures out if the block passed in is part of the BIGStorage network.
+	 */
 	public static boolean IsBIGStorage(Block block)
 	{
-		boolean Ret = false;
-		
-		if (block.getUnlocalizedName().substring(5) == "WoodenController")
+		if (block == ModBlocks.WoodController || block == ModBlocks.WoodStorage)
 		{
-			Ret = true;
-			ChatUtil.SendChatMessageToAllPlayers("It is a Wooden Controller!");
+			return true;
 		}
 		else
 		{
-			ChatUtil.SendChatMessageToAllPlayers("It is not a Wooden Controller!");
+			return false;
 		}
-		
-		if (block.getUnlocalizedName().substring(5) == "WoodenStorage")
-		{
-			Ret = true;
-			ChatUtil.SendChatMessageToAllPlayers("It is a Wooden Storage Unit!");
-		}
-		else
-		{
-			ChatUtil.SendChatMessageToAllPlayers("It is not a Wooden Storage Unit!");
-		}
-		
-		return Ret;
 	}
 	
+	/**
+	 * Figures out if the block passed in is a controller of any kind.
+	 */
 	public static boolean IsController(Block block)
 	{
-		boolean Ret = false;
-		
-		if (block.getUnlocalizedName().substring(5) == "WoodenController")
+		if (block == ModBlocks.WoodController)
 		{
-			Ret = true;
+			return true;
 		}
 		else
 		{
-			ChatUtil.SendChatMessageToAllPlayers("It is not a Wooden Controller!");
+			return false;
 		}
-		
-		return Ret;
 	}
 }

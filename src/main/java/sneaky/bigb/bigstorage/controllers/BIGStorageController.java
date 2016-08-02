@@ -64,21 +64,21 @@ public class BIGStorageController extends Block implements IBIGStorage
 	}
 
 	@Override
-	public void NetworkBlockAdded(IBIGStorage block)
+	public void NetworkBlockAdded(IBIGStorage block, World world, int x, int y, int z)
 	{
 		
 	}
 	
-	public void MassSendNetworkBlockAddedEvent(IBIGStorage block)
+	public void MassSendNetworkBlockAddedEvent(IBIGStorage block, World world, int x, int y, int z)
 	{
-		this.NetworkBlockAdded(block);
+		this.NetworkBlockAdded(block, world, x, y, z);
 		
 		int i = 0;
 		int siz = this.BlocksInNetwork.GetSize();
 		
 		while (i != siz)
 		{
-			this.BlocksInNetwork.Get(i).NetworkBlockAdded(block);
+			this.BlocksInNetwork.Get(i).NetworkBlockAdded(block, world, x, y , z);
 			i++;
 		}
 	}
