@@ -1,10 +1,12 @@
 package sneaky.bigb.bigstorage.controllers.collections;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class BIGNetworkStorageStackList
 {
@@ -33,7 +35,61 @@ public class BIGNetworkStorageStackList
 		else
 		{
 			int insert = Collections.binarySearch(this.NetworkList, block, this.Comp1);
-			NetworkList.add(insert, block);
+			
+			if (this.NetworkList.get(insert).TheItem == block.TheItem)
+			{
+				this.NetworkList.get(insert).Siz.add(block.Siz);
+			}
+			else
+			{
+				NetworkList.add(insert, block);	
+			}
+		}
+	}
+	public void Add(ItemStack items)
+	{
+		StorageStack Items = new StorageStack(items);
+		
+		if (this.NetworkList.size() < 1)
+		{
+			this.NetworkList.add(Items);
+			return;
+		}
+		else
+		{
+			int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			
+			if (this.NetworkList.get(insert).TheItem == items.getItem())
+			{
+				this.NetworkList.get(insert).Siz.add(Items.Siz);
+			}
+			else
+			{
+				NetworkList.add(insert, Items);	
+			}
+		}
+	}
+	public void Add(Item item, int NumberToAdd)
+	{
+		StorageStack Items = new StorageStack(item, NumberToAdd);
+		
+		if (this.NetworkList.size() < 1)
+		{
+			this.NetworkList.add(Items);
+			return;
+		}
+		else
+		{
+			int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			
+			if (this.NetworkList.get(insert).TheItem == item)
+			{
+				this.NetworkList.get(insert).Siz.add(Items.Siz);
+			}
+			else
+			{
+				NetworkList.add(insert, Items);	
+			}
 		}
 	}
 	
@@ -52,8 +108,8 @@ public class BIGNetworkStorageStackList
 	
 	/**
 	 * @param block The block that is being removed from the list.
-	 * Removes a BIG network block from the list, and sorts the list.
-	 * The method with the IBIGStorage parameter is WAY faster, use this if possible.
+	 * Removes a BIG network StorageStack from the list, and sorts the list.
+	 * Removes the ENTIRE thing.
 	 * Returns null if object is not found.
 	 */
 	public StorageStack RemoveAndGet(StorageStack block)
@@ -67,43 +123,125 @@ public class BIGNetworkStorageStackList
 	}	
 	public StorageStack RemoveAndGet(Item block)
 	{
-		int i = 0;
-		int siz = this.NetworkList.size();
-		
-		while (i != siz)
-		{
-			if (this.NetworkList.get(i).TheItem == block)
+		int index = Collections.binarySearch(this.NetworkList, new StorageStack(new ItemStack(block)), this.Comp1);
+			if (this.NetworkList.get(index).TheItem == block)
 			{
-				StorageStack ret = this.NetworkList.get(i);
-				this.NetworkList.remove(i);
+				StorageStack ret = this.NetworkList.get(index);
+				this.NetworkList.remove(index);
+				
 				return ret;
 			}
-			i++;
-		}
 		return null;
 	}
 	
 	/**
-	 * @param block The block to remove.
-	 * Removes an object from the network list.
-	 * Method with IBIGStorage as a parameter is faster.
+	 * Removes some of the Items specified, and returns that many items.
+	 * Returns null if specified item type is not in the list.
 	 */
-	public void Remove(StorageStack block)
+	public StorageStack RemoveSomeAndGet(StorageStack items)
 	{
-		this.NetworkList.remove(block);
-	}	
-	public void Remove(Item items)
-	{
-		int i = 0;
-		int siz = this.NetworkList.size();
+		int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
 		
-		while (i != siz)
+		if (this.NetworkList.get(index).TheItem == items.TheItem)
 		{
-			if (this.NetworkList.get(i).TheItem == items)
+			StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
+			this.NetworkList.get(index).Siz.subtract(items.Siz);
+			
+			if (this.NetworkList.get(index).Siz.intValue() <= 0)
 			{
-				this.NetworkList.remove(i);
+				this.NetworkList.remove(index);
 			}
-			i++;
+			
+			return ret;
 		}
+		else
+		{
+			return null;
+		}
+	}
+	public StorageStack RemoveSomeAndGet(Item item, int Number)
+	{
+		StorageStack items = new StorageStack(item, Number);
+		
+		int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
+		
+		if (this.NetworkList.get(index).TheItem == items.TheItem)
+		{
+			StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
+			this.NetworkList.get(index).Siz.subtract(items.Siz);
+			
+			if (this.NetworkList.get(index).Siz.intValue() <= 0)
+			{
+				this.NetworkList.remove(index);
+			}
+			
+			return ret;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
+	/**
+	 * @param block The block to remove.
+	 * Removes some of the object passed in from the list.
+	 */
+	public void Remove(Item items, int Number)
+	{
+		StorageStack Items = new StorageStack(items, Number);
+		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+		
+		if (this.NetworkList.get(index).TheItem == Items.TheItem)
+		{
+			this.NetworkList.get(index).Siz.subtract(Items.Siz);
+			
+			if (this.NetworkList.get(index).Siz.intValue() <= 1)
+			{
+				this.NetworkList.remove(index);
+			}
+		}
+	}
+	public void RemoveAll(Item items)
+	{
+		StorageStack Items = new StorageStack(new ItemStack(items));
+		
+		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+		
+		if (this.NetworkList.get(index).TheItem == Items.TheItem)
+		{
+			this.NetworkList.remove(index);
+		}
+	}
+	
+	/**
+	 * Returns true if the item type already exists in the list, returns false if it doesn't exist in the list already.
+	 */
+	public boolean DoesItemTypeExist(Item type)
+	{
+		StorageStack Items = new StorageStack(new ItemStack(type));
+		
+		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+		
+		if (this.NetworkList.get(index).TheItem == type)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * Finds the index of the item type in the list. You should call DoesItemTypeExist() first, to make sure it still exists in this list.
+	 */
+	public int FindStorageStack(Item type)
+	{
+		StorageStack Items = new StorageStack(new ItemStack(type));
+		
+		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+		
+		return index;
 	}
 }

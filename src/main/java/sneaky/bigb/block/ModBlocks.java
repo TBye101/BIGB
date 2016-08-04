@@ -3,6 +3,7 @@ package sneaky.bigb.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import sneaky.bigb.bigstorage.accessunits.WoodenAccessUnit;
 import sneaky.bigb.bigstorage.controllers.WoodenController;
 import sneaky.bigb.bigstorage.storage.WoodenStorage;
 import sneaky.bigb.block.assorted.SpeedBlock;
@@ -60,6 +61,7 @@ public class ModBlocks
 	//BIGStorage Blocks
 	public static Block WoodController = new WoodenController();
 	public static Block WoodStorage = new WoodenStorage();
+	public static Block WoodAccessUnit = new WoodenAccessUnit();
 	
 	public static void RegisterAll()
 	{
@@ -82,6 +84,19 @@ public class ModBlocks
 		RegisterShockProofIlluminatedGlass();
 		RegisterWoodenController();
 		RegisterWoodenStorage();
+		RegisterWoodenAccessUnit();
+	}
+	
+	public static void RegisterWoodenAccessUnit()
+	{
+		if (ModConfig.EnableBIGStorageSystem())
+		{
+			RegisterHelper.registerBlock(WoodAccessUnit);
+		}
+		else
+		{
+			LogHelper.info("Not registering wooden access unit due to config settings");
+		}
 	}
 	
 	public static void RegisterWoodenStorage()

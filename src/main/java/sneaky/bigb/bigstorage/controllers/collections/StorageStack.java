@@ -22,10 +22,10 @@ public class StorageStack
 		TheItem = Items.getItem();
 		Siz.equals(Items.stackSize);
 	}
-	public StorageStack(Item Items)
+	public StorageStack(Item Items, int NumberOfItems)
 	{
 		TheItem = Items;
-		Siz.equals(BigInteger.ONE);
+		Siz = BigInteger.valueOf(NumberOfItems);
 	}
 	
 	/**

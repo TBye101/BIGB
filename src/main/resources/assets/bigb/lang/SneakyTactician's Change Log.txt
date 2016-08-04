@@ -585,7 +585,32 @@ Unstable Build 364 (8/1/2016):
 	-World instance is still null (HOW?)
 Unstable Build 365-366 (8/1/2016):
 	-Attempting to get a world object
-Build 367-382 (8/1/2016)-(8/2/2016):
+Unstable Build 367-382 (8/1/2016)-(8/2/2016):
 	-Debugging blocks
-Build 383 (8/2/2016):
-	-
+Stable Build 383 (8/2/2016):
+	-Documented some code
+	-Worked on WoodenAccessUnit
+	-Reduced some logging levels
+	-Fixed a bug
+	-Working on the GUI for the access unit
+	-Made massive changes to the StorageStackList
+	-Worked on AccessUnitContainer a lot
+	-Working on GUI for access unit
+	-Ready for a test run of the first bit of the GUI
+	-Forgot to add the Access Unit in as a block, need to rebuild before testing can commence
+Unstable Build 384 (8/3/2016):
+	-Adding in wooden access unit as a block
+Unstable Build 385 (8/3/2016):
+	-Debugging null exception in GUI code
+	-Added draw rectangle utility
+Unstable Build 386 (8/4/2016):
+	-Added Wooden access unit to the creative tab
+Unstable Build 387 (8/4/2016):
+	-Found a FileNotFoundException
+		-Hopefully fixed it
+	-Updating Wooden Access Unit's properties
+Unstable Build 388-389 (8/4/2016):
+	-Fixing NoOpenGLContextFound exception 
+Build 390 (8/4/2016):
+	-Deleted all progress, starting over with a tutorial
+	-Following tutorial

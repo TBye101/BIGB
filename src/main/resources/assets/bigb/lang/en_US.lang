@@ -17,6 +17,7 @@ tile.TribaniumBouncePad.name=Tribanium Bounce Pad
 tile.ShockProofIlluminatedGlass.name=Shock Proof Illuminated Glass
 tile.WoodenController.name=Wooden Controller
 tile.WoodenStorage.name=Wooden Storage
+tile.WoodenAccessUnit.name=Wooden Access Unit
 
 item.TribaniumIngot.name=Tribanium Ingot
 item.FireDiamondCore.name=Fire Diamond Core

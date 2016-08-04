@@ -18,6 +18,7 @@ import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.item.ModItems;
 import sneaky.bigb.main.Reference;
 import sneaky.bigb.main.Util;
+import sneaky.bigb.tile.entities.ModTileEntities;
 
 /**
  * @author SneakyTactician
@@ -37,6 +38,7 @@ public class PreInitEvent
 		ModBlocks.RegisterAll();
 		CompatModuleManager.PreInitAll(event);
 		ModItems.Reg();
+		ModTileEntities.RegisterAll();
 		this.DistinguishBetweenServerAndClient();
 		LogHelper.info("BIGB preinit finished");
 	}

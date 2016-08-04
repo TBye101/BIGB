@@ -45,16 +45,19 @@ public class EventHandler
 	@SubscribeEvent
 	public void OnLoadFromFile(LoadFromFile event)
 	{
-		LogHelper.ErrorAlways("It Worked!");
-		this.CheckForUpdatesLaunch(event.entityPlayer);
+		this.LaunchClientSideCode(event.entityPlayer);
 		Util.world = event.entity.worldObj;
 	}
 	
-	public void CheckForUpdatesLaunch(EntityPlayer player)
+	/**
+	 * Kicks the client proxy off to start launching client side code.
+	 */
+	public void LaunchClientSideCode(EntityPlayer player)
 	{
-		LogHelper.ErrorAlways("Checking for updates!");
+		LogHelper.info("Checking for updates!");
 		ClientProxy a;
 		a = new ClientProxy();
 		a.CheckForUpdates(player);
+		a.RunClientSideCode();
 	}
 }
