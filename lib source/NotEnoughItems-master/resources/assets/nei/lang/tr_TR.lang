@@ -1,0 +1,183 @@
+nei.load=Yükle
+nei.save=Kaydet
+
+nei.enchant=Büyü
+nei.enchant.level=Level
+nei.enchant.locked=Kilitli
+nei.enchant.unlocked=Açık
+
+nei.inventory.options=Ayarlar
+nei.inventory.prev=Geri
+nei.inventory.next=İleri
+nei.inventory.item_subsets=Item Altkümeleri
+nei.inventory.delete.inv=Mevcut envanterdeki tüm itemleri sil
+nei.inventory.delete.one=Sil %s
+nei.inventory.delete.all=Hepsini Sil %s
+nei.inventory.delete.enable=Silme modunu aktif et
+nei.inventory.delete.1=Silme modunu aç
+nei.inventory.delete.0=Silme modunu kapat
+nei.inventory.rain.enable=Yağmuru Aktif Et
+nei.inventory.rain.1=Yağmur yağdır
+nei.inventory.rain.0=Yağmuru durdur
+nei.inventory.magnet.enable=Mıknatısı aktif et 
+nei.inventory.magnet.1=Mıknatısı aç
+nei.inventory.magnet.0=Mıknatısı kapat
+nei.inventory.dawn.enable=Sabah-Öğle aktif et
+nei.inventory.dawn.set=Sabah yap
+nei.inventory.noon.enable=Öğlen-akşam aktif et
+nei.inventory.noon.set=Öğlen yap
+nei.inventory.dusk.enable=Akşam-Gece aktif et 
+nei.inventory.dusk.set=Akşam yap
+nei.inventory.midnight.enable=Gece-Sabah aktif et
+nei.inventory.midnight.set=Gece yarısı yap
+nei.inventory.heal=Canı Doldur
+nei.inventory.gamemode.0= Oyun Modunu Hayatta Kalma yap
+nei.inventory.gamemode.1= Oyun Modunu Yaratıcı yap
+nei.inventory.gamemode.2= Oyun Modunu Yaratıcı+ yap
+nei.inventory.gamemode.3= Oyun Modunu Macera yap
+
+nei.chat.gamemode.0=Hayatta Kalma modunu oynuyorsunuz
+nei.chat.gamemode.1=Yaratıcı modunu oynuyorsunuz
+nei.chat.gamemode.2=Yaratıcı+ modunu oynuyorsunuz
+nei.chat.gamemode.3=Macera modunu oynuyorsunuz
+nei.chat.rain.on=Yağmur açıldı
+nei.chat.rain.off=Yağmur kapatıldı
+nei.chat.time=Gün %d. %d:00
+nei.chat.give.noitem=İtem verilemez.
+
+nei.options=NEI Ayarları
+nei.options.back=Geri
+nei.options.world=Dünya
+nei.options.global=Genel
+nei.options.global.tip.0=Ayarlar tüm dünyalar için kaydedilecek
+nei.options.global.tip.1=W tuşuna tıklayın:seçeneği aç:dünyada gör
+nei.options.wbutton.tip.0=Genel ayarları kullanıyorsunuz
+nei.options.wbutton.tip.1=Genel ayarların üstüne yazılıyor
+
+nei.options.keys=Tuşlar
+nei.options.keys.gui=Envanter
+nei.options.keys.gui.recipe=Tarifler
+nei.options.keys.gui.usage=Kullanım yeri
+nei.options.keys.gui.enchant=Büylüler
+nei.options.keys.gui.potion=İksirler
+nei.options.keys.gui.back=Önceki tarif
+nei.options.keys.gui.prev=Önceki sayfa
+nei.options.keys.gui.next=Sonraki sayfa
+nei.options.keys.gui.hide=Nei görünürlük ayarı
+nei.options.keys.gui.search=Arama çubuğu odağı
+nei.options.keys.world=Dünya
+nei.options.keys.world.chunkoverlay=Chunk sınır yerleşimi
+nei.options.keys.world.moboverlay=Mob Spawn yerleşimi
+nei.options.keys.world.highlight_tips=Nesne ipucu
+nei.options.keys.world.dawn=Sabah
+nei.options.keys.world.noon=Öğlen
+nei.options.keys.world.dusk=Akşam
+nei.options.keys.world.midnight=Gece
+nei.options.keys.world.rain=Yağmur
+nei.options.keys.world.heal=Can
+nei.options.keys.world.creative=Oyun Modu
+nei.options.keys.world.creative.tip=Döngülü Oyun Modu
+
+nei.options.inventory=Envarter
+nei.options.inventory.widgetsenabled.true=NEI Açık
+nei.options.inventory.widgetsenabled.false=NEI Kapalı
+nei.options.inventory.cheatmode.0=Tarif modu
+nei.options.inventory.cheatmode.1=Yardımcı mod
+nei.options.inventory.cheatmode.2=Hileli mod
+nei.options.inventory.layoutstyle=Tema
+nei.options.inventory.profileRecipes=Profil tarifleri
+nei.options.inventory.profileRecipes.true=Yazı
+nei.options.inventory.profileRecipes.false=Şekil
+nei.options.inventory.itemsort=Item Panel Sıralaması
+nei.options.inventory.itemIDs=Item IDleri
+nei.options.inventory.itemIDs.0=Gizli
+nei.options.inventory.itemIDs.1=Otomatik
+nei.options.inventory.itemIDs.2=Göster
+nei.options.inventory.searchmode=Arama Modu
+nei.options.inventory.searchmode.0=Normal
+nei.options.inventory.searchmode.1=Gelişmiş
+nei.options.inventory.searchmode.2=Regex
+nei.options.inventory.utilities=Yardımcılar
+nei.options.inventory.utilities.tip=Yardımcıları seç
+nei.options.inventory.utilities.time=Saat
+nei.options.inventory.utilities.rain=Yağmur
+nei.options.inventory.utilities.heal=Can
+nei.options.inventory.utilities.delete=Sil
+nei.options.inventory.utilities.magnet=Mıknatıs
+nei.options.inventory.utilities.gamemode=Oyun modu
+nei.options.inventory.utilities.enchant=Büyüleme
+nei.options.inventory.utilities.potion=İksirler
+nei.options.inventory.utilities.item=Itemler
+nei.options.inventory.gamemodes=Oyun modu
+nei.options.inventory.gamemodes.tip=Oyun modunu döngülü yap
+nei.options.inventory.gamemodes.creative=Yaratıcı mod
+nei.options.inventory.gamemodes.creative+=Yaratıcı mod+
+nei.options.inventory.gamemodes.adventure=Macera
+
+nei.options.command=Komutlar
+nei.options.command.creative=Oyun modu
+nei.options.command.creative.tip={0} = 1 for creative, 0 for survival, {1} = player
+nei.options.command.item=Item
+nei.options.command.item.tip={0} = player, {1} = itemID, {2} = quantity, {3} = itemDamage
+nei.options.command.time=Zaman
+nei.options.command.time.tip={0} = worldtime
+nei.options.command.rain=Yağmur
+nei.options.command.rain.tip={0} = 1 for on, 0 for off
+nei.options.command.heal=Can
+nei.options.command.heal.tip={0} = player
+
+nei.options.world.highlight_tips=Nesne ipucu
+nei.options.world.highlight_tips.hide=Kapalı
+nei.options.world.highlight_tips.show=Açık
+
+nei.options.tools=Araçlar
+nei.options.tools.dump=Verileri Silme
+nei.options.tools.dump.dump=Sil
+nei.options.tools.dump.dumped=%s IDs silindi %s
+nei.options.tools.dump.mode.0=Kullanıldı
+nei.options.tools.dump.mode.1=Boş
+nei.options.tools.dump.mode.2=Hepsi
+nei.options.tools.dump.item=İtem
+nei.options.tools.dump.items=İtemlar
+nei.options.tools.dump.block=Blok
+nei.options.tools.dump.blocks=Bloklar
+nei.options.tools.dump.potion=İksir
+nei.options.tools.dump.potions=İksirler
+nei.options.tools.dump.enchantment=Büyü
+nei.options.tools.dump.enchantments=Büyüler
+nei.options.tools.dump.biome=Biyom
+nei.options.tools.dump.biomes=Biyomlar
+nei.options.tools.dump.itempanel=Item Paneli
+nei.options.tools.dump.itempanel.dumped=Item panelinden %s kadar silindi 
+nei.options.tools.dump.itempanel.mode.0=CSV
+nei.options.tools.dump.itempanel.mode.1=NBT
+nei.options.tools.dump.itempanel.mode.2=Json
+
+nei.layoutstyle.minecraft=Minecraft 
+nei.layoutstyle.oldtmi=Eski TMI 
+
+nei.recipe.page=Sayfa %s/%s
+nei.recipe.shaped=Üretim
+nei.recipe.shapeless=Üretim
+nei.recipe.furnace=Pişirme
+nei.recipe.fuel=Yakıt
+nei.recipe.fuel.required=%s gerekli
+nei.recipe.fuel.processed=%s işlenmiş
+nei.recipe.fuel.produced=%s üretilmiş
+nei.recipe.firework=Havaifişek
+nei.recipe.firework.tooltip0=Renk ekle veya değiştir
+nei.recipe.firework.tooltip1=Rengi kaldır veya değiştir
+nei.recipe.firework.tooltip2=Fazlaca roket yap veya ışınla
+nei.recipe.brewing=İksir Standı
+nei.recipe.profiler.crafting=Üretme Profili
+nei.recipe.profiler.usage=Kullanma Profili
+
+nei.itemsort.minecraft=Minecraft
+nei.itemsort.minecraft.tip=Numara sırasına göre sırala
+nei.itemsort.mod=Mod
+nei.itemsort.mod.tip=İlk önce modlar gözükür
+nei.itemsort.id=Item Numarası
+nei.itemsort.default=Standart
+nei.itemsort.default.tip=Numara sırasına göre sırala
+nei.itemsort.damage=Item Hasarı
+nei.itemsort.name=Gözüken Ad

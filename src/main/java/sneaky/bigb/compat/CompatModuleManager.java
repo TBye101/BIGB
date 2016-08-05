@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import sneaky.bigb.compat.UBC.UBCCompat;
 import sneaky.bigb.compat.extrautilities.ExtraUtilitiesCompat;
+import sneaky.bigb.compat.nei.NEICompat;
 import sneaky.bigb.compat.projecte.ProjectECompat;
 import sneaky.bigb.compat.thermal.ThermalExpansionCompat;
 import sneaky.bigb.helpers.LogHelper;
@@ -20,6 +21,7 @@ public class CompatModuleManager
 	public static boolean ExtraUtilities = false;
 	public static boolean UBC = false;
 	public static boolean ThermalExpansion = false;
+	public static boolean NEI = false;
 	
 	public static void PreInitAll(FMLPreInitializationEvent event)
 	{
@@ -41,6 +43,11 @@ public class CompatModuleManager
 		if (ThermalExpansion)
 		{
 			ThermalExpansionCompat.preInit(event);
+		}
+		
+		if (NEI)
+		{
+			NEICompat.preInit();
 		}
 	}
 	
@@ -65,6 +72,11 @@ public class CompatModuleManager
 		{
 			ThermalExpansionCompat.Init();
 		}
+		
+		if (NEI)
+		{
+			NEICompat.Init();
+		}
 	}
 	
 	public static void PostInitAll()
@@ -88,6 +100,11 @@ public class CompatModuleManager
 		{
 			ThermalExpansionCompat.postInit();
 		}
+		
+		if (NEI)
+		{
+			NEICompat.postInit();
+		}
 	}
 	
 	/**
@@ -100,6 +117,21 @@ public class CompatModuleManager
 		DetectExtraUtilities();
 		DetectUBC();
 		DetectThermalExpansion();
+		DetectNEI();
+	}
+	
+	public static void DetectNEI()
+	{
+		Loader.instance();
+		if (Loader.isModLoaded("NotEnoughItems"))
+		{
+			LogHelper.info("Detected NEI for compatability");
+			NEI = true;
+		}
+		else
+		{
+			LogHelper.info("NEI was not detected for mod compatibility");
+		}
 	}
 	
 	public static void DetectThermalExpansion()
@@ -110,6 +142,10 @@ public class CompatModuleManager
 			LogHelper.info("Detected Thermal Expansion for mod compatibility");
 			ThermalExpansion = true;
 		}
+		else
+		{
+			LogHelper.info("Thermal Expansion was not detected for mod compatibility");
+		}
 	}
 	
 	public static void DetectUBC()
@@ -119,6 +155,10 @@ public class CompatModuleManager
 		{
 			LogHelper.info("Detected Underground Biomes for mod compatibility");
 			UBC = true;
+		}
+		else
+		{
+			LogHelper.info("Underground Biomes mod was not detected for mod compatibility");
 		}
 	}
 	
@@ -160,6 +200,4 @@ public class CompatModuleManager
 		Minecraft = true;
 		LogHelper.info("Detected Minecraft for compatability");
 	}
-	
-	
 }

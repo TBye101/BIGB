@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -24,6 +25,9 @@ public class AccessUnitGUI extends GuiContainer
 	public final InventoryPlayer PlayerInv;
 	public final IInventory BIGInv;
 	
+	int SHeight = Minecraft.getMinecraft().displayHeight;
+	int SWidth = Minecraft.getMinecraft().displayWidth;
+	
 	/**
 	 * The constructor for the AccessUnitGUI class.
 	 */
@@ -39,7 +43,7 @@ public class AccessUnitGUI extends GuiContainer
     {
         String s = BIGInv.getInventoryName();
         fontRendererObj.drawString(s, xSize/2-fontRendererObj.getStringWidth(s)/2, 6, 4210752);
-        fontRendererObj.drawString(PlayerInv.getInventoryName(), 8, ySize - 96 + 2, 4210752);
+        fontRendererObj.drawString(PlayerInv.player.getDisplayName() + "'s Inventory", 8, ySize - 96 + 2, 4210752);
     }
 
 	
@@ -47,12 +51,21 @@ public class AccessUnitGUI extends GuiContainer
      * Args : renderPartialTicks, mouseX, mouseY
      */
     @Override
-    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+    public void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
+    	
         GL11.glClearColor(1.0F, 1.0F, 1.0F, 1.0F);
         mc.getTextureManager().bindTexture(BackgroundTexture);
         int marginHorizontal = (width - xSize) / 2;
         int marginVertical = (height - ySize) / 2;
-        drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, xSize, ySize);
+        drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 400, 400);
+    }
+    
+    /**
+     * Returns the amount of unblocked screen height in Minecraft.
+     */
+    public int GetUsableScreenHeight()
+    {
+    	return 0;
     }
 }

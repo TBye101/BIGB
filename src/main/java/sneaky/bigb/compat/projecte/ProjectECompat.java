@@ -10,6 +10,10 @@ import net.minecraft.item.ItemStack;
 import sneaky.bigb.config.ModConfig;
 import sneaky.bigb.helpers.LogHelper;
 
+/**
+ * @author SneakyTactician
+ * The class that handles all Project E compatibility stuff.
+ */
 public class ProjectECompat
 {
 	/**

@@ -15,7 +15,7 @@ import sneaky.bigb.item.ModItems;
 
 /**
  * @author SneakyTactician
- * A class to hold all things to do with thermal expansion compatibility.
+ * The class that handles all Thermal Expansion compatibility stuff.
  */
 public class ThermalExpansionCompat
 {

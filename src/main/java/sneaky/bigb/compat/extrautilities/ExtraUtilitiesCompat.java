@@ -2,6 +2,10 @@ package sneaky.bigb.compat.extrautilities;
 
 import sneaky.bigb.helpers.LogHelper;
 
+/**
+ * @author SneakyTactician
+ * The class that handles all Extra Utilities compatibility stuff.
+ */
 public class ExtraUtilitiesCompat
 {
 	/**

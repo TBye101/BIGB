@@ -7,7 +7,7 @@ import sneaky.bigb.main.Reference;
 
 /**
  * @author SneakyTactician
- * A class that is launched whenever the UBC (Underground Biomes Constructs) mod is present
+ * The class that handles all UBC compatibility stuff.
  */
 public class UBCCompat
 {
