@@ -614,3 +614,4 @@ Unstable Build 388-389 (8/4/2016):
 Build 390 (8/4/2016):
 	-Deleted all progress, starting over with a tutorial
 	-Following tutorial
+	-Done with tutorial, everything should work ( :( that never happens)
