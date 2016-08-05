@@ -611,7 +611,13 @@ Unstable Build 387 (8/4/2016):
 	-Updating Wooden Access Unit's properties
 Unstable Build 388-389 (8/4/2016):
 	-Fixing NoOpenGLContextFound exception 
-Build 390 (8/4/2016):
+Unstable Build 390 (8/4/2016):
 	-Deleted all progress, starting over with a tutorial
 	-Following tutorial
 	-Done with tutorial, everything should work ( :( that never happens)
+Stable Build 391 (8/5/2016):
+	-Discovered nothing happens on click
+	-Discovered missing texture issue
+	-Fixed texture issue
+Build 392 (8/5/2016):
+	-

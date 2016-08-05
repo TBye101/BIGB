@@ -30,6 +30,7 @@ public class WoodenAccessUnit extends AccessUnit implements IBIGStorage
 		this.stepSound = Block.soundTypeWood;
 		this.useNeighborBrightness = false;
 		this.setTickRandomly(false);
+		this.setBlockTextureName(Reference.MODID + ":WoodenAccessUnit");
 	}
 
 	@Override
