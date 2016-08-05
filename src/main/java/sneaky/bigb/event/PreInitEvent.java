@@ -19,6 +19,7 @@ import sneaky.bigb.item.ModItems;
 import sneaky.bigb.main.Reference;
 import sneaky.bigb.main.Util;
 import sneaky.bigb.tile.entities.ModTileEntities;
+import sneaky.bigbproxies.CommonProxy;
 
 /**
  * @author SneakyTactician
@@ -40,6 +41,9 @@ public class PreInitEvent
 		ModItems.Reg();
 		ModTileEntities.RegisterAll();
 		this.DistinguishBetweenServerAndClient();
+		CommonProxy prox;
+		prox = new CommonProxy();
+		prox.init();
 		LogHelper.info("BIGB preinit finished");
 	}
 	

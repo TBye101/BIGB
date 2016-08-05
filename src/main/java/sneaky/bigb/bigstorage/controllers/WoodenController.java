@@ -16,11 +16,12 @@ public class WoodenController extends BIGStorageController
 	{
 		super(Material.wood);
 		this.textureName = Reference.MODID + ":WoodenBIGController";
-		this.blockHardness = 5;
-		this.blockResistance = 5;
+		this.blockHardness = 2;
+		this.blockResistance = 2;
 		this.stepSound = Block.soundTypeWood;
 		this.setCreativeTab(ModTabs.maintab);
 		this.setBlockName("WoodenController");
 		this.BIGBlockType = NetworkTypes.BIGStorageStorage;
+		this.setHarvestLevel("axe", 1);
 	}
 }

@@ -16,7 +16,7 @@ public class ClientProxy extends CommonProxy
 	 */
 	public void RunClientSideCode()
 	{
-		this.RegisterRenderers();
+		
 	}
 	
 	/**
@@ -29,13 +29,5 @@ public class ClientProxy extends CommonProxy
 		a.player = player;
 		Thread versionCheckThread = new Thread(a, "Version Check");
 		versionCheckThread.start();
-	}
-	
-	/**
-	 * Registers the GUI renderers.
-	 */
-	public void RegisterRenderers()
-	{
-		
 	}
 }

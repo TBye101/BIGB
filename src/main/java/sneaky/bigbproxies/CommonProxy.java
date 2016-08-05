@@ -3,6 +3,7 @@ package sneaky.bigbproxies;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import sneaky.bigb.gui.GUIHandler;
+import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.BIGB;
 import sneaky.bigb.update.CheckForUpdates;
 

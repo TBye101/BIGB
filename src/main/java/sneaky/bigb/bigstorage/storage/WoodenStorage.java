@@ -19,11 +19,12 @@ public class WoodenStorage extends BIGStorageNonController implements IBIGStorag
 		super(Material.wood);
 		this.DifferentBlocksThisCanStore = 3;
 		this.setBlockTextureName(Reference.MODID + ":WoodenStorage");
-		this.blockHardness = 5;
-		this.blockResistance = 5;
+		this.blockHardness = 2;
+		this.blockResistance = 2;
 		this.setBlockName("WoodenStorage");
 		this.stepSound = Block.soundTypeWood;
 		this.setCreativeTab(ModTabs.maintab);
+		this.setHarvestLevel("axe", 1);
 	}
 
 	@Override
