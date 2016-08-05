@@ -621,9 +621,12 @@ Stable Build 391 (8/5/2016):
 	-Fixed texture issue
 Stable Build 392 (8/5/2016):
 	-Fixing hardness and resistence properties for wooden access unit
-Build 393-394 (8/5/2016):
+Unstable Build 393-395 (8/5/2016):
 	-Debugging GUI code
 	-Removed some unnecessary code
 	-Forcefully patched in the CommonProxy init() method
 		-It worked
-	-
+	-Fixed enum problems
+Build 396 (8/5/2016):
+	-GUI shows up, just extremely buggy, cut off, and not rendering properly
+	

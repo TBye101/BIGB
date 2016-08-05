@@ -64,6 +64,12 @@ public class GUIHandler implements IGuiHandler
 	
 	public static enum GUIIDS
 	{
-		AccessUnit
+		AccessUnit(0);
+		
+		public final int Value;
+		GUIIDS(int value)
+		{
+			this.Value = value;
+		}
 	}
 }

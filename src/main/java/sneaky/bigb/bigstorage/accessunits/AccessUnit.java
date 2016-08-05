@@ -11,6 +11,7 @@ import sneaky.bigb.bigstorage.BIGStorageUtil;
 import sneaky.bigb.bigstorage.IBIGStorage;
 import sneaky.bigb.bigstorage.controllers.BIGStorageController;
 import sneaky.bigb.chat.ChatUtil;
+import sneaky.bigb.gui.GUIHandler;
 import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.BIGB;
 import sneaky.bigb.main.Util;
@@ -58,10 +59,13 @@ public class AccessUnit extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int a, float b, float c, float d)
 	{
+		LogHelper.ErrorAlways("We made it here!");
+		LogHelper.ErrorAlways("ENUM value: " + GUIHandler.GUIIDS.AccessUnit.Value);
         if (!world.isRemote)
-        {
-        	//1 == ID of the Access Unit GUI
-            player.openGui(BIGB.instance, 1, world, x, y, z);
+        {	
+        	LogHelper.ErrorAlways("Made it past if statement");
+        	//0 = ID of the Access Unit GUI
+            player.openGui(BIGB.instance, GUIHandler.GUIIDS.AccessUnit.Value, world, x, y, z);
         }
         return true;
 	}
