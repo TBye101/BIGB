@@ -620,4 +620,4 @@ Stable Build 391 (8/5/2016):
 	-Discovered missing texture issue
 	-Fixed texture issue
 Build 392 (8/5/2016):
-	-
+	-Fixing hardness and resistence properties for wooden access unit

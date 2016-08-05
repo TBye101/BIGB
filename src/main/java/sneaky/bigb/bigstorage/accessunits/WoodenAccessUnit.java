@@ -31,6 +31,8 @@ public class WoodenAccessUnit extends AccessUnit implements IBIGStorage
 		this.useNeighborBrightness = false;
 		this.setTickRandomly(false);
 		this.setBlockTextureName(Reference.MODID + ":WoodenAccessUnit");
+		this.blockHardness = 5;
+		this.blockResistance = 5;
 	}
 
 	@Override
