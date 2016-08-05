@@ -1,5 +1,7 @@
 package sneaky.bigb.bigstorage.accessunits;
 
+import codechicken.nei.LayoutManager;
+import codechicken.nei.VisiblityData;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -11,7 +13,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.controllers.BIGStorageController;
 import sneaky.bigb.bigstorage.controllers.collections.StorageStack;
+import sneaky.bigb.compat.CompatModuleManager;
 import sneaky.bigb.error.Errors;
+import sneaky.bigb.main.Reference;
 
 /**
  * @author SneakyTactician
@@ -130,15 +134,27 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public void openInventory()
 	{
-		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * Adds some buttons that were disabled, if the NEI mod is present.
+	 */
+	public void EnableNEIFeatures()
+	{
 		
 	}
 
 	@Override
 	public void closeInventory()
 	{
-		// TODO Auto-generated method stub
-		
+		if (!Reference.IsServer);
+		{
+			if (CompatModuleManager.NEI)
+			{
+				this.EnableNEIFeatures();
+			}
+		}
 	}
 
 	@Override

@@ -627,7 +627,7 @@ Unstable Build 393-395 (8/5/2016):
 	-Forcefully patched in the CommonProxy init() method
 		-It worked
 	-Fixed enum problems
-Build 396-401 (8/5/2016):
+Unstable Build 396-416 (8/5/2016):
 	-GUI shows up, just extremely buggy, cut off, and not rendering properly
 	-Debugging GUI
 	-Added NEI to build path, so we can offset for the NEI GUI

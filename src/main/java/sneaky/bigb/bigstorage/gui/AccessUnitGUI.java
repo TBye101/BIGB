@@ -25,8 +25,10 @@ public class AccessUnitGUI extends GuiContainer
 	public final InventoryPlayer PlayerInv;
 	public final IInventory BIGInv;
 	
-	int SHeight = Minecraft.getMinecraft().displayHeight;
-	int SWidth = Minecraft.getMinecraft().displayWidth;
+	/**
+	 * The Minecraft instance.
+	 */
+	Minecraft mc = Minecraft.getMinecraft();
 	
 	/**
 	 * The constructor for the AccessUnitGUI class.
@@ -36,6 +38,7 @@ public class AccessUnitGUI extends GuiContainer
 		super(new AccessUnitContainer(PlayerInventory, BIGInventory));
 		this.PlayerInv = PlayerInventory;
 		this.BIGInv = BIGInventory;
+		
 	}
 	
     @Override
@@ -53,19 +56,30 @@ public class AccessUnitGUI extends GuiContainer
     @Override
     public void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
-    	
         GL11.glClearColor(1.0F, 1.0F, 1.0F, 1.0F);
         mc.getTextureManager().bindTexture(BackgroundTexture);
         int marginHorizontal = (width - xSize) / 2;
-        int marginVertical = (height - ySize) / 2;
-        drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 400, 400);
+        
+        
+        int marginVertical = this.GetSHeight() / 80;
+        
+        //X draw point, Y draw point, Scale X, Scale y, Show N of X texture, Show N of Y Texture
+        drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 256, 256);
     }
     
     /**
-     * Returns the amount of unblocked screen height in Minecraft.
+     * Gets the height of the screen.
      */
-    public int GetUsableScreenHeight()
+    public int GetSHeight()
     {
-    	return 0;
+    	return this.mc.displayHeight;
+    }
+    
+    /**
+     * Gets the width of the screen.
+     */
+    public int GetSWidth()
+    {
+    	return this.mc.displayWidth;
     }
 }
