@@ -20,15 +20,15 @@ public class ScreenResolutionHandler
 		switch (GUIUtils.GetSHeight())
 		{
 		case 480:
-			return 167;
+			return 167;//Done
 		case 1080:
-			return 0;
+			return (GUIUtils.GetSHeight() / 3) + 7;
 		case 1200:
-			return 0;
+			return (GUIUtils.GetSHeight() / 3) + 7;
 		case 1387:
-			return 0;
+			return 159;
 		case 1440:
-			return 0;
+			return 179; //done
 			default:
 				return (GUIUtils.GetSHeight() / 3) + GUIUtils.GetSHeight() / 50;
 		}
