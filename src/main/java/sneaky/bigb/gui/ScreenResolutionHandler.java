@@ -24,11 +24,11 @@ public class ScreenResolutionHandler
 		case 1080:
 			return (GUIUtils.GetSHeight() / 3) + 7;
 		case 1200:
-			return (GUIUtils.GetSHeight() / 3) + 7;
+			return 176; //Done
 		case 1387:
-			return 159;
+			return 159; //Done
 		case 1440:
-			return 179; //done
+			return 179; //Done
 			default:
 				return (GUIUtils.GetSHeight() / 3) + GUIUtils.GetSHeight() / 50;
 		}
