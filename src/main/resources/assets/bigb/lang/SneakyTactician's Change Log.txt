@@ -627,9 +627,13 @@ Unstable Build 393-395 (8/5/2016):
 	-Forcefully patched in the CommonProxy init() method
 		-It worked
 	-Fixed enum problems
-Unstable Build 396-416 (8/5/2016):
+Unstable Build 396-440 (8/5/2016):
 	-GUI shows up, just extremely buggy, cut off, and not rendering properly
 	-Debugging GUI
 	-Added NEI to build path, so we can offset for the NEI GUI
 	-Documented some code
 	-Added NEI compat
+Stable Build 441-445 (8/9/2016):
+	-Working on having the slots render in the appropiete spot
+		-This will take a lot of little tweaks
+	-Adding various screen resolution support (up to 2k moniters. I can't test any higher than that)

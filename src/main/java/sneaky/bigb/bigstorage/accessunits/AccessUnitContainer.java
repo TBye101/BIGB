@@ -1,5 +1,6 @@
 package sneaky.bigb.bigstorage.accessunits;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -7,6 +8,8 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import sneaky.bigb.gui.GUIUtils;
+import sneaky.bigb.gui.ScreenResolutionHandler;
 
 /**
  * @author SneakyTactician
@@ -32,15 +35,20 @@ public class AccessUnitContainer extends Container
         {
             for (int j = 0; j < 9; ++j)
             {
-                addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, 84+i*18));
+            	//New Slot(PlayerInventory, int SlotIndex, int X, int Y
+                addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, 84+i*16));
             }
         }
 
+        int YVal = ScreenResolutionHandler.GetYValueForAccessUnitContainerHotBars();
+        
         // add hotbar slots
         for (i = 0; i < 9; ++i)
         {
-            addSlotToContainer(new Slot(this.PlayerInv, i, 8 + i * 18, 142));
+            addSlotToContainer(new Slot(this.PlayerInv, i, 8 + i * 18, YVal));
         }
+        
+        //TODO: Add slots for the BIGStorage thing
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import sneaky.bigb.bigstorage.accessunits.AccessUnitContainer;
+import sneaky.bigb.gui.GUIUtils;
 import sneaky.bigb.main.Reference;
 
 /**
@@ -61,25 +62,9 @@ public class AccessUnitGUI extends GuiContainer
         int marginHorizontal = (width - xSize) / 2;
         
         
-        int marginVertical = this.GetSHeight() / 80;
+        int marginVertical = GUIUtils.GetSHeight() / 80;
         
         //X draw point, Y draw point, Scale X, Scale y, Show N of X texture, Show N of Y Texture
         drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 256, 256);
-    }
-    
-    /**
-     * Gets the height of the screen.
-     */
-    public int GetSHeight()
-    {
-    	return this.mc.displayHeight;
-    }
-    
-    /**
-     * Gets the width of the screen.
-     */
-    public int GetSWidth()
-    {
-    	return this.mc.displayWidth;
     }
 }
