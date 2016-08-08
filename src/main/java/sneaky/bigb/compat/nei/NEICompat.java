@@ -1,6 +1,12 @@
 package sneaky.bigb.compat.nei;
 
+import codechicken.nei.api.API;
+import codechicken.nei.config.Option;
+import sneaky.bigb.bigstorage.gui.AccessUnitGUI;
+import sneaky.bigb.chat.ChatUtil;
+import sneaky.bigb.compat.CompatModuleManager;
 import sneaky.bigb.helpers.LogHelper;
+import sneaky.bigb.main.Reference;
 
 /**
  * @author SneakyTactician
@@ -35,6 +41,11 @@ public class NEICompat
 	{
 		LogHelper.info("NEI compat postInit started");
 		
+			if (CompatModuleManager.NEI)
+			{
+				//Removes some buttons and stuff that are in the way, that are added by the mod "NEI".
+				API.registerNEIGuiHandler(new ModNEIGUIHandler());
+			}
 		LogHelper.info("NEI compat postInit finished");
 	}
 }

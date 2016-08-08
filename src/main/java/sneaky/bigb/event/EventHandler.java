@@ -10,6 +10,8 @@ import sneaky.bigb.main.Util;
 import sneaky.bigbproxies.ClientProxy;
 import codechicken.nei.LayoutManager;
 import codechicken.nei.VisiblityData;
+import codechicken.nei.api.API;
+import codechicken.nei.api.LayoutStyle;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -48,34 +50,7 @@ public class EventHandler
 	@SubscribeEvent
 	public void OnGUIOpen(GuiOpenEvent event)
 	{
-		if (Util.world != null)
-		{
-			ChatUtil.SendChatMessageToAllPlayers("Event Fired");
-			if (event.gui instanceof AccessUnitGUI)
-			{
-				ChatUtil.SendChatMessageToAllPlayers("2");
-				if (!Reference.IsServer)
-				{
-					ChatUtil.SendChatMessageToAllPlayers("3");
-					if (CompatModuleManager.NEI)
-					{
-						//Removes some buttons and stuff that are in the way, that are added by the mod "NEI".
-						ChatUtil.SendChatMessageToAllPlayers("4");
-						VisiblityData data;
-						data = new VisiblityData();
-						data.showItemPanel = false;
-						data.showUtilityButtons = false;
-						data.enableDeleteMode = false;
-						data.showItemSection = false;
-						data.showNEI = false;
-						data.showSearchSection = false;
-						data.showStateButtons = false;
-						data.showWidgets = false;
-						LayoutManager.updateWidgetVisiblities((GuiContainer) event.gui, data); //NEI is just ignoring this. Work around?
-					}
-				}
-			}
-		}
+		
 	}
 	
 	@SubscribeEvent

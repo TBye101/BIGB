@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.controllers.BIGStorageController;
 import sneaky.bigb.bigstorage.controllers.collections.StorageStack;
 import sneaky.bigb.compat.CompatModuleManager;
+import sneaky.bigb.compat.nei.ModNEIGUIHandler;
 import sneaky.bigb.error.Errors;
 import sneaky.bigb.main.Reference;
 
@@ -136,14 +137,6 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	{
 		
 	}
-	
-	/**
-	 * Adds some buttons that were disabled, if the NEI mod is present.
-	 */
-	public void EnableNEIFeatures()
-	{
-		
-	}
 
 	@Override
 	public void closeInventory()
@@ -152,7 +145,8 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 		{
 			if (CompatModuleManager.NEI)
 			{
-				this.EnableNEIFeatures();
+				//Puts some buttons back
+				
 			}
 		}
 	}
