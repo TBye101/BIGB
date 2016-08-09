@@ -17,20 +17,11 @@ public class ScreenResolutionHandler
 		
 		//Heights to support: 1387, 1080, 1200, 1440, 480
 		
-		switch (GUIUtils.GetSHeight())
-		{
-		case 480:
-			return 167;
-		case 1080:
-			return 159;
-		case 1200:
-			return 176;
-		case 1387:
-			return 159;
-		case 1440:
-			return 179;
-			default:
-				return (GUIUtils.GetSHeight() / 3) + GUIUtils.GetSHeight() / 50;
-		}
+    	double b = 480;
+    	double c = 3.45;
+    	double a = b / c;
+    	int d = (int) Math.round(a);
+    	
+    	return ((GUIUtils.GetSHeight() / 80) + (d) + 22);
 	}
 }
