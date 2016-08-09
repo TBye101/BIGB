@@ -13,10 +13,6 @@ public class ScreenResolutionHandler
 	 */
 	public static int GetYValueForAccessUnitContainerHotBars()
 	{
-		LogHelper.ErrorAlways("Screen Height = " + GUIUtils.GetSHeight());
-		
-		//Heights to support: 1387, 1080, 1200, 1440, 480
-		
     	double b = 480;
     	double c = 3.45;
     	double a = b / c;

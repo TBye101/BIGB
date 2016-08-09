@@ -633,7 +633,10 @@ Unstable Build 396-440 (8/5/2016):
 	-Added NEI to build path, so we can offset for the NEI GUI
 	-Documented some code
 	-Added NEI compat
-Stable Build 441-445 (8/9/2016):
+Stable Build 441-513 (8/8/2016)-(8/9/2016):
 	-Working on having the slots render in the appropiete spot
 		-This will take a lot of little tweaks
-	-Adding various screen resolution support (up to 2k moniters. I can't test any higher than that)
+	-Adding various screen resolution support (up to 2k monitors. I can't test any higher than that)
+	-Got the player side of the inventory to scale correctly
+Build 514 (8/9/2016):
+	-

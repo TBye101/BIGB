@@ -29,10 +29,18 @@ public class AccessUnitContainer extends Container
 	{
 		this.Storage = Inv;
 		this.PlayerInv = PlayerInventory;
-		
+        
+		this.ConstructPlayerInventory();
+        //TODO: Add slots for the BIGStorage thing
+	}
+	
+	/**
+	 * Adds slots and the hotbar into the GUI for this container.
+	 */
+	public void ConstructPlayerInventory()
+	{
         int YVal = ScreenResolutionHandler.GetYValueForAccessUnitContainerHotBars();
         
-        int VariableTweak = 0;
         int i;
 		//Adds player inventory slots
         for (i = 0; i < 3; ++i)
@@ -67,8 +75,6 @@ public class AccessUnitContainer extends Container
         {
             addSlotToContainer(new Slot(this.PlayerInv, i, 8 + i * 18, YVal));
         }
-        
-        //TODO: Add slots for the BIGStorage thing
 	}
 
 	@Override
