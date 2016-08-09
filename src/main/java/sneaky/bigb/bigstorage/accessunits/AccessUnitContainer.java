@@ -29,18 +29,36 @@ public class AccessUnitContainer extends Container
 	{
 		this.Storage = Inv;
 		this.PlayerInv = PlayerInventory;
-		//Adds player inventory slots
+		
+        int YVal = ScreenResolutionHandler.GetYValueForAccessUnitContainerHotBars();
+        
+        int VariableTweak = 0;
         int i;
+		//Adds player inventory slots
         for (i = 0; i < 3; ++i)
         {
+        	double b = 480;
+        	double c = 3.45;
+        	double a = b / c;
+        	int d = (int) Math.round(a);
             for (int j = 0; j < 9; ++j)
             {
             	//New Slot(PlayerInventory, int SlotIndex, int X, int Y
-                addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, 84+i*16));
+            	switch (i)
+            	{
+            	case 1:
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (YVal) - (i*16)));
+            		break;
+            	case 2:
+                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (GUIUtils.GetSHeight() / 80) + 139));
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (GUIUtils.GetSHeight() / 80) + d));
+            		break;
+            	case 3:
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (YVal) - (i*16)));
+            		break;
+            	}
             }
         }
-
-        int YVal = ScreenResolutionHandler.GetYValueForAccessUnitContainerHotBars();
         
         // add hotbar slots
         for (i = 0; i < 9; ++i)
