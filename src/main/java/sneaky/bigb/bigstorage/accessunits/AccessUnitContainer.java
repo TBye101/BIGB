@@ -46,15 +46,17 @@ public class AccessUnitContainer extends Container
             	//New Slot(PlayerInventory, int SlotIndex, int X, int Y
             	switch (i)
             	{
+            	case 0:
+            		//Middle row
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + d) - 18));
+            		break;
             	case 1:
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (YVal) - (i*16)));
+            		//Bottom row
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
             		break;
             	case 2:
-                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (GUIUtils.GetSHeight() / 80) + 139));
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (GUIUtils.GetSHeight() / 80) + d));
-            		break;
-            	case 3:
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  (YVal) - (i*16)));
+            		//Top row
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
             		break;
             	}
             }
