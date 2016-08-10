@@ -31,7 +31,54 @@ public class AccessUnitContainer extends Container
 		this.PlayerInv = PlayerInventory;
         
 		this.ConstructPlayerInventory();
+		this.ConstructBIGInventory();
         //TODO: Add slots for the BIGStorage thing
+	}
+	
+	/**
+	 * Adds slots to the top part of the Access Unit.
+	 */
+	public void ConstructBIGInventory()
+	{
+        int YVal = ScreenResolutionHandler.GetYValueForAccessUnitContainerHotBars();
+        
+        int i;
+		//Adds player inventory slots
+        for (i = 0; i < 3; ++i)
+        {
+        	double b = 480;
+        	double c = 3.45;
+        	double a = b / c;
+        	int d = (int) Math.round(a);
+            for (int j = 0; j < 9; ++j)
+            {
+            	//New Slot(PlayerInventory, int SlotIndex, int X, int Y
+            	switch (i)
+            	{
+            	case 0:
+            		//TopRow
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 40))));
+            		break;
+            	case 1:
+            		//Bottom row
+                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
+            		break;
+            	case 2:
+            		//Top row
+                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
+            		break;
+            	case 3:
+            		
+            		break;
+            	case 4:
+            		
+            		break;
+            	case 5:
+            		
+            		break;
+            	}
+            }
+        }
 	}
 	
 	/**
@@ -56,15 +103,15 @@ public class AccessUnitContainer extends Container
             	{
             	case 0:
             		//Middle row
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + d) - 18));
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
             		break;
             	case 1:
             		//Bottom row
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + d) - 18));
             		break;
             	case 2:
             		//Top row
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
+                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
             		break;
             	}
             }
