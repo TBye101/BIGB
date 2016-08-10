@@ -43,7 +43,7 @@ public class AccessUnitContainer extends Container
         
         int i;
 		//Adds player inventory slots
-        for (i = 0; i < 3; ++i)
+        for (i = 0; i < 6; ++i)
         {
         	double b = 480;
         	double c = 3.45;
@@ -60,22 +60,20 @@ public class AccessUnitContainer extends Container
             		break;
             	case 1:
             		//Bottom row
-                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
-                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+                    addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 1))));
             		break;
             	case 2:
             		//Top row
-                    //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
-                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+            		addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 17))));
             		break;
             	case 3:
-                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+                    addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 35))));
             		break;
             	case 4:
-                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+            		addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 53))));
             		break;
             	case 5:
-                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+                    addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 71))));
                     break;
             	}
             }

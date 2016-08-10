@@ -17,6 +17,10 @@ buildscript {
 
 apply plugin: 'forge'
 
+srcCompat = JavaVersion.VERSION_1_7
+targetCompat = JavaVersion.VERSION_1_7 
+
+
 version = ""
 group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "BIGB"
