@@ -647,6 +647,9 @@ Unstable Build 514-529 (8/9/2016):
 	-Formatted some code
 	-Documented some code
 	-Got UI to open again
-Unstable Build 530-538 (8/10/2016):
+Unstable Build 530-542 (8/10/2016):
 	-Working on BIG storage UI slots, so they render correctly
 		-Got the first slot to render properly
+		-Got all of the slots rendering properly
+Unstable Build 543-x (8/10/2016):
+	-

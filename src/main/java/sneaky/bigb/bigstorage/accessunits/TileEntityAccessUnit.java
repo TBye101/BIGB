@@ -10,6 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.controllers.BIGStorageController;
 import sneaky.bigb.bigstorage.controllers.collections.StorageStack;
+import sneaky.bigb.chat.ChatUtil;
 import sneaky.bigb.compat.CompatModuleManager;
 import sneaky.bigb.error.Errors;
 import sneaky.bigb.helpers.LogHelper;
@@ -51,6 +52,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public ItemStack getStackInSlot(int index)
 	{
+		ChatUtil.SendChatMessageToAllPlayers("Getting stack in slot");
 		//Returns a ItemStack of the items in the specified slot.
 		if (this.Owner.TheController == null)
 		{
@@ -107,6 +109,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	public ItemStack getStackInSlotOnClosing(int Slot)
 	{
 		//I don't want to ever drop a stack
+		ChatUtil.SendChatMessageToAllPlayers("Getting Stack in Slot on closing");
 		return null;
 	}
 
@@ -144,20 +147,13 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public void openInventory()
 	{
-		
+		ChatUtil.SendChatMessageToAllPlayers("Inventory Opened");
 	}
 
 	@Override
 	public void closeInventory()
 	{
-		if (!Reference.IsServer);
-		{
-			if (CompatModuleManager.NEI)
-			{
-				//Puts some buttons back
-				
-			}
-		}
+		ChatUtil.SendChatMessageToAllPlayers("Inventory Closed");
 	}
 
 	@Override
