@@ -8,6 +8,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.accessunits.AccessUnitContainer;
+import sneaky.bigb.bigstorage.accessunits.TileEntityAccessUnit;
 import sneaky.bigb.bigstorage.gui.AccessUnitGUI;
 
 /**
@@ -29,7 +30,7 @@ public class GUIHandler implements IGuiHandler
 			switch	(ID)
 			{
 			case 0: 
-				return new AccessUnitContainer(player.inventory, (IInventory)Entity);
+				return new AccessUnitContainer(player.inventory, (TileEntityAccessUnit)Entity);
 			}
 		}
 		else
@@ -51,7 +52,7 @@ public class GUIHandler implements IGuiHandler
 			switch (ID)
 			{
 			case 0:
-				return new AccessUnitGUI(player.inventory, (IInventory)Entity);
+				return new AccessUnitGUI(player.inventory, (TileEntityAccessUnit)Entity);
 			}
 		}
 		else

@@ -53,7 +53,11 @@ public class AccessUnit extends BlockContainer
     @Override
     public TileEntity createNewTileEntity(World world, int meta)
     {
-        return new TileEntityAccessUnit(this.TheController);
+    	if (this.TheController == null)
+    	{
+    		LogHelper.ErrorAlways("its null here too");
+    	}
+        return new TileEntityAccessUnit(this);
     }
 	
 	@Override
@@ -73,6 +77,7 @@ public class AccessUnit extends BlockContainer
     @Override
     public void onBlockAdded(World world, int x, int y, int z)
     {
+    	LogHelper.ErrorAlways("We made it here");
 		OurLocation = new Point(x, y, z);
 		
 		if (this.AreWeConnected())

@@ -638,5 +638,15 @@ Stable Build 441-513 (8/8/2016)-(8/9/2016):
 		-This will take a lot of little tweaks
 	-Adding various screen resolution support (up to 2k monitors. I can't test any higher than that)
 	-Got the player side of the inventory to scale correctly
-Build 514-x (8/9/2016):
+Unstable Build 514-529 (8/9/2016):
 	-Working on getting the BIG Storage slots in the access unit rendering
+	-Encountered a interesting null exception
+	-Added more null checking into the storage stack class
+	-Added more null checking into the storage stack comparator
+	-Added more null checking into the BIGNetworkStorageStackList class
+	-Formatted some code
+	-Documented some code
+	-Got UI to open again
+Unstable Build 530-538 (8/10/2016):
+	-Working on BIG storage UI slots, so they render correctly
+		-Got the first slot to render properly

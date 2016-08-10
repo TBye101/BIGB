@@ -19,13 +19,27 @@ public class StorageStack
 	
 	public StorageStack(ItemStack Items)
 	{
-		TheItem = Items.getItem();
-		Siz.equals(Items.stackSize);
+		if (Items != null)
+		{
+			TheItem = Items.getItem();
+			Siz.equals(Items.stackSize);
+		}
+		else
+		{
+			this.Siz = BigInteger.ZERO;
+		}
 	}
 	public StorageStack(Item Items, int NumberOfItems)
 	{
-		TheItem = Items;
-		Siz = BigInteger.valueOf(NumberOfItems);
+		if (Items != null)
+		{
+			TheItem = Items;
+			Siz = BigInteger.valueOf(NumberOfItems);
+		}
+		else
+		{
+			this.Siz = BigInteger.ZERO;
+		}
 	}
 	
 	/**
@@ -33,13 +47,16 @@ public class StorageStack
 	 */
 	public void AddItems(ItemStack items) throws Exception
 	{
-		if (items.getItem() != this.TheItem)
+		if (items != null)
 		{
-			throw new Exception("Adding the wrong type of items to a storage stack");
-		}
-		else
-		{
-			Siz.add(BigInteger.valueOf(items.stackSize));
+			if (items.getItem() != this.TheItem)
+			{
+				throw new Exception("Adding the wrong type of items to a storage stack");
+			}
+			else
+			{
+				Siz.add(BigInteger.valueOf(items.stackSize));
+			}
 		}
 	}
 	
@@ -48,13 +65,16 @@ public class StorageStack
 	 */
 	public void AddItems(Item items) throws Exception
 	{
-		if (items != this.TheItem)
+		if (items != null)
 		{
-			throw new Exception("Adding the wrong type of items to a storage stack");
-		}
-		else
-		{
-			Siz.add(BigInteger.valueOf(1));
+			if (items != this.TheItem)
+			{
+				throw new Exception("Adding the wrong type of items to a storage stack");
+			}
+			else
+			{
+				Siz.add(BigInteger.valueOf(1));
+			}
 		}
 	}
 	

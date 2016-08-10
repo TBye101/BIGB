@@ -11,6 +11,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import sneaky.bigb.bigstorage.accessunits.AccessUnitContainer;
+import sneaky.bigb.bigstorage.accessunits.TileEntityAccessUnit;
 import sneaky.bigb.gui.GUIUtils;
 import sneaky.bigb.main.Reference;
 
@@ -34,7 +35,7 @@ public class AccessUnitGUI extends GuiContainer
 	/**
 	 * The constructor for the AccessUnitGUI class.
 	 */
-	public AccessUnitGUI(InventoryPlayer PlayerInventory, IInventory BIGInventory)
+	public AccessUnitGUI(InventoryPlayer PlayerInventory, TileEntityAccessUnit BIGInventory)
 	{
 		super(new AccessUnitContainer(PlayerInventory, BIGInventory));
 		this.PlayerInv = PlayerInventory;

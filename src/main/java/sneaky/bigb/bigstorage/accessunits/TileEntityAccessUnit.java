@@ -1,10 +1,7 @@
 package sneaky.bigb.bigstorage.accessunits;
 
-import codechicken.nei.LayoutManager;
-import codechicken.nei.VisiblityData;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,8 +11,8 @@ import net.minecraft.world.World;
 import sneaky.bigb.bigstorage.controllers.BIGStorageController;
 import sneaky.bigb.bigstorage.controllers.collections.StorageStack;
 import sneaky.bigb.compat.CompatModuleManager;
-import sneaky.bigb.compat.nei.ModNEIGUIHandler;
 import sneaky.bigb.error.Errors;
+import sneaky.bigb.helpers.LogHelper;
 import sneaky.bigb.main.Reference;
 
 /**
@@ -24,18 +21,19 @@ import sneaky.bigb.main.Reference;
  */
 public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerListBox, ISidedInventory
 {
-	
-	/**
-	 * Represents the controller object that this block is a part of.
-	 */
-	public BIGStorageController controller;
+	private AccessUnit Owner;
 	
 	/**
 	 * The constructor for the TileEntityAccessUnit class.
 	 */
-	public TileEntityAccessUnit(BIGStorageController TheController)
+	public TileEntityAccessUnit(AccessUnit owner)
 	{
-		this.controller = TheController;
+		Owner = owner;
+	}
+	
+	public TileEntityAccessUnit(TileEntityAccessUnit the)
+	{
+		LogHelper.ErrorAlways("It happened! Uht oh!");
 	}
 	
 	@Override
@@ -47,20 +45,31 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public int getSizeInventory()
 	{
-		return this.controller.ItemsInStorage.GetSize();
+		return this.Owner.TheController.ItemsInStorage.GetSize();
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int index)
 	{
 		//Returns a ItemStack of the items in the specified slot.
+		if (this.Owner.TheController == null)
+		{
+			LogHelper.InfoAlways("Its null again");
+		}
+		
+		if (index > this.Owner.TheController.ItemsInStorage.GetSize() || index < this.Owner.TheController.ItemsInStorage.GetSize())
+		{
+			LogHelper.ErrorAlways("Accessing object not in list index");
+			return null;
+		}
+		
 		
 		StorageStack stack;
 		ItemStack ret;
 		Item TheItem;
 		
-		TheItem = this.controller.ItemsInStorage.Get(index).TheItem;
-		stack = this.controller.ItemsInStorage.RemoveSomeAndGet(TheItem, 64);
+		TheItem = this.Owner.TheController.ItemsInStorage.Get(index).TheItem;
+		stack = this.Owner.TheController.ItemsInStorage.RemoveSomeAndGet(TheItem, 64);
 		ret = new ItemStack(stack.TheItem, stack.Siz.intValue());
 		
 		return ret;
@@ -87,8 +96,8 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 		ItemStack ret;
 		Item TheItem;
 		
-		TheItem = this.controller.ItemsInStorage.Get(index).TheItem;
-		stack = this.controller.ItemsInStorage.RemoveSomeAndGet(TheItem, count);
+		TheItem = this.Owner.TheController.ItemsInStorage.Get(index).TheItem;
+		stack = this.Owner.TheController.ItemsInStorage.RemoveSomeAndGet(TheItem, count);
 		ret = new ItemStack(stack.TheItem, stack.Siz.intValue());
 		
 		return ret;
@@ -105,7 +114,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	public void setInventorySlotContents(int Slot, ItemStack items)
 	{
 		//You don't get to override my stacks, only add and remove from them.
-		this.controller.ItemsInStorage.Add(items);
+		this.Owner.TheController.ItemsInStorage.Add(items);
 	}
 
 	@Override
@@ -154,7 +163,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public boolean isItemValidForSlot(int Slot, ItemStack Items)
 	{
-		if (this.controller.ItemsInStorage.DoesItemTypeExist(Items.getItem()) || this.controller.TotalStorageCapacityInTypes.intValue() > this.controller.ItemsInStorage.GetSize())
+		if (this.Owner.TheController.ItemsInStorage.DoesItemTypeExist(Items.getItem()) || this.Owner.TheController.TotalStorageCapacityInTypes.intValue() > this.Owner.TheController.ItemsInStorage.GetSize())
 		{
 			return true;
 		}
@@ -167,7 +176,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	@Override
 	public int[] getAccessibleSlotsFromSide(int p_94128_1_)
 	{
-		int a[] = new int[this.controller.ItemsInStorage.GetSize()];
+		int a[] = new int[this.Owner.TheController.ItemsInStorage.GetSize()];
 		
 		int i = 0;
 		int siz = a.length;
@@ -191,7 +200,7 @@ public class TileEntityAccessUnit extends TileEntity implements IUpdatePlayerLis
 	public boolean canExtractItem(int Slot, ItemStack Items, int a)
 	{
 		//This assumes that you are extracting only 1 item. This assumption may not be correct, and may need to change.
-		if (this.controller.ItemsInStorage.DoesItemTypeExist(Items.getItem()))
+		if (this.Owner.TheController.ItemsInStorage.DoesItemTypeExist(Items.getItem()))
 		{
 			return true;
 		}

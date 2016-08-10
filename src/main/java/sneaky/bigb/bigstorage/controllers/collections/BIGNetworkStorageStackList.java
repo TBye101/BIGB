@@ -22,6 +22,14 @@ public class BIGNetworkStorageStackList
 	private StorageStackComparator Comp1 = new StorageStackComparator();
 	
 	/**
+	 * The constructor for the BIGNetworkStorageStackList class.
+	 */
+	public BIGNetworkStorageStackList()
+	{
+		
+	}
+	
+	/**
 	 * @param block The block that is being added to the list.
 	 * Adds a BIG network block to the list, and sorts the list.
 	 */
@@ -48,54 +56,70 @@ public class BIGNetworkStorageStackList
 	}
 	public void Add(ItemStack items)
 	{
-		StorageStack Items = new StorageStack(items);
-		
-		if (this.NetworkList.size() < 1)
+		if (items != null)
 		{
-			this.NetworkList.add(Items);
-			return;
-		}
-		else
-		{
-			int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			StorageStack Items = new StorageStack(items);
 			
-			if (this.NetworkList.get(insert).TheItem == items.getItem())
+			if (this.NetworkList.size() < 1)
 			{
-				this.NetworkList.get(insert).Siz.add(Items.Siz);
+				this.NetworkList.add(Items);
+				return;
 			}
 			else
 			{
-				NetworkList.add(insert, Items);	
+				int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+				
+				if (this.NetworkList.get(insert).TheItem == items.getItem())
+				{
+					this.NetworkList.get(insert).Siz.add(Items.Siz);
+				}
+				else
+				{
+					NetworkList.add(insert, Items);	
+				}
 			}
 		}
 	}
 	public void Add(Item item, int NumberToAdd)
 	{
-		StorageStack Items = new StorageStack(item, NumberToAdd);
-		
-		if (this.NetworkList.size() < 1)
+		if (item != null)
 		{
-			this.NetworkList.add(Items);
-			return;
-		}
-		else
-		{
-			int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			StorageStack Items = new StorageStack(item, NumberToAdd);
 			
-			if (this.NetworkList.get(insert).TheItem == item)
+			if (this.NetworkList.size() < 1)
 			{
-				this.NetworkList.get(insert).Siz.add(Items.Siz);
+				this.NetworkList.add(Items);
+				return;
 			}
 			else
 			{
-				NetworkList.add(insert, Items);	
+				int insert = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+				
+				if (this.NetworkList.get(insert).TheItem == item)
+				{
+					this.NetworkList.get(insert).Siz.add(Items.Siz);
+				}
+				else
+				{
+					NetworkList.add(insert, Items);	
+				}
 			}
 		}
 	}
 	
+	/**
+	 * Returns the storage stack at the specified index. Returns null if the index is not part of the list.
+	 */
 	public StorageStack Get(int at)
 	{
+		if (at > this.NetworkList.size())
+		{
+			return null;
+		}
+		else
+		{
 		return this.NetworkList.get(at);
+		}
 	}
 	
 	/**
@@ -123,7 +147,9 @@ public class BIGNetworkStorageStackList
 	}	
 	public StorageStack RemoveAndGet(Item block)
 	{
-		int index = Collections.binarySearch(this.NetworkList, new StorageStack(new ItemStack(block)), this.Comp1);
+		if (block != null)
+		{
+			int index = Collections.binarySearch(this.NetworkList, new StorageStack(new ItemStack(block)), this.Comp1);
 			if (this.NetworkList.get(index).TheItem == block)
 			{
 				StorageStack ret = this.NetworkList.get(index);
@@ -131,6 +157,7 @@ public class BIGNetworkStorageStackList
 				
 				return ret;
 			}
+		}
 		return null;
 	}
 	
@@ -140,19 +167,26 @@ public class BIGNetworkStorageStackList
 	 */
 	public StorageStack RemoveSomeAndGet(StorageStack items)
 	{
-		int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
-		
-		if (this.NetworkList.get(index).TheItem == items.TheItem)
+		if (items.TheItem != null)
 		{
-			StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
-			this.NetworkList.get(index).Siz.subtract(items.Siz);
+			int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
 			
-			if (this.NetworkList.get(index).Siz.intValue() <= 0)
+			if (this.NetworkList.get(index).TheItem == items.TheItem)
 			{
-				this.NetworkList.remove(index);
+				StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
+				this.NetworkList.get(index).Siz.subtract(items.Siz);
+				
+				if (this.NetworkList.get(index).Siz.intValue() <= 0)
+				{
+					this.NetworkList.remove(index);
+				}
+				
+				return ret;
 			}
-			
-			return ret;
+			else
+			{
+				return null;
+			}
 		}
 		else
 		{
@@ -161,26 +195,29 @@ public class BIGNetworkStorageStackList
 	}
 	public StorageStack RemoveSomeAndGet(Item item, int Number)
 	{
-		StorageStack items = new StorageStack(item, Number);
-		
-		int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
-		
-		if (this.NetworkList.get(index).TheItem == items.TheItem)
+		if (item != null)
 		{
-			StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
-			this.NetworkList.get(index).Siz.subtract(items.Siz);
+			StorageStack items = new StorageStack(item, Number);
+			int index = Collections.binarySearch(this.NetworkList, items, this.Comp1);
 			
-			if (this.NetworkList.get(index).Siz.intValue() <= 0)
+			if (this.NetworkList.get(index).TheItem == items.TheItem)
 			{
-				this.NetworkList.remove(index);
+				StorageStack ret = new StorageStack(items.TheItem, items.Siz.intValue());
+				this.NetworkList.get(index).Siz.subtract(items.Siz);
+				
+				if (this.NetworkList.get(index).Siz.intValue() <= 0)
+				{
+					this.NetworkList.remove(index);
+				}
+				
+				return ret;
 			}
-			
-			return ret;
+			else
+			{
+				return null;
+			}
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 	
 	/**
@@ -189,28 +226,34 @@ public class BIGNetworkStorageStackList
 	 */
 	public void Remove(Item items, int Number)
 	{
-		StorageStack Items = new StorageStack(items, Number);
-		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
-		
-		if (this.NetworkList.get(index).TheItem == Items.TheItem)
+		if (items != null)
 		{
-			this.NetworkList.get(index).Siz.subtract(Items.Siz);
+			StorageStack Items = new StorageStack(items, Number);
+			int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
 			
-			if (this.NetworkList.get(index).Siz.intValue() <= 1)
+			if (this.NetworkList.get(index).TheItem == Items.TheItem)
 			{
-				this.NetworkList.remove(index);
+				this.NetworkList.get(index).Siz.subtract(Items.Siz);
+				
+				if (this.NetworkList.get(index).Siz.intValue() <= 1)
+				{
+					this.NetworkList.remove(index);
+				}
 			}
 		}
 	}
 	public void RemoveAll(Item items)
 	{
-		StorageStack Items = new StorageStack(new ItemStack(items));
-		
-		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
-		
-		if (this.NetworkList.get(index).TheItem == Items.TheItem)
+		if (items != null)
 		{
-			this.NetworkList.remove(index);
+			StorageStack Items = new StorageStack(new ItemStack(items));
+			
+			int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			
+			if (this.NetworkList.get(index).TheItem == Items.TheItem)
+			{
+				this.NetworkList.remove(index);
+			}
 		}
 	}
 	
@@ -219,13 +262,20 @@ public class BIGNetworkStorageStackList
 	 */
 	public boolean DoesItemTypeExist(Item type)
 	{
-		StorageStack Items = new StorageStack(new ItemStack(type));
-		
-		int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
-		
-		if (this.NetworkList.get(index).TheItem == type)
+		if (type != null)
 		{
-			return true;
+			StorageStack Items = new StorageStack(new ItemStack(type));
+			
+			int index = Collections.binarySearch(this.NetworkList, Items, this.Comp1);
+			
+			if (this.NetworkList.get(index).TheItem == type)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{

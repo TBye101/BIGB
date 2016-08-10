@@ -25,11 +25,10 @@ public class AccessUnitContainer extends Container
 	/**
 	 * The constructor for the AccessUnitContainer class.
 	 */
-	public AccessUnitContainer(InventoryPlayer PlayerInventory, IInventory Inv) //http://jabelarminecraft.blogspot.com/p/minecraft-modding-containers.html
+	public AccessUnitContainer(InventoryPlayer PlayerInventory, TileEntityAccessUnit Inv) //http://jabelarminecraft.blogspot.com/p/minecraft-modding-containers.html
 	{
 		this.Storage = Inv;
 		this.PlayerInv = PlayerInventory;
-        
 		this.ConstructPlayerInventory();
 		this.ConstructBIGInventory();
         //TODO: Add slots for the BIGStorage thing
@@ -57,25 +56,27 @@ public class AccessUnitContainer extends Container
             	{
             	case 0:
             		//TopRow
-                    addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 40))));
+                    addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 19))));
             		break;
             	case 1:
             		//Bottom row
                     //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18,  ((GUIUtils.GetSHeight() / 80) + (d))));
+                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
             		break;
             	case 2:
             		//Top row
                     //addSlotToContainer(new Slot(this.PlayerInv, j+i*9+9, 8+j*18, ((GUIUtils.GetSHeight() / 80) + d) - 36));
+                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
             		break;
             	case 3:
-            		
+                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
             		break;
             	case 4:
-            		
+                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
             		break;
             	case 5:
-            		
-            		break;
+                   // addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 50))));
+                    break;
             	}
             }
         }
