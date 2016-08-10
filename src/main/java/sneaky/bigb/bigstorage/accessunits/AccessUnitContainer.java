@@ -31,7 +31,6 @@ public class AccessUnitContainer extends Container
 		this.PlayerInv = PlayerInventory;
 		this.ConstructPlayerInventory();
 		this.ConstructBIGInventory();
-        //TODO: Add slots for the BIGStorage thing
 	}
 	
 	/**
@@ -55,24 +54,27 @@ public class AccessUnitContainer extends Container
             	switch (i)
             	{
             	case 0:
-            		//TopRow
+            		//Row 1
                     addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 19))));
             		break;
             	case 1:
-            		//Bottom row
+            		//Row 2
                     addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) - 1))));
             		break;
             	case 2:
-            		//Top row
+            		//Row 3
             		addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 17))));
             		break;
             	case 3:
+            		//Row 4
                     addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 35))));
             		break;
             	case 4:
+            		//Row 5
             		addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 53))));
             		break;
             	case 5:
+            		//Row 6
                     addSlotToContainer(new Slot(Storage, j+i*9+9, 8+j*18,  (((GUIUtils.GetSHeight() / 80) + 71))));
                     break;
             	}
